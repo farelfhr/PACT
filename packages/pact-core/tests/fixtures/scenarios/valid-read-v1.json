@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "scenario_id": "own-read",
+  "contract_ref": {
+    "contract_id": "orders.read",
+    "project_ref": "synthetic-marketplace",
+    "version": 1,
+    "digest": "3efd267a7de481b330a8641880f3ef1e7d7e48a8f93b545913503169ea1a29ab"
+  },
+  "fixture_adapter": "mock-marketplace-v1",
+  "steps": [
+    {"id": "setup", "operation": "fixture.setup", "actors": ["seller-a", "seller-b"], "resources": ["order-a", "order-b"]},
+    {
+      "id": "read", "operation": "http.request", "as_actor": "seller-a", "method": "GET",
+      "route": {"route_ref": "order-read", "resource_ref": "order-a"},
+      "expected_rule": "own-tenant-allow",
+      "assertions": [
+        {"kind": "decision", "expected": "ALLOW", "profile": "object-read-allow-v1"},
+        {"kind": "intended_resource", "resource_ref": "order-a"}
+      ]
+    },
+    {"id": "teardown", "operation": "fixture.teardown"}
+  ]
+}

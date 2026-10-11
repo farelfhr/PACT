@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "scenario_id": "cross-owner-read",
+  "contract_ref": {
+    "contract_id": "orders.read",
+    "project_ref": "synthetic-marketplace",
+    "version": 1,
+    "digest": "3efd267a7de481b330a8641880f3ef1e7d7e48a8f93b545913503169ea1a29ab"
+  },
+  "fixture_adapter": "mock-marketplace-v1",
+  "steps": [
+    {"id": "setup", "operation": "fixture.setup", "actors": ["seller-a", "seller-b"], "resources": ["order-a", "order-b"]},
+    {
+      "id": "read", "operation": "http.request", "as_actor": "seller-a", "method": "GET",
+      "route": {"route_ref": "order-read", "resource_ref": "order-b"},
+      "expected_rule": "other-tenant-deny",
+      "assertions": [
+        {"kind": "decision", "expected": "DENY", "profile": "object-read-deny-403-404-v1"},
+        {"kind": "no_protected_resource_disclosure", "resource_ref": "order-b"},
+        {"kind": "no_protected_state_change", "resource_ref": "order-b"}
+      ]
+    },
+    {"id": "teardown", "operation": "fixture.teardown"}
+  ]
+}

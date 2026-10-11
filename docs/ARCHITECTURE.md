@@ -4,9 +4,9 @@
 > **Document version:** 1.0.0 (proposed)  
 > **Date:** 2026-10-10  
 > **Status:** DRAFT / NOT YET APPROVED — architecture decisions require ADR review  
-> **Canonical repository path:** `docs/ARCHITECTURE.md` (this `architecture.md` file is a delivery copy; keep only the canonical copy in Git)  
+> **Canonical repository path:** `docs/ARCHITECTURE.md` (this is the actual repository document; no delivery-copy file is implied)
 > **Normative product requirements:** [`PRD.MD`](../PRD.MD) v1.0.0, especially §§4–9, 11–18  
-> **AI coding rules:** [`AGENTS.md`](../AGENTS.md) v1.0.0  
+> **AI coding rules:** [`AGENTS.md`](../AGENTS.md) v1.0.2
 > **Product:** PACT Security — *Continuous Authorization and Security-Intent Assurance*  
 > **Readers:** Codex, software engineers, security engineers, QA, architecture reviewers, and product owner
 

@@ -1,3 +1,7 @@
+> **Historical/reference notice — 2026-10-10:** The developer accepted docs/DATA_MODEL.md as the canonical reference for proposed PACT domain and wire structures. This file is retained historical storage/RLS/migration context, not a competing authoritative model. Its original v1.0.0 content follows unchanged; earlier canonical/identical-copy wording is historical. Current requirements and genuinely accepted ADRs take precedence; this notice approves no schema, migration or runtime control. See [DATA_MODEL.md](DATA_MODEL.md) and todo.md EV-0011.
+
+---
+
 # PACT Security — Database Schema, ERD, RLS & Migration Specification
 
 > **Document:** `schema.md` (downloadable root copy; canonical repository location: `docs/DATA_MODEL.md`)  

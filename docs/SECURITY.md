@@ -2,9 +2,9 @@
 
 > **Canonical repository path:** `docs/SECURITY.md`  
 > **Download alias:** `security.md` (same content; keep only the canonical copy in the repository)  
-> **Document version:** 1.0.1
+> **Document version:** 1.0.3
 > **Created:** 2026-10-10  
-> **Reviewed draft updated:** 2026-10-10 (M0-02; human sign-off pending)
+> **Reviewed draft updated:** 2026-10-11 (scoped M2-07 audit storage direction; final human sign-off pending)
 > **Status:** **DRAFT / REVIEW REQUIRED** — security architecture and controls are specified but not proven implemented  
 > **Product:** PACT Security, an authorization-intent verification platform  
 > **Primary audience:** Engineering, product security, AI coding agents, reviewers, DevOps, incident responders  
@@ -48,11 +48,15 @@ PACT is **not** an unrestricted public-target pentester, autonomous exploitation
 
 ### 0.4 M0-02 observed baseline and review scope
 
-M0-01 is `DONE` with inventory evidence `EV-0001` in [todo.md](../todo.md) and [REPOSITORY_INVENTORY.md](REPOSITORY_INVENTORY.md). Reinspection on 2026-10-10 found 12 Markdown files and six directories, Git **not initialized**, and no application packages, tests, build configuration, ADR files or accepted decisions. Components in §2 and the diagram below are **planned**. All `TH-01`–`TH-20` have **no implementation or executable-test mapping yet**; future task references are handoff targets, not code evidence.
+M0-01 is `DONE` with inventory evidence `EV-0001` in [todo.md](../todo.md) and [REPOSITORY_INVENTORY.md](REPOSITORY_INVENTORY.md). M0-02 intake on 2026-10-10 found 12 Markdown files and six project directories, Git **not initialized**, and no application packages, tests, build configuration, ADR files or accepted decisions. Git metadata appeared externally during this review; read-only inspection found branch `main`, commit `ddf945dad8e7aaab0b052a22f37f57d3e0373295`, containing the intermediate draft. Final working-file changes and their digest are recorded in `todo.md`; Codex performed no Git initialization, fetch, commit or push. Components in §2 and the diagram below are **planned**. All `TH-01`–`TH-20` have **no implementation or executable-test mapping yet**; future task references are handoff targets, not code evidence.
 
-This review changes only this document and the tracker: boundary labels, attacker-path/requirement trace, planned test references, and observed review gates. It does not accept DSL, approval or runner semantics. The developer (repository owner) designated themselves the human security reviewer in the current task conversation; **sign-off on the final document is still pending**. Its exact SHA-256 review digest is recorded in `todo.md`, not treated as approval proof.
+The original M0-02 review changed this document and the tracker. During M0-03, the developer requested M0-02 clarifications and confirmed the bounded scope: finish ADR-0001 plus these documentation clarifications; leave other ADR drafts for separate prompts. The developer explicitly requested changes before sign-off. This revision clarifies mandatory TB-08, proposed TB-09 and the runner isolation assumptions; it does not accept DSL, approval or runner semantics. **Sign-off on the final document is still pending**. Current and historical SHA-256 review digests are recorded in `todo.md`, not treated as approval proof.
 
 ---
+
+### 0.5 Scoped audit decision — 2026-10-11
+
+The developer selected Dedicated Audit Authority + Append-Only Audit Log + Independently Signed Checkpoints for M2-07 storage, with anchored activation, fail-closed integrity checks and restricted recovery. This is a required design direction, **not** acceptance of all ADR-0003, M0-02 security sign-off, actual control verification, a contract/target/privilege grant or account/key/cloud provisioning. [ADR-0003 v0.2 §6](adr/0003-human-approval.md#6-immutable-snapshots-and-append-only-audit) and todo.md EV-0034 record scope. Existing human identity/user-presence questions stay separate. Pure candidate/model/parser/fake-provider code and scoped77 unit results exist (EV-0033); protected audit/review/execution/privacy controls remain absent. The §0.4 intake is historical. Unchanged selected storage choices will not be resubmitted without material new evidence.
 
 ## 1. Security objectives and protected invariants
 
@@ -183,6 +187,8 @@ No boundary is secured simply by naming a service, installing Docker, or writing
 
 `TB-01`–`TB-08` now use Architecture §2.4 identities. The former conflicting browser label is retained as proposed `TB-09`; human review of this numbering and the runner isolation envelope remains required. The `TH-06` host attack path crosses that envelope (§10.4); its process/container enforcement is unresolved in ADR-0002, not implied by the diagram.
 
+**TB-08 is mandatory.** The developer reaffirmed this requirement during review: AI agents must never self-approve Security Contracts, privileged operations, execution scopes or sensitive changes. Tool callers, browsers, CI and runners cannot authenticate themselves as the human reviewer by submitting an identity/status field. Exact human-review mechanics are still open in ADR-0003; no approval mechanism is implemented. This confirmed requirement is separate from final sign-off on the model.
+
 ### 3.4 Required attacker paths and paired verification handoff
 
 Every row is a **design risk**, not a reproduced vulnerability. All code/test paths are absent in the observed baseline. Positive and negative cases below are planned for synthetic fixtures after the named design gates; none was executed during M0-02.
@@ -294,6 +300,8 @@ A trusted approval event must bind at minimum:
 
 ### 6.3 Trusted enforcement
 
+- A security-critical approval is ineffective until its immutable decision event is durably committed and anchored by an independently retained signed checkpoint; a DB row/status/hash or pending checkpoint is insufficient. Recheck current reviewer/scope eligibility at activation and later use. Checkpoint availability/integrity uncertainty blocks new approvals and dependent privileged operations, with no unanchored fallback.
+
 - Before creating a runnable job, verify the contract's trusted approval record **and** project/scope grant. Store immutable snapshot identifiers in the job.
 - Reject expired/revoked reviewer permissions or inconsistent digest/version/tenant references according to documented semantics.
 - Model output may never alter `APPROVED` state or grant permissions.
@@ -311,6 +319,31 @@ A trusted approval event must bind at minimum:
 7. A run request using a draft or ambiguous `NEEDS_REVIEW` contract.
 
 ---
+
+### 6.5 Selected audit authority, checkpoint and recovery boundaries
+
+These are selected design requirements, not installed services or approved trust-boundary enforcement. Dedicated Audit Authority owns the audit store. Separate append permission from administration, checkpoint signing, independent checkpoint retention and exceptional recovery. Agents/runners/ordinary processes/untrusted code cannot modify/delete historical records; authorized submissions use bounded authenticated interfaces and cannot invent reviewer identity. Signer keys belong to separate signing authority/managed KMS, inaccessible to agents/runners. Checkpoints are outside the audit DB under separately controlled principal; hosted deployment should use WORM-capable immutable storage/versioning/retention protection after service/retention authorization. SQL constraints alone do not protect against a privileged DB administrator or compromised service account.
+
+```mermaid
+flowchart LR
+    H[Protected human review - unresolved M2-06] --> A[Audit Authority - append durable pending event]
+    A --> S[Independent signing authority - verify continuity]
+    S --> C[Separate checkpoint store - retain signed history]
+    A --> V[Trusted verifier - latest checkpoint and event bindings]
+    C --> V
+    V --> E[Effective approval only after verified durable anchor]
+    R[Separate security recovery administrator] --> X[Restricted recovery - preserve and reconcile]
+```
+
+Canonical versioned events bind stream/org/project, monotonically increasing sequence, previous hash/content hash, actor/action/reviewer when authenticated, approval version/content digest, scope/digest, UTC timestamp/outcome/correlation. Revocation/supersession append events; retain original approval/evidence. Pending revocation or unknown current eligibility cannot reuse an older anchored approval to admit new privilege.
+
+Signed checkpoints bind stream, last committed sequence, chain tip, creation time and key ID/signature. A reviewed protocol must add namespace/generation/history/freshness protections, canonical signed bytes and independently verified key trust so an old valid signed checkpoint cannot be passed as latest. Signer verifies authorized durable append and protected history, not an arbitrary submitted tip. A signature proves neither human action nor project membership; approval remains separate from target execution permission. Exact cryptography/byte format/key rotation/revocation, secure latest discovery, backend/OS/ACLs and crash-safe commit->anchor->activation remain unresolved implementation decisions. No cross-store transaction guarantee or hostile signer/admin resistance is claimed.
+
+Before activation or dependent privileged use, verify canonical events/sequence/links against latest independently trusted checkpoint/history. Detect changed/deleted/missing/replayed/reordered events, gaps, invalid signatures/keys, stale/conflicting/missing checkpoints, sequence rollback and old DB restore. Unanchored suffix cannot authorize approval. If integrity or checkpoint authority availability is uncertain, use **REGISTRY_DISABLED** or equivalent: block new privilege, withhold trust, preserve forensic evidence and surface sanitized failure. If audit writing is unavailable, use protected incident reporting where available and do not claim a durable event exists from a local message.
+
+Recovery enters restricted state, uses protected backups, verifies event chain/sequence and reconciles latest independent checkpoint history, identifies missing/unanchored events, and preserves recovery evidence. Exceptional recovery needs separate designated security-administrator authorization. No automatic history reset/new trusted genesis; inability to reconstruct latest trusted history leaves approvals disabled. Retention/deletion or key/provisioning changes require their own authorization.
+
+Local development uses synthetic events/test-only signing identities. A same-user writable DB/checkpoint/key arrangement can test detector behavior, not establish strong tamper/rollback resistance; keep real privileged approval REGISTRY_DISABLED. Required AU-01..10 tests in [TEST_PLAN §11](TEST_PLAN.md#11-selected-audit-architecture-and-required-verification) distinguish local mock detection from separately authorized protected deployment tests; all are NOT RUN. This adds no target/provider/hosted access.
 
 ## 7. AI, prompt injection, and model-provider security
 
@@ -380,6 +413,22 @@ All adapters MUST use the same policy/approval/executor application services. Mo
 - Default advisory status; enforce merge blocking only when authorized admin configures it.
 - Keep CI permissions minimal; avoid broad write tokens for read-only checks.
 
+### 8.5 TB-09 Browser/API scope and channel separation (proposed, P1)
+
+TB-09 separates an untrusted browser/client from the authenticated hosted API. The browser supplies requests, identifiers and displayed content; it cannot grant identity, project membership, reviewer authority, target scope or outbound destinations. The API must check those independently at every operation, including indirect job, contract and artifact references. Browser sessions, target synthetic sessions, provider credentials and runner tokens are distinct identities.
+
+| Channel | Required destination and authority | Denial/error and validation evidence to plan |
+|---|---|---|
+| Browser → hosted API | Only the explicitly configured deployment origin over TLS; authenticate sessions and enforce project/role/object authorization server-side. Local development origin must be separately declared; no wildcard origin consent. | Forged reviewer/project IDs, missing or revoked session, CSRF and cross-origin privileged request rejected; valid authorized same-project action succeeds. |
+| Hosted API → identity provider (if selected) | Only the approved issuer/discovery/key origins; validate issuer, audience, token signature, expiry and reviewer privilege using a reviewed identity design. A user-supplied issuer/URL is not an egress grant. | Foreign issuer/audience, forged identity, expired token or unapproved discovery destination denied; stale privilege cannot approve. |
+| Hosted API → runner/storage | Explicit approved service endpoints with scoped identities, private objects and project/job binding; browser-supplied artifact URLs or runner hosts cannot choose destinations. | Guessed artifact/job IDs and cross-project object pointers denied at metadata and download; signed URLs alone do not replace authorization. |
+| Runner → target | Separate TB-04/TB-05 authorization; exact approved origin, resolved IP and port, operations and budgets, independent of browser CORS/API origin. | Address substitution, redirect/rebinding outside grant or unsupported scheme blocked before outbound connection; no credential forwarding. |
+| API/context → external provider | No transmission unless G-05 authorizes the exact provider, destination, project, data class and purpose; restricted secrets remain prohibited. | Unapproved provider/fallback and unsolicited code/evidence transfer denied; approved minimal redacted context only. |
+
+All server-side URL use requires normalized scheme/host/port validation, resolved-destination enforcement at connection time, bounded requests and no automatic redirects. Explicitly authorized redirects, if later supported, require per-hop address/scope checks and credential stripping across origins. Identity/storage callbacks and remote imports are SSRF surfaces too; a legitimate browser origin does not authorize server egress. Unselected channels remain disabled, not open to arbitrary hosts. Actual origin/issuer/address values and redirect exceptions remain owner-reviewed configuration decisions; **none is authorized by this table**.
+
+Use secure session cookies with an explicit SameSite/CSRF design, reauthentication for privileged human review, session revocation and restrictive CORS. Report rendering must encode untrusted content and prevent embedded scripts, external images, tracking requests or referrer leaks from exporting sensitive evidence; adopt a reviewed CSP and private download behavior. No analytics, telemetry, CDN or model data transfer is enabled by default. This is a specification, not verified browser/session protection. Hosted identity, CSP/CORS, outbound destination registry and object-download design belong to ADR-0007/P1; provider egress remains ADR-0006/G-05.
+
 ---
 
 ## 9. Restricted scenario DSL and deterministic assertion engine
@@ -448,6 +497,22 @@ Provide operator cancellation; in P1, admin/reviewer revocation invalidates outs
 - Limit CPU, memory, processes, open files, network and storage; cleanup fixture state after completion.
 - Never assume Docker alone guarantees safety; hardening profiles and negative isolation tests are required.
 - Model-generated scenario text cannot define Docker run flags, host mounts, startup scripts, or network policy.
+
+#### 10.4.1 Isolation assumptions requiring ADR-0002/0007 review
+
+The following is a proposed enforcement envelope, not proof that a container or separate process is secure. The restricted P0 runner must not inherit general developer workstation privileges. A local-process option needs an explicit OS/account/filesystem/network review; do not silently fall back to the current user or Docker's defaults if containment is unavailable. Hosted/private-runner requirements expand in P1.
+
+| Isolation axis | Required constraint / proposed mechanism | Unresolved choice and negative evidence needed |
+|---|---|---|
+| Container/process boundary | Disposable separate execution identity; non-root container with namespaces and a reviewed syscall/security profile, or separately approved dedicated-account process. Target app and Core credentials remain separate. | Choose supported OS/runtime and hardening profile; test denied host/process access. Windows/container parity is unverified; stop affected execution if required isolation cannot be established. |
+| Filesystem | Read-only image/root where supported; one bounded disposable writable workspace. No host home/repository/secret-directory mount, symlink escape, Docker socket, device or host PID namespace. Context inspection passes only a minimized approved snapshot through the context service. | Decide artifact transfer/ACL/path validation and writable limits; traversal/symlink/host-secret attempts fail, retained evidence is sanitized outside teardown scope. |
+| Network | Default-deny outbound policy independently enforced; only granted target/service addresses, ports and protocols. No host networking, metadata service, arbitrary loopback/private range or ambient proxy trust. DNS/redirect guards operate at connection time. | Choose network enforcement and permitted DNS resolver path; test rebinding, alternate address family, proxies and forbidden socket/address access. A host-string check alone is insufficient. |
+| Privileges/identity | No privileged mode, elevation, unnecessary capabilities, executable model payloads or secret-manager access; scoped short-lived target/job credentials only. AI/fixture data cannot set flags, mounts or scope. | Choose identity/grant expiry/revocation and secret injection; test scope/identity substitution and attempted privilege escalation. |
+| Resources | Explicit approved CPU, memory, PID/process, open-file, workspace/output-byte, request, concurrency, response-byte and time limits; validate before start and enforce while running. | Numeric caps and runtime enforcement remain open; no absent/unlimited budget fallback. Limit breach records a sanitized non-PASS reason and triggers cancellation/cleanup. |
+| Lifecycle/cleanup | Deterministic disposable fixtures; cleanup after success, failure, timeout and cancellation, including children, network handles, temporary tokens/workspace and target state. Revoke job grants; keep historical sanitized evidence. | Choose teardown ownership, propagation deadline and orphan recovery; inject failures and prove cleanup. Failed cleanup quarantines the environment and records ERROR; it cannot be treated as safe reuse. |
+| Results | Authenticated job-bound typed results; redact before transfer/persistence; retain failures and distinguish unverified submissions. | P0 trusted local harness versus P1 compromised-runner assumptions/attestation need separate review; forged/replayed results cannot become trusted verdicts. |
+
+Until these assumptions and tests are resolved, container escape, inherited host access, network pivot, resource exhaustion, orphaned state and result forgery remain open design risks (TH-04/06/07/10/13/17). Documentation approval does not itself grant runner execution. ADR-0002 settles P0 fixture/transport/isolation; ADR-0007 settles P1 private-runner/control-plane trust. Neither ADR file exists yet.
 
 ### 10.5 Fixture and state-change controls
 
@@ -675,9 +740,9 @@ Define backups/restore tests, encrypted storage, key management, recovery object
 | Decision / gate | Observed status (2026-10-10) | Impact | Owner action |
 |---|---|---|---|
 | `M0-01` Repository inventory | **DONE; EV-0001** | Dependency met; docs-only baseline | Preserve inventory history; no runtime proof implied. |
-| `M0-02` Security threat model / reviewer sign-off | **IN_REVIEW; not approved** | Privileged architecture boundary | Developer designated themselves reviewer; review exact digest in todo.md and explicitly sign off or request changes. |
-| Git commit/review provenance (§19.1) | **Not initialized; unavailable** | Existing closure checklist requires committed/reviewed file | Owner supplies an authorized Git baseline/commit, or explicitly decides a hash-bound local review exception; no initialization/commit performed in M0-02. |
-| `ADR-0001` / `OQ-02` Restricted contract/scenario DSL | **Pending** | `ALLOW/DENY`, grammar and executable operations | Owner approves versioned DSL and negative tests. |
+| `M0-02` Security threat model / reviewer sign-off | **IN_REVIEW; changes requested, no sign-off** | Privileged architecture boundary | Developer requested TB-08/TB-09/runner clarifications; review v1.0.2 and exact new digest in todo.md. |
+| Git commit/review provenance (§19.1) | **Intermediate draft committed externally; final working revision uncommitted** | Existing closure checklist requires committed/reviewed file | Owner records or authorizes the final local commit and links human review to exact reviewed bytes; no initialization/commit performed by Codex in M0-02. |
+| `ADR-0001` / `OQ-02` Restricted contract/scenario DSL | **PROPOSED; M0-03** | `ALLOW/DENY`, grammar and executable operations | Review [ADR-0001](adr/0001-contract-dsl.md) and examples; no acceptance recorded. |
 | `ADR-0002` / `OQ-03,06` Fixture/runner, 403/404 semantics | **Pending** | Target safety, credentials, scope, side effects | Approve isolation/network/denial profile. |
 | `ADR-0003` / `OQ-04,14` Hash-bound human approval | **Pending** | Trusted reviewer identity, receipts, immutability | Approve local/hosted approval architecture. |
 | `OQ-05` Codex skill plus MCP | **Proposed both** | Client interoperability, tool exposure | Choose stable integration surface. |
@@ -708,7 +773,19 @@ These must be implemented and evaluated in the corresponding architecture work i
 | ISS-0005 — DOCS / Medium / Confirmed | Original SEC-T008/010/012/025 cited unrelated AC-016/005/015/017 | Correct direct traces, pair safe 404 with AC-016 and redirect with AC-015; add separate ALLOW-500 SEC-T026 for AC-017. Also remove unrelated injection/provider AC-010 links and distinguish policy revision AC-009. Local consistency checks are not runtime tests. |
 | Coverage gap — Info / Confirmed | No implementation, test suite or accepted ADR exists for TH-01–20 | Explicit future mappings in §3.4–3.5. Severity values in §4 remain qualitative design risks; there are no code-supported or reproduced vulnerability findings in this review. |
 
-**Sign-off requested from the developer:** review assets (§2), diagram/register and six attacker paths (§3), threats (§4), planned checks (§15), and unresolved ADR/closure gates (§18–19). Confirm or revise TB-08/TB-09 and the runner isolation assumptions. Provide an explicit human decision referencing version 1.0.1 and the SHA-256 in `todo.md`; reviewer designation and a checksum alone are insufficient. Signing this threat model does not approve ADRs, authorization contracts, provider egress or target execution.
+**Sign-off requested from the developer:** review assets (§2), diagram/register and six attacker paths (§3), TB-09 channels (§8.5), runner assumptions (§10.4.1), planned checks (§15), and unresolved ADR/closure gates (§18–19). Provide an explicit human decision referencing version 1.0.2 and its new SHA-256 in `todo.md`; the previous version's digest, reviewer designation and change request are not sign-off on this revision. Signing this threat model does not approve ADRs, authorization contracts, provider egress or target execution.
+
+### 18.4 Developer-requested threat-model review summary (no sign-off)
+
+| Review category | Current conclusion / required next decision |
+|---|---|
+| Confirmed security boundaries | Confirmed **requirements**, not implemented controls: mandatory TB-08 human authority, untrusted source/model/tool data (TB-01/02/03), independent scoped runner/target grants (TB-04/05), sanitized/private evidence (TB-06). The developer explicitly reaffirmed no AI self-approval. |
+| Proposed security boundaries | TB-09's browser/session/object and egress channels (§8.5); runner isolation envelope and OS-specific containment (§10.4.1); CI/hosted identity/result trust (TB-07/P1). Enforcement and final human boundary acceptance remain absent. |
+| Unresolved security risks | Forged/replayed reviewer identity or profile binding; SSRF/DNS/proxy/redirect escapes; host/socket/secret access; incomplete fixture/denial observation; unbounded/orphaned work; compromised runner/evidence; tenant IDOR/session misuse and external data leaks. No runtime vulnerability or protection is proven. |
+| Recommended architectural decisions | ADR-0001 is PROPOSED for typed DSL/canonicalization. Separate prompts should draft ADR-0002 (fixture/isolation/transport/budgets), ADR-0003 (human/hash/profile/receipt identity), ADR-0007 (hosted browser/private-runner identity and storage), and ADR-0006 if provider egress is contemplated. Leave each PROPOSED until authentic acceptance. |
+| Actions requiring owner approval | Final M0-02 boundary sign-off; acceptance of exact ADR revisions before normative implementation; real contract review; scope/runner/network privilege changes; provider/data-class/destination transmission; sensitive identity/storage changes and final local commit delegation. No such action is authorized by this summary. |
+
+**Scope decision received:** Finish ADR-0001 and these M0-02 documentation clarifications; leave other ADR drafts for separate task prompts. No M0-04/05/hosted/provider task is started here. The developer's request for changes is recorded as review feedback, explicitly **not final sign-off**. Present this revision/summary and await the developer's decision; keep M0-02 IN_REVIEW.
 
 ---
 
@@ -787,5 +864,5 @@ Review this file after: any accepted ADR changing a trust boundary; introduction
 
 ---
 
-**End of `docs/SECURITY.md` v1.0.1 — DRAFT / REVIEW REQUIRED.**
+**End of `docs/SECURITY.md` v1.0.3 — DRAFT / REVIEW REQUIRED.**
 **Core rule:** *AI proposes. Authenticated humans approve. Scoped deterministic tests verify. Evidence remains auditable. Fail closed.*

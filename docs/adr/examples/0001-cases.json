@@ -1,0 +1,55 @@
+{
+  "status": "PROPOSED_EXAMPLES_ONLY_NOT_APPROVED_CONTRACTS",
+  "base_example": "0001-valid-contract.json",
+  "validation_cases": [
+    {"id": "V-01", "expected": "VALID", "changes": []},
+    {"id": "V-02-owns", "expected": "VALID", "changes": [{"path": ["rules", 0, "when"], "value": [{"relation": "owns", "subject": "actor", "object": "resource"}]}]},
+    {"id": "V-03-sharing", "expected": "VALID", "changes": [
+      {"path": ["rules", 0, "rule_id"], "value": "shared-document-allow"},
+      {"path": ["rules", 0, "actor", "role"], "value": "viewer"},
+      {"path": ["rules", 0, "resource", "type"], "value": "document"},
+      {"path": ["rules", 0, "when"], "value": [{"relation": "shared_with", "subject": "resource", "object": "actor"}]}
+    ]},
+    {"id": "V-04-401-profile", "expected": "VALID", "changes": [{"path": ["rules", 1, "assertion_profile"], "value": "object-read-deny-401-403-404-v1"}]},
+    {"id": "R-01-expression", "expected": "INVALID_PREDICATES", "changes": [{"path": ["rules", 0, "when"], "value": "actor.tenant == resource.tenant"}]},
+    {"id": "R-02-python", "expected": "INVALID_RELATION_BINDING", "changes": [{"path": ["rules", 0, "when", 0, "subject"], "value": "__import__('os').system('synthetic-command-do-not-execute')"}]},
+    {"id": "R-03-template", "expected": "INVALID_RELATION_BINDING", "changes": [{"path": ["rules", 0, "when", 0, "object"], "value": "${fixtures.order.__class__}"}]},
+    {"id": "R-04-shell-field", "expected": "UNKNOWN_FIELD", "changes": [{"path": ["rules", 0, "shell"], "value": "synthetic-command-do-not-execute"}]},
+    {"id": "R-05-forged-status", "expected": "UNKNOWN_FIELD", "changes": [{"path": ["status"], "value": "APPROVED"}]},
+    {"id": "R-06-reviewer", "expected": "UNKNOWN_FIELD", "changes": [{"path": ["review"], "value": {"reviewer_ref": "synthetic-agent"}}]},
+    {"id": "R-07-target", "expected": "UNKNOWN_FIELD", "changes": [{"path": ["target_url"], "value": "synthetic-unapproved-target"}]},
+    {"id": "R-08-secret", "expected": "UNKNOWN_FIELD", "changes": [{"path": ["credential"], "value": "SYNTHETIC-CANARY-NOT-A-SECRET"}]},
+    {"id": "R-09-schema", "expected": "UNSUPPORTED_SCHEMA", "changes": [{"path": ["schema_version"], "value": "2.0"}]},
+    {"id": "R-10-float-version", "expected": "FLOAT_FORBIDDEN", "changes": [{"path": ["version"], "value": 1.5}]},
+    {"id": "R-11-bool-version", "expected": "INVALID_VERSION", "changes": [{"path": ["version"], "value": true}]},
+    {"id": "R-12-role", "expected": "UNDECLARED_ROLE", "changes": [{"path": ["rules", 0, "actor", "role"], "value": "administrator"}]},
+    {"id": "R-13-resource", "expected": "UNDECLARED_RESOURCE", "changes": [{"path": ["rules", 0, "resource", "type"], "value": "invoice"}]},
+    {"id": "R-14-action", "expected": "UNDECLARED_ACTION", "changes": [{"path": ["rules", 0, "action"], "value": "delete"}]},
+    {"id": "R-15-relation", "expected": "UNKNOWN_RELATION", "changes": [{"path": ["rules", 0, "when", 0, "relation"], "value": "eval"}]},
+    {"id": "R-16-direction", "expected": "INVALID_RELATION_BINDING", "changes": [{"path": ["rules", 0, "when"], "value": [{"relation": "shared_with", "subject": "actor", "object": "resource"}]}]},
+    {"id": "R-17-decision", "expected": "INVALID_DECISION", "changes": [{"path": ["rules", 0, "expect"], "value": "MAYBE"}]},
+    {"id": "R-18-profile", "expected": "INVALID_PROFILE", "changes": [{"path": ["rules", 0, "assertion_profile"], "value": "object-read-deny-403-404-v1"}]},
+    {"id": "R-19-rule-id", "expected": "DUPLICATE_RULE_ID", "changes": [{"path": ["rules", 1, "rule_id"], "value": "own-tenant-allow"}]},
+    {"id": "R-20-missing-action", "expected": "MISSING_FIELD", "changes": [{"path": ["rules", 0, "action"], "remove": true}]},
+    {"id": "R-21-empty-when", "expected": "INVALID_PREDICATES", "changes": [{"path": ["rules", 0, "when"], "value": []}]},
+    {"id": "R-22-unsafe-id", "expected": "INVALID_IDENTIFIER", "changes": [{"path": ["project_ref"], "value": "../../synthetic"}]}
+  ],
+  "decoding_cases": [
+    {"id": "D-01-duplicate-key", "text": "{\"schema_version\":\"1.0\",\"schema_version\":\"2.0\"}", "expected": "DUPLICATE_KEY"},
+    {"id": "D-02-nan", "text": "{\"version\":NaN}", "expected": "NONFINITE_NUMBER"},
+    {"id": "D-03-malformed", "text": "{\"version\":}", "expected": "INVALID_JSON"},
+    {"id": "D-04-yaml-tag", "text": "!!python/object/apply:os.system ['synthetic-command-do-not-execute']", "expected": "INVALID_JSON"},
+    {"id": "D-05-yaml-alias", "text": "base: &x {version: 1}\npolicy: *x", "expected": "INVALID_JSON"}
+  ],
+  "matching_cases": [
+    {"id": "M-01-own-tenant", "fixture": "own", "expected": "ALLOW", "rule_ids": ["own-tenant-allow"]},
+    {"id": "M-02-cross-tenant", "fixture": "cross", "expected": "DENY", "rule_ids": ["other-tenant-deny"]},
+    {"id": "M-03-unmatched", "fixture": "viewer", "expected": "NEEDS_REVIEW", "reason": "UNSPECIFIED_POLICY"},
+    {"id": "M-04-incomplete", "fixture": "incomplete", "expected": "PRECONDITION_ERROR"},
+    {"id": "M-05-conflict", "fixture": "own", "add_conflicting_rule": true, "expected": "NEEDS_REVIEW", "reason": "CONFLICTING_RULES"},
+    {"id": "M-06-shared-document", "fixture": "shared", "validation_case": "V-03-sharing", "expected": "ALLOW", "rule_ids": ["shared-document-allow"]},
+    {"id": "M-07-unshared-document", "fixture": "unshared", "validation_case": "V-03-sharing", "expected": "NEEDS_REVIEW", "reason": "UNSPECIFIED_POLICY"},
+    {"id": "M-08-no-member-edge", "fixture": "nonmember", "expected": "NEEDS_REVIEW", "reason": "UNSPECIFIED_POLICY"},
+    {"id": "M-09-agreeing-rules", "fixture": "own", "add_agreeing_rule": true, "expected": "ALLOW", "rule_ids": ["own-tenant-allow", "same-decision-extra"]}
+  ]
+}
