@@ -2,9 +2,9 @@
 
 > **Canonical repository path:** `docs/SECURITY.md`  
 > **Download alias:** `security.md` (same content; keep only the canonical copy in the repository)  
-> **Document version:** 1.0.3
+> **Document version:** 1.0.4
 > **Created:** 2026-10-10  
-> **Reviewed draft updated:** 2026-10-11 (scoped M2-07 audit storage direction; final human sign-off pending)
+> **Reviewed draft updated:** 2026-10-11 (P0 foundation review reconciliation; final human sign-off pending)
 > **Status:** **DRAFT / REVIEW REQUIRED** — security architecture and controls are specified but not proven implemented  
 > **Product:** PACT Security, an authorization-intent verification platform  
 > **Primary audience:** Engineering, product security, AI coding agents, reviewers, DevOps, incident responders  
@@ -46,7 +46,7 @@ The default state of every control in this document is **specified, not verified
 
 PACT is **not** an unrestricted public-target pentester, autonomous exploitation framework, arbitrary shell runner, DDoS simulator, credential harvester, or source-code exfiltration tool. No documentation here grants permission to test third-party domains, access production data, bypass user consent, or publish sensitive findings.
 
-### 0.4 M0-02 observed baseline and review scope
+### 0.4 Historical M0-02 intake and review scope
 
 M0-01 is `DONE` with inventory evidence `EV-0001` in [todo.md](../todo.md) and [REPOSITORY_INVENTORY.md](REPOSITORY_INVENTORY.md). M0-02 intake on 2026-10-10 found 12 Markdown files and six project directories, Git **not initialized**, and no application packages, tests, build configuration, ADR files or accepted decisions. Git metadata appeared externally during this review; read-only inspection found branch `main`, commit `ddf945dad8e7aaab0b052a22f37f57d3e0373295`, containing the intermediate draft. Final working-file changes and their digest are recorded in `todo.md`; Codex performed no Git initialization, fetch, commit or push. Components in §2 and the diagram below are **planned**. All `TH-01`–`TH-20` have **no implementation or executable-test mapping yet**; future task references are handoff targets, not code evidence.
 
@@ -56,7 +56,17 @@ The original M0-02 review changed this document and the tracker. During M0-03, t
 
 ### 0.5 Scoped audit decision — 2026-10-11
 
-The developer selected Dedicated Audit Authority + Append-Only Audit Log + Independently Signed Checkpoints for M2-07 storage, with anchored activation, fail-closed integrity checks and restricted recovery. This is a required design direction, **not** acceptance of all ADR-0003, M0-02 security sign-off, actual control verification, a contract/target/privilege grant or account/key/cloud provisioning. [ADR-0003 v0.2 §6](adr/0003-human-approval.md#6-immutable-snapshots-and-append-only-audit) and todo.md EV-0034 record scope. Existing human identity/user-presence questions stay separate. Pure candidate/model/parser/fake-provider code and scoped77 unit results exist (EV-0033); protected audit/review/execution/privacy controls remain absent. The §0.4 intake is historical. Unchanged selected storage choices will not be resubmitted without material new evidence.
+The developer selected Dedicated Audit Authority + Append-Only Audit Log + Independently Signed Checkpoints for M2-07 storage, with anchored activation, fail-closed integrity checks and restricted recovery. This is a required design direction, **not** acceptance of all ADR-0003, M0-02 security sign-off, actual control verification, a contract/target/privilege grant or account/key/cloud provisioning. [ADR-0003 v0.3 §6](adr/0003-human-approval.md#6-immutable-snapshots-and-append-only-audit) and todo.md EV-0034 record scope. Existing human identity/user-presence questions stay separate. Pure candidate/model/parser/fake-provider code and scoped77 unit results exist (EV-0033); protected audit/review/execution/privacy controls remain absent. The §0.4 intake is historical. Unchanged selected storage choices will not be resubmitted without material new evidence.
+
+### 0.6 Current P0 foundation review and provenance (2026-10-11)
+
+The owner authorized documentation reconciliation of M0-02/04/05/06, not implementation or final sign-off. ADR-0001's specified DSL choices are accepted (EV-0013); pure domain/normalizer/untrusted approval-model/provisional parser/fake-provider code exists. Those components do not enforce trusted human approval, target scope, runner isolation, redaction or hosted authorization. Historical no-code/no-accepted-ADR observations in earlier reviews must not be read as current repository state.
+
+Direct planning choices select Windows + Linux for the proposed tooling matrix and a separate protected local broker as the human-review design direction. They do not establish supported-platform isolation, human user-presence or full ADR-0003 acceptance. Real privileged approval remains REGISTRY_DISABLED until the concrete protected identity/broker/audit mechanism and negative tests are verified. Existing Audit Authority/checkpoint direction remains selected; no repeated unchanged acceptance request.
+
+Before this revision, SECURITY v1.0.3 was byte-identical to the file in HEAD `943cd681c15fe88ff1657478016216ea83da7c0c`; its last path commit was `145f89f6c1123d6ae245390a6bd83e55c05efcbe`. The earlier uncommitted-draft blocker is historical. This v1.0.4 is a new uncommitted review revision: its exact digest and reviewer decision must be recorded, and committed/reviewed provenance must match these revised bytes before M0-02 closure. No commit or push is made by this session.
+
+[P0 foundation review package](P0_FOUNDATION_REVIEW.md) and todo.md EV-0065 bind this revision and distinguish design acceptance from runtime evidence. Required implementation tests remain NOT RUN; no vulnerability reproduction or security clearance follows from this documentation review.
 
 ## 1. Security objectives and protected invariants
 
@@ -512,7 +522,7 @@ The following is a proposed enforcement envelope, not proof that a container or 
 | Lifecycle/cleanup | Deterministic disposable fixtures; cleanup after success, failure, timeout and cancellation, including children, network handles, temporary tokens/workspace and target state. Revoke job grants; keep historical sanitized evidence. | Choose teardown ownership, propagation deadline and orphan recovery; inject failures and prove cleanup. Failed cleanup quarantines the environment and records ERROR; it cannot be treated as safe reuse. |
 | Results | Authenticated job-bound typed results; redact before transfer/persistence; retain failures and distinguish unverified submissions. | P0 trusted local harness versus P1 compromised-runner assumptions/attestation need separate review; forged/replayed results cannot become trusted verdicts. |
 
-Until these assumptions and tests are resolved, container escape, inherited host access, network pivot, resource exhaustion, orphaned state and result forgery remain open design risks (TH-04/06/07/10/13/17). Documentation approval does not itself grant runner execution. ADR-0002 settles P0 fixture/transport/isolation; ADR-0007 settles P1 private-runner/control-plane trust. Neither ADR file exists yet.
+Until these assumptions and tests are resolved, container escape, inherited host access, network pivot, resource exhaustion, orphaned state and result forgery remain open design risks (TH-04/06/07/10/13/17). Documentation approval does not itself grant runner execution. ADR-0002 addresses P0 fixture/transport/isolation; ADR-0007 addresses P1 private-runner/control-plane trust. Both files now exist as PROPOSED drafts, not accepted or verified controls.
 
 ### 10.5 Fixture and state-change controls
 
@@ -737,12 +747,12 @@ Define backups/restore tests, encrypted storage, key management, recovery object
 
 ## 18. Review gates, ADR dependencies, and open questions
 
-| Decision / gate | Observed status (2026-10-10) | Impact | Owner action |
+| Decision / gate | Observed status (2026-10-11) | Impact | Owner action |
 |---|---|---|---|
 | `M0-01` Repository inventory | **DONE; EV-0001** | Dependency met; docs-only baseline | Preserve inventory history; no runtime proof implied. |
-| `M0-02` Security threat model / reviewer sign-off | **IN_REVIEW; changes requested, no sign-off** | Privileged architecture boundary | Developer requested TB-08/TB-09/runner clarifications; review v1.0.2 and exact new digest in todo.md. |
-| Git commit/review provenance (§19.1) | **Intermediate draft committed externally; final working revision uncommitted** | Existing closure checklist requires committed/reviewed file | Owner records or authorizes the final local commit and links human review to exact reviewed bytes; no initialization/commit performed by Codex in M0-02. |
-| `ADR-0001` / `OQ-02` Restricted contract/scenario DSL | **PROPOSED; M0-03** | `ALLOW/DENY`, grammar and executable operations | Review [ADR-0001](adr/0001-contract-dsl.md) and examples; no acceptance recorded. |
+| `M0-02` Security threat model / reviewer sign-off | **IN_REVIEW; changes requested, no sign-off** | Privileged architecture boundary | Developer requested TB-08/TB-09/runner clarifications; review current v1.0.4 and exact EV-0065 digest; historical v1.0.2 requests remain historical. |
+| Git commit/review provenance (§19.1) | **Previous v1.0.3 committed; current v1.0.4 review revision uncommitted** | Existing closure checklist requires committed/reviewed file | Preserve verified v1.0.3 provenance (§0.6); link genuine review and an actual eventual local commit to current exact bytes before closure. This session performs no commit or push. |
+| `ADR-0001` / `OQ-02` Restricted contract/scenario DSL | **ACCEPTED — specified design choices; M0-03 DONE** | `ALLOW/DENY`, restricted grammar, canonicalization | Direct developer acceptance EV-0013 covers [ADR-0001](adr/0001-contract-dsl.md) and bound examples; no contract, execution or other ADR acceptance implied. |
 | `ADR-0002` / `OQ-03,06` Fixture/runner, 403/404 semantics | **Pending** | Target safety, credentials, scope, side effects | Approve isolation/network/denial profile. |
 | `ADR-0003` / `OQ-04,14` Hash-bound human approval | **Pending** | Trusted reviewer identity, receipts, immutability | Approve local/hosted approval architecture. |
 | `OQ-05` Codex skill plus MCP | **Proposed both** | Client interoperability, tool exposure | Choose stable integration surface. |
@@ -771,9 +781,9 @@ These must be implemented and evaluated in the corresponding architecture work i
 |---|---|---|
 | ISS-0004 — DOCS / Medium / Confirmed | Original Security §3.3 assigned TB-08 to browser/API; Architecture §2.4 assigns it to human approval | Align TB-08 and label every diagram boundary; preserve browser/API as proposed TB-09. Reviewer must accept or revise boundary assumptions/numbering. This is a documentation inconsistency, not an exploited bypass. |
 | ISS-0005 — DOCS / Medium / Confirmed | Original SEC-T008/010/012/025 cited unrelated AC-016/005/015/017 | Correct direct traces, pair safe 404 with AC-016 and redirect with AC-015; add separate ALLOW-500 SEC-T026 for AC-017. Also remove unrelated injection/provider AC-010 links and distinguish policy revision AC-009. Local consistency checks are not runtime tests. |
-| Coverage gap — Info / Confirmed | No implementation, test suite or accepted ADR exists for TH-01–20 | Explicit future mappings in §3.4–3.5. Severity values in §4 remain qualitative design risks; there are no code-supported or reproduced vulnerability findings in this review. |
+| Coverage gap — Info / Confirmed | Required protected approval/execution/evidence/hosted controls remain absent; domain/parser/fake-provider code and scoped unit evidence exist, and ADR-0001 design is accepted | Explicit future mappings in §3.4–3.5 remain requirements; component evidence is not integrated security proof. Severity values in §4 remain qualitative design risks; no reproduced vulnerability finding or clearance is supplied by this review. |
 
-**Sign-off requested from the developer:** review assets (§2), diagram/register and six attacker paths (§3), TB-09 channels (§8.5), runner assumptions (§10.4.1), planned checks (§15), and unresolved ADR/closure gates (§18–19). Provide an explicit human decision referencing version 1.0.2 and its new SHA-256 in `todo.md`; the previous version's digest, reviewer designation and change request are not sign-off on this revision. Signing this threat model does not approve ADRs, authorization contracts, provider egress or target execution.
+**Sign-off requested from the developer:** review assets (§2), diagram/register and six attacker paths (§3), TB-09 channels (§8.5), runner assumptions (§10.4.1), planned checks (§15), and unresolved ADR/closure gates (§18–19). Provide an explicit human decision referencing version 1.0.4 and its current SHA-256 in `todo.md` EV-0065; the previous version's digest, reviewer designation and change request are not sign-off on this revision. Signing this threat model does not approve ADRs, authorization contracts, provider egress or target execution.
 
 ### 18.4 Developer-requested threat-model review summary (no sign-off)
 
@@ -782,10 +792,10 @@ These must be implemented and evaluated in the corresponding architecture work i
 | Confirmed security boundaries | Confirmed **requirements**, not implemented controls: mandatory TB-08 human authority, untrusted source/model/tool data (TB-01/02/03), independent scoped runner/target grants (TB-04/05), sanitized/private evidence (TB-06). The developer explicitly reaffirmed no AI self-approval. |
 | Proposed security boundaries | TB-09's browser/session/object and egress channels (§8.5); runner isolation envelope and OS-specific containment (§10.4.1); CI/hosted identity/result trust (TB-07/P1). Enforcement and final human boundary acceptance remain absent. |
 | Unresolved security risks | Forged/replayed reviewer identity or profile binding; SSRF/DNS/proxy/redirect escapes; host/socket/secret access; incomplete fixture/denial observation; unbounded/orphaned work; compromised runner/evidence; tenant IDOR/session misuse and external data leaks. No runtime vulnerability or protection is proven. |
-| Recommended architectural decisions | ADR-0001 is PROPOSED for typed DSL/canonicalization. Separate prompts should draft ADR-0002 (fixture/isolation/transport/budgets), ADR-0003 (human/hash/profile/receipt identity), ADR-0007 (hosted browser/private-runner identity and storage), and ADR-0006 if provider egress is contemplated. Leave each PROPOSED until authentic acceptance. |
+| Recommended architectural decisions | Preserve accepted ADR-0001 typed DSL/canonicalization choices. ADR-0002/0003/0007 already exist as PROPOSED; review their remaining fixture/runner, human-review and hosted decisions without treating drafts as authority. ADR-0006 remains absent and is needed if provider egress is later contemplated. |
 | Actions requiring owner approval | Final M0-02 boundary sign-off; acceptance of exact ADR revisions before normative implementation; real contract review; scope/runner/network privilege changes; provider/data-class/destination transmission; sensitive identity/storage changes and final local commit delegation. No such action is authorized by this summary. |
 
-**Scope decision received:** Finish ADR-0001 and these M0-02 documentation clarifications; leave other ADR drafts for separate task prompts. No M0-04/05/hosted/provider task is started here. The developer's request for changes is recorded as review feedback, explicitly **not final sign-off**. Present this revision/summary and await the developer's decision; keep M0-02 IN_REVIEW.
+**Historical scope decision:** Finish ADR-0001 and the M0-02 documentation clarifications; leave other ADR drafts for separate task prompts. The current owner separately authorizes this four-document P0 foundation reconciliation (§0.6), not hosted/provider work or privileged implementation. The developer's request for changes is recorded as review feedback, explicitly **not final sign-off**. Present this revision/summary and await the developer's decision; keep M0-02 IN_REVIEW.
 
 ---
 
@@ -864,5 +874,5 @@ Review this file after: any accepted ADR changing a trust boundary; introduction
 
 ---
 
-**End of `docs/SECURITY.md` v1.0.3 — DRAFT / REVIEW REQUIRED.**
+**End of `docs/SECURITY.md` v1.0.4 — DRAFT / REVIEW REQUIRED.**
 **Core rule:** *AI proposes. Authenticated humans approve. Scoped deterministic tests verify. Evidence remains auditable. Fail closed.*
