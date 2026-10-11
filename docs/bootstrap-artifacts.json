@@ -1,0 +1,1200 @@
+{
+  "review_version": "0.1",
+  "status": "PROPOSED_NOT_AUTHORIZED",
+  "task": "M0-07",
+  "wave": 1,
+  "baseline_head": "a000fe5cd47284c81ccceb0b4f08c38ff45ac070",
+  "observed_utc": "2026-10-11T18:10:58.111005+00:00",
+  "purpose": "Review metadata only; not an installer, lockfile or approval proof",
+  "matrix_cells": [
+    "windows-cp312",
+    "windows-cp313",
+    "windows-cp314",
+    "linux-cp312",
+    "linux-cp313",
+    "linux-cp314"
+  ],
+  "application_runtime_dependencies": [],
+  "packages": [
+    {
+      "name": "uv",
+      "version": "0.13.0",
+      "role": "bootstrap-tool",
+      "build_dependency": false,
+      "requires_python": ">=3.8",
+      "license_declared": "MIT OR Apache-2.0",
+      "license_source": "https://pypi.org/project/uv/0.13.0/",
+      "license_files_declared": [
+        "LICENSE-APACHE",
+        "LICENSE-MIT"
+      ],
+      "bundled_notices_verified": false,
+      "requires_dist": [],
+      "extras_requested": [],
+      "metadata_url": "https://pypi.org/pypi/uv/0.13.0/json",
+      "metadata_sha256": "136852a4ea18de1fc7051347d96f49de362355cf6eacbf5fc0e9b4d59e32789e",
+      "pypi_reported_vulnerabilities": [],
+      "matrix_cells": [
+        "windows-cp312",
+        "windows-cp313",
+        "windows-cp314",
+        "linux-cp312",
+        "linux-cp313",
+        "linux-cp314"
+      ],
+      "artifacts": [
+        {
+          "filename": "uv-0.13.0-py3-none-win_amd64.whl",
+          "url": "https://files.pythonhosted.org/packages/b2/00/73abae6cafcdb868d42b2c71bf12c9c2eb06a8d229a09569760c41b7948d/uv-0.13.0-py3-none-win_amd64.whl",
+          "sha256": "0367b4e0ae4dcef32da4aa2ad2f3853b6ad81d50c187abe50d343d892b8fea21",
+          "size_bytes": 15819247,
+          "upload_time_utc": "2026-10-09T19:46:01.466992Z",
+          "yanked": false,
+          "kind": "wheel",
+          "matrix_cells": [
+            "windows-cp312",
+            "windows-cp313",
+            "windows-cp314"
+          ],
+          "downloaded": false,
+          "artifact_bytes_verified": false
+        },
+        {
+          "filename": "uv-0.13.0-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "url": "https://files.pythonhosted.org/packages/c3/75/1901383808ba0d421f32060ba0e9884169b685a722e1af5d87fdd4225ba6/uv-0.13.0-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "sha256": "52c7da0fd9056d9551124777ec77de53f0df7017daf8f98a19e947b7837416ed",
+          "size_bytes": 17941073,
+          "upload_time_utc": "2026-10-09T19:45:42.446810Z",
+          "yanked": false,
+          "kind": "wheel",
+          "matrix_cells": [
+            "linux-cp312",
+            "linux-cp313",
+            "linux-cp314"
+          ],
+          "downloaded": false,
+          "artifact_bytes_verified": false
+        }
+      ]
+    },
+    {
+      "name": "hatchling",
+      "version": "1.32.4",
+      "role": "direct-dev",
+      "build_dependency": true,
+      "requires_python": ">=3.10",
+      "license_declared": "MIT",
+      "license_source": "https://pypi.org/project/hatchling/1.32.4/",
+      "license_files_declared": [
+        "LICENSE.txt"
+      ],
+      "bundled_notices_verified": false,
+      "requires_dist": [
+        "packaging>=24.2",
+        "pathspec>=0.10.1",
+        "pluggy>=1.0.0",
+        "tomli>=1.2.2; python_version < \"3.11\"",
+        "tomlkit>=0.11.1",
+        "trove-classifiers"
+      ],
+      "extras_requested": [],
+      "metadata_url": "https://pypi.org/pypi/hatchling/1.32.4/json",
+      "metadata_sha256": "30fc918620e710f21a2440fd4dedf3b5c147c59e4b3426a5af2ad22b4970bbb1",
+      "pypi_reported_vulnerabilities": [],
+      "matrix_cells": [
+        "windows-cp312",
+        "windows-cp313",
+        "windows-cp314",
+        "linux-cp312",
+        "linux-cp313",
+        "linux-cp314"
+      ],
+      "artifacts": [
+        {
+          "filename": "hatchling-1.32.4-py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/5f/80/91f51f439c05d4ec4623c22928ce16a938d6d793bf709477830823497859/hatchling-1.32.4-py3-none-any.whl",
+          "sha256": "08ecf7548fb48205e7f213d70c71e67b8271b7242093dc3f1da578b42c734a2c",
+          "size_bytes": 78748,
+          "upload_time_utc": "2026-09-20T22:48:44.190681Z",
+          "yanked": false,
+          "kind": "wheel",
+          "matrix_cells": [
+            "windows-cp312",
+            "windows-cp313",
+            "windows-cp314",
+            "linux-cp312",
+            "linux-cp313",
+            "linux-cp314"
+          ],
+          "downloaded": false,
+          "artifact_bytes_verified": false
+        }
+      ]
+    },
+    {
+      "name": "pytest",
+      "version": "9.1.1",
+      "role": "direct-dev",
+      "build_dependency": false,
+      "requires_python": ">=3.10",
+      "license_declared": "MIT",
+      "license_source": "https://pypi.org/project/pytest/9.1.1/",
+      "license_files_declared": [
+        "LICENSE"
+      ],
+      "bundled_notices_verified": false,
+      "requires_dist": [
+        "colorama>=0.4; sys_platform == \"win32\"",
+        "exceptiongroup>=1; python_version < \"3.11\"",
+        "iniconfig>=1.0.1",
+        "packaging>=22",
+        "pluggy<2,>=1.5",
+        "pygments>=2.7.2",
+        "tomli>=1; python_version < \"3.11\"",
+        "argcomplete; extra == \"dev\"",
+        "attrs>=19.2; extra == \"dev\"",
+        "hypothesis>=3.56; extra == \"dev\"",
+        "mock; extra == \"dev\"",
+        "requests; extra == \"dev\"",
+        "setuptools; extra == \"dev\"",
+        "xmlschema; extra == \"dev\""
+      ],
+      "extras_requested": [],
+      "metadata_url": "https://pypi.org/pypi/pytest/9.1.1/json",
+      "metadata_sha256": "8ed48304ba7fd0ae974a041f117487b499d553b40e5ce55a9ece677e946f68dd",
+      "pypi_reported_vulnerabilities": [],
+      "matrix_cells": [
+        "windows-cp312",
+        "windows-cp313",
+        "windows-cp314",
+        "linux-cp312",
+        "linux-cp313",
+        "linux-cp314"
+      ],
+      "artifacts": [
+        {
+          "filename": "pytest-9.1.1-py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/24/25/1de2678b631f5a49215c6c96fff41ba892b0a34df68d6d80292b1b48aa7f/pytest-9.1.1-py3-none-any.whl",
+          "sha256": "37a86b45efb9a47a61a36449063e8e18d0cab3161329fc099eb21783169c4f0c",
+          "size_bytes": 386536,
+          "upload_time_utc": "2026-06-19T10:58:31.347074Z",
+          "yanked": false,
+          "kind": "wheel",
+          "matrix_cells": [
+            "windows-cp312",
+            "windows-cp313",
+            "windows-cp314",
+            "linux-cp312",
+            "linux-cp313",
+            "linux-cp314"
+          ],
+          "downloaded": false,
+          "artifact_bytes_verified": false
+        }
+      ]
+    },
+    {
+      "name": "ruff",
+      "version": "0.16.8",
+      "role": "direct-dev",
+      "build_dependency": false,
+      "requires_python": ">=3.7",
+      "license_declared": "MIT",
+      "license_source": "https://pypi.org/project/ruff/0.16.8/",
+      "license_files_declared": [
+        "LICENSE"
+      ],
+      "bundled_notices_verified": false,
+      "requires_dist": [],
+      "extras_requested": [],
+      "metadata_url": "https://pypi.org/pypi/ruff/0.16.8/json",
+      "metadata_sha256": "02f38cd052420671a97b330fa49c3a534ed7efdc6fdc1857ea304354fb1116a1",
+      "pypi_reported_vulnerabilities": [],
+      "matrix_cells": [
+        "windows-cp312",
+        "windows-cp313",
+        "windows-cp314",
+        "linux-cp312",
+        "linux-cp313",
+        "linux-cp314"
+      ],
+      "artifacts": [
+        {
+          "filename": "ruff-0.16.8-py3-none-win_amd64.whl",
+          "url": "https://files.pythonhosted.org/packages/1e/5d/a509c07d714b6da88f2c518b4637cf6f1d46b074be8f0f1e5fb9ff5126fe/ruff-0.16.8-py3-none-win_amd64.whl",
+          "sha256": "a6b85621fd3c81e31fc5f5add09c9c078b430db3595ca632efafdec9e64ebfaa",
+          "size_bytes": 10586899,
+          "upload_time_utc": "2026-09-16T15:54:40.488357Z",
+          "yanked": false,
+          "kind": "wheel",
+          "matrix_cells": [
+            "windows-cp312",
+            "windows-cp313",
+            "windows-cp314"
+          ],
+          "downloaded": false,
+          "artifact_bytes_verified": false
+        },
+        {
+          "filename": "ruff-0.16.8-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "url": "https://files.pythonhosted.org/packages/1a/41/d83af9879a7b6e8bf5fe16b1da0b134049d2f5d3afac12defb0897cb84bd/ruff-0.16.8-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "sha256": "15e7d226246961db9235098333caa13063906d3851136b84c2900b82f5daa1df",
+          "size_bytes": 10323796,
+          "upload_time_utc": "2026-09-16T15:54:20.743932Z",
+          "yanked": false,
+          "kind": "wheel",
+          "matrix_cells": [
+            "linux-cp312",
+            "linux-cp313",
+            "linux-cp314"
+          ],
+          "downloaded": false,
+          "artifact_bytes_verified": false
+        }
+      ]
+    },
+    {
+      "name": "mypy",
+      "version": "2.4.0",
+      "role": "direct-dev",
+      "build_dependency": false,
+      "requires_python": ">=3.10",
+      "license_declared": "MIT",
+      "license_source": "https://pypi.org/project/mypy/2.4.0/",
+      "license_files_declared": [
+        "LICENSE",
+        "mypy/typeshed/LICENSE"
+      ],
+      "bundled_notices_verified": false,
+      "requires_dist": [
+        "typing_extensions>=4.6.0; python_version < \"3.15\"",
+        "typing_extensions>=4.14.0; python_version >= \"3.15\"",
+        "mypy_extensions>=1.0.0",
+        "pathspec>=1.0.0",
+        "tomli>=1.1.0; python_version < \"3.11\"",
+        "librt>=0.16.0; platform_python_implementation != \"PyPy\"",
+        "ast-serialize<1.0.0,>=0.11.2",
+        "psutil>=4.0; extra == \"dmypy\"",
+        "setuptools>=50; extra == \"mypyc\"",
+        "lxml; extra == \"reports\"",
+        "pip; extra == \"install-types\"",
+        "orjson; extra == \"faster-cache\""
+      ],
+      "extras_requested": [],
+      "metadata_url": "https://pypi.org/pypi/mypy/2.4.0/json",
+      "metadata_sha256": "08b5d152ed0e09cfc7787b5d111bf9cf5a13961984636fee9fdbae6bf7a26087",
+      "pypi_reported_vulnerabilities": [],
+      "matrix_cells": [
+        "windows-cp312",
+        "windows-cp313",
+        "windows-cp314",
+        "linux-cp312",
+        "linux-cp313",
+        "linux-cp314"
+      ],
+      "artifacts": [
+        {
+          "filename": "mypy-2.4.0-cp312-cp312-win_amd64.whl",
+          "url": "https://files.pythonhosted.org/packages/8f/0e/69aac6b8159da7c53e6115a2be1bf48e85503402cadbf506dd708e8b2ad7/mypy-2.4.0-cp312-cp312-win_amd64.whl",
+          "sha256": "236e0d68f6941992b0811128e652590f590db444ab29ad8f1324765b9298b946",
+          "size_bytes": 11381574,
+          "upload_time_utc": "2026-10-01T20:39:49.406999Z",
+          "yanked": false,
+          "kind": "wheel",
+          "matrix_cells": [
+            "windows-cp312"
+          ],
+          "downloaded": false,
+          "artifact_bytes_verified": false
+        },
+        {
+          "filename": "mypy-2.4.0-cp313-cp313-win_amd64.whl",
+          "url": "https://files.pythonhosted.org/packages/58/bc/2aa98fd7f49c42dba8e9c065886fadffdd00f3c654cff3f2a7103a797ac8/mypy-2.4.0-cp313-cp313-win_amd64.whl",
+          "sha256": "295ecf2e57542cd836ca537486951289678c8c7d1ee6ad74ebe29b2168a003cf",
+          "size_bytes": 11389803,
+          "upload_time_utc": "2026-10-01T20:39:37.547757Z",
+          "yanked": false,
+          "kind": "wheel",
+          "matrix_cells": [
+            "windows-cp313"
+          ],
+          "downloaded": false,
+          "artifact_bytes_verified": false
+        },
+        {
+          "filename": "mypy-2.4.0-cp314-cp314-win_amd64.whl",
+          "url": "https://files.pythonhosted.org/packages/3a/87/61ffee58b25a956532a6006fae84918a2de849ed25f397492b2e815fe7b3/mypy-2.4.0-cp314-cp314-win_amd64.whl",
+          "sha256": "2106b55105ba5ea9be4f53a24517fc5fa927ff1585edc9bc1a975abb72caef89",
+          "size_bytes": 11576345,
+          "upload_time_utc": "2026-10-01T20:39:41.553924Z",
+          "yanked": false,
+          "kind": "wheel",
+          "matrix_cells": [
+            "windows-cp314"
+          ],
+          "downloaded": false,
+          "artifact_bytes_verified": false
+        },
+        {
+          "filename": "mypy-2.4.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+          "url": "https://files.pythonhosted.org/packages/f3/9e/bcc9af755425ad17790bf11d73c2ea7592914cf309ee1340997670f9d57a/mypy-2.4.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+          "sha256": "29eb0b9427a6b11b992e452f6cceb8af724f4dceb47e779d0b35e405e996ea5e",
+          "size_bytes": 15552257,
+          "upload_time_utc": "2026-10-01T20:39:56.269396Z",
+          "yanked": false,
+          "kind": "wheel",
+          "matrix_cells": [
+            "linux-cp312"
+          ],
+          "downloaded": false,
+          "artifact_bytes_verified": false
+        },
+        {
+          "filename": "mypy-2.4.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+          "url": "https://files.pythonhosted.org/packages/d5/c4/484275efc935c0003e55e4e8a33e4b8e99528ee956c12256ece4708f903f/mypy-2.4.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+          "sha256": "6be721bd4bd57576193653b75b4af3461c9d0bf7dd8b528f782e9be210dc75bb",
+          "size_bytes": 15465557,
+          "upload_time_utc": "2026-10-01T20:39:01.794562Z",
+          "yanked": false,
+          "kind": "wheel",
+          "matrix_cells": [
+            "linux-cp313"
+          ],
+          "downloaded": false,
+          "artifact_bytes_verified": false
+        },
+        {
+          "filename": "mypy-2.4.0-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+          "url": "https://files.pythonhosted.org/packages/bc/1c/26e16977e25ef2494a74f8ffc872a76ec2c3aa43c3156057cbdf88f352c5/mypy-2.4.0-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+          "sha256": "20e9a5cd875837520c43db98dea0b6d0c2197833d95c30127d8f570fb9b1f00b",
+          "size_bytes": 15441463,
+          "upload_time_utc": "2026-10-01T20:40:32.412892Z",
+          "yanked": false,
+          "kind": "wheel",
+          "matrix_cells": [
+            "linux-cp314"
+          ],
+          "downloaded": false,
+          "artifact_bytes_verified": false
+        }
+      ]
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "role": "transitive-dev",
+      "build_dependency": true,
+      "requires_python": ">=3.9",
+      "license_declared": "Apache-2.0 OR BSD-2-Clause",
+      "license_source": "https://pypi.org/project/packaging/26.3/",
+      "license_files_declared": [
+        "LICENSE",
+        "LICENSE.APACHE",
+        "LICENSE.BSD"
+      ],
+      "bundled_notices_verified": false,
+      "requires_dist": [],
+      "extras_requested": [],
+      "metadata_url": "https://pypi.org/pypi/packaging/26.3/json",
+      "metadata_sha256": "4f190d2f0b312b3086058cee64ab4333bf3ce67fb78b4c2bdb43899049b29f4d",
+      "pypi_reported_vulnerabilities": [],
+      "matrix_cells": [
+        "windows-cp312",
+        "windows-cp313",
+        "windows-cp314",
+        "linux-cp312",
+        "linux-cp313",
+        "linux-cp314"
+      ],
+      "artifacts": [
+        {
+          "filename": "packaging-26.3-py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl",
+          "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c",
+          "size_bytes": 129956,
+          "upload_time_utc": "2026-08-04T18:15:27.159957Z",
+          "yanked": false,
+          "kind": "wheel",
+          "matrix_cells": [
+            "windows-cp312",
+            "windows-cp313",
+            "windows-cp314",
+            "linux-cp312",
+            "linux-cp313",
+            "linux-cp314"
+          ],
+          "downloaded": false,
+          "artifact_bytes_verified": false
+        }
+      ]
+    },
+    {
+      "name": "pathspec",
+      "version": "1.1.1",
+      "role": "transitive-dev",
+      "build_dependency": true,
+      "requires_python": ">=3.9",
+      "license_declared": "MPL-2.0",
+      "license_source": "https://github.com/cpburnz/python-pathspec/blob/v1.1.1/LICENSE",
+      "license_files_declared": [
+        "LICENSE"
+      ],
+      "bundled_notices_verified": false,
+      "requires_dist": [
+        "hyperscan>=0.7; extra == \"hyperscan\"",
+        "typing-extensions>=4; extra == \"optional\"",
+        "google-re2>=1.1; extra == \"re2\""
+      ],
+      "extras_requested": [],
+      "metadata_url": "https://pypi.org/pypi/pathspec/1.1.1/json",
+      "metadata_sha256": "24f66829a7f40485bdccfcf32294218b0f4260b289ee4806ab644feb6c194766",
+      "pypi_reported_vulnerabilities": [],
+      "matrix_cells": [
+        "windows-cp312",
+        "windows-cp313",
+        "windows-cp314",
+        "linux-cp312",
+        "linux-cp313",
+        "linux-cp314"
+      ],
+      "artifacts": [
+        {
+          "filename": "pathspec-1.1.1-py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/f1/d9/7fb5aa316bc299258e68c73ba3bddbc499654a07f151cba08f6153988714/pathspec-1.1.1-py3-none-any.whl",
+          "sha256": "a00ce642f577bf7f473932318056212bc4f8bfdf53128c78bbd5af0b9b20b189",
+          "size_bytes": 57328,
+          "upload_time_utc": "2026-04-27T01:46:07.060850Z",
+          "yanked": false,
+          "kind": "wheel",
+          "matrix_cells": [
+            "windows-cp312",
+            "windows-cp313",
+            "windows-cp314",
+            "linux-cp312",
+            "linux-cp313",
+            "linux-cp314"
+          ],
+          "downloaded": false,
+          "artifact_bytes_verified": false
+        }
+      ]
+    },
+    {
+      "name": "pluggy",
+      "version": "1.6.0",
+      "role": "transitive-dev",
+      "build_dependency": true,
+      "requires_python": ">=3.9",
+      "license_declared": "MIT",
+      "license_source": "https://pypi.org/project/pluggy/1.6.0/",
+      "license_files_declared": [
+        "LICENSE"
+      ],
+      "bundled_notices_verified": false,
+      "requires_dist": [
+        "pre-commit; extra == \"dev\"",
+        "tox; extra == \"dev\"",
+        "pytest; extra == \"testing\"",
+        "pytest-benchmark; extra == \"testing\"",
+        "coverage; extra == \"testing\""
+      ],
+      "extras_requested": [],
+      "metadata_url": "https://pypi.org/pypi/pluggy/1.6.0/json",
+      "metadata_sha256": "db23d1227f5870da7538b1e29371d9fc9a93b0499989f8e3ef021fdccd75bc8e",
+      "pypi_reported_vulnerabilities": [],
+      "matrix_cells": [
+        "windows-cp312",
+        "windows-cp313",
+        "windows-cp314",
+        "linux-cp312",
+        "linux-cp313",
+        "linux-cp314"
+      ],
+      "artifacts": [
+        {
+          "filename": "pluggy-1.6.0-py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/54/20/4d324d65cc6d9205fabedc306948156824eb9f0ee1633355a8f7ec5c66bf/pluggy-1.6.0-py3-none-any.whl",
+          "sha256": "e920276dd6813095e9377c0bc5566d94c932c33b27a3e3945d8389c374dd4746",
+          "size_bytes": 20538,
+          "upload_time_utc": "2025-05-15T12:30:06.134003Z",
+          "yanked": false,
+          "kind": "wheel",
+          "matrix_cells": [
+            "windows-cp312",
+            "windows-cp313",
+            "windows-cp314",
+            "linux-cp312",
+            "linux-cp313",
+            "linux-cp314"
+          ],
+          "downloaded": false,
+          "artifact_bytes_verified": false
+        }
+      ]
+    },
+    {
+      "name": "trove-classifiers",
+      "version": "2026.9.21.13",
+      "role": "transitive-dev",
+      "build_dependency": true,
+      "requires_python": null,
+      "license_declared": "Apache-2.0",
+      "license_source": "https://github.com/pypa/trove-classifiers/blob/2026.9.21.13/LICENSE",
+      "license_files_declared": [
+        "LICENSE"
+      ],
+      "bundled_notices_verified": false,
+      "requires_dist": [],
+      "extras_requested": [],
+      "metadata_url": "https://pypi.org/pypi/trove-classifiers/2026.9.21.13/json",
+      "metadata_sha256": "6f743386053525d93ce712c8f909a5a5a257fe5a71a588c1d4a676b1b70cc45e",
+      "pypi_reported_vulnerabilities": [],
+      "matrix_cells": [
+        "windows-cp312",
+        "windows-cp313",
+        "windows-cp314",
+        "linux-cp312",
+        "linux-cp313",
+        "linux-cp314"
+      ],
+      "artifacts": [
+        {
+          "filename": "trove_classifiers-2026.9.21.13-py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/30/81/0da8afb52a71d0a4f2bd3152357b1a441e393b286374802b9d3addab4ab5/trove_classifiers-2026.9.21.13-py3-none-any.whl",
+          "sha256": "8b1ff4f9c191b1040b71c37f1e445ab99732911e3cd91de52838453a854d7a17",
+          "size_bytes": 14232,
+          "upload_time_utc": "2026-09-21T13:29:06.123578Z",
+          "yanked": false,
+          "kind": "wheel",
+          "matrix_cells": [
+            "windows-cp312",
+            "windows-cp313",
+            "windows-cp314",
+            "linux-cp312",
+            "linux-cp313",
+            "linux-cp314"
+          ],
+          "downloaded": false,
+          "artifact_bytes_verified": false
+        }
+      ]
+    },
+    {
+      "name": "iniconfig",
+      "version": "2.3.1",
+      "role": "transitive-dev",
+      "build_dependency": false,
+      "requires_python": ">=3.10",
+      "license_declared": "MIT",
+      "license_source": "https://pypi.org/project/iniconfig/2.3.1/",
+      "license_files_declared": [
+        "LICENSE"
+      ],
+      "bundled_notices_verified": false,
+      "requires_dist": [],
+      "extras_requested": [],
+      "metadata_url": "https://pypi.org/pypi/iniconfig/2.3.1/json",
+      "metadata_sha256": "ab4d5df71d2a4f01a0eb418d7809bb22dca3293991a369309f068c07c1471557",
+      "pypi_reported_vulnerabilities": [],
+      "matrix_cells": [
+        "windows-cp312",
+        "windows-cp313",
+        "windows-cp314",
+        "linux-cp312",
+        "linux-cp313",
+        "linux-cp314"
+      ],
+      "artifacts": [
+        {
+          "filename": "iniconfig-2.3.1-py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/56/43/4ca9e49d27a1fcf6bece6f6aec0ea46bb9112489b93d4b688fb415457bdb/iniconfig-2.3.1-py3-none-any.whl",
+          "sha256": "9121e2c1fdb355232495be3194c8dfe87ccc2d5dee45947b78e68f499790d7a7",
+          "size_bytes": 7552,
+          "upload_time_utc": "2026-10-06T22:48:36.959685Z",
+          "yanked": false,
+          "kind": "wheel",
+          "matrix_cells": [
+            "windows-cp312",
+            "windows-cp313",
+            "windows-cp314",
+            "linux-cp312",
+            "linux-cp313",
+            "linux-cp314"
+          ],
+          "downloaded": false,
+          "artifact_bytes_verified": false
+        }
+      ]
+    },
+    {
+      "name": "pygments",
+      "version": "2.21.0",
+      "role": "transitive-dev",
+      "build_dependency": false,
+      "requires_python": ">=3.9",
+      "license_declared": "BSD-2-Clause",
+      "license_source": "https://pypi.org/project/pygments/2.21.0/",
+      "license_files_declared": [
+        "AUTHORS",
+        "LICENSE"
+      ],
+      "bundled_notices_verified": false,
+      "requires_dist": [
+        "colorama>=0.4.6; extra == \"windows-terminal\""
+      ],
+      "extras_requested": [],
+      "metadata_url": "https://pypi.org/pypi/pygments/2.21.0/json",
+      "metadata_sha256": "330104a10adc8a587e3f98f4e207557125ca0c1d489e129334da5acb2b813a03",
+      "pypi_reported_vulnerabilities": [],
+      "matrix_cells": [
+        "windows-cp312",
+        "windows-cp313",
+        "windows-cp314",
+        "linux-cp312",
+        "linux-cp313",
+        "linux-cp314"
+      ],
+      "artifacts": [
+        {
+          "filename": "pygments-2.21.0-py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/71/46/17f022dd3e953bf20a04a028a21ec746d942f8d2af30fa0f124fa0e6a684/pygments-2.21.0-py3-none-any.whl",
+          "sha256": "2363c69b61c4a97c838da3b130dcd6468f4848992b21a82f2a63ec34377137d9",
+          "size_bytes": 1250147,
+          "upload_time_utc": "2026-08-17T08:02:44.912148Z",
+          "yanked": false,
+          "kind": "wheel",
+          "matrix_cells": [
+            "windows-cp312",
+            "windows-cp313",
+            "windows-cp314",
+            "linux-cp312",
+            "linux-cp313",
+            "linux-cp314"
+          ],
+          "downloaded": false,
+          "artifact_bytes_verified": false
+        }
+      ]
+    },
+    {
+      "name": "colorama",
+      "version": "0.4.6",
+      "role": "transitive-dev",
+      "build_dependency": false,
+      "requires_python": "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7",
+      "license_declared": "BSD-3-Clause",
+      "license_source": "https://github.com/tartley/colorama/blob/0.4.6/LICENSE.txt",
+      "license_files_declared": null,
+      "bundled_notices_verified": false,
+      "requires_dist": [],
+      "extras_requested": [],
+      "metadata_url": "https://pypi.org/pypi/colorama/0.4.6/json",
+      "metadata_sha256": "43fb351344384a44c2b7d7fff1c63496b89ac830aea714301525c1f3718addd1",
+      "pypi_reported_vulnerabilities": [],
+      "matrix_cells": [
+        "windows-cp312",
+        "windows-cp313",
+        "windows-cp314"
+      ],
+      "artifacts": [
+        {
+          "filename": "colorama-0.4.6-py2.py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/d1/d6/3965ed04c63042e047cb6a3e6ed1a63a35087b6a609aa3a15ed8ac56c221/colorama-0.4.6-py2.py3-none-any.whl",
+          "sha256": "4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6",
+          "size_bytes": 25335,
+          "upload_time_utc": "2022-10-25T02:36:20.889702Z",
+          "yanked": false,
+          "kind": "wheel",
+          "matrix_cells": [
+            "windows-cp312",
+            "windows-cp313",
+            "windows-cp314"
+          ],
+          "downloaded": false,
+          "artifact_bytes_verified": false
+        }
+      ]
+    },
+    {
+      "name": "mypy-extensions",
+      "version": "1.1.0",
+      "role": "transitive-dev",
+      "build_dependency": false,
+      "requires_python": ">=3.8",
+      "license_declared": "MIT",
+      "license_source": "https://github.com/python/mypy_extensions/blob/1.1.0/LICENSE",
+      "license_files_declared": null,
+      "bundled_notices_verified": false,
+      "requires_dist": [],
+      "extras_requested": [],
+      "metadata_url": "https://pypi.org/pypi/mypy-extensions/1.1.0/json",
+      "metadata_sha256": "1c470d3b03e21974b5ea09a572478f10864174511c3a46864b759409451d3ba8",
+      "pypi_reported_vulnerabilities": [],
+      "matrix_cells": [
+        "windows-cp312",
+        "windows-cp313",
+        "windows-cp314",
+        "linux-cp312",
+        "linux-cp313",
+        "linux-cp314"
+      ],
+      "artifacts": [
+        {
+          "filename": "mypy_extensions-1.1.0-py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/79/7b/2c79738432f5c924bef5071f933bcc9efd0473bac3b4aa584a6f7c1c8df8/mypy_extensions-1.1.0-py3-none-any.whl",
+          "sha256": "1be4cccdb0f2482337c4743e60421de3a356cd97508abadd57d47403e94f5505",
+          "size_bytes": 4963,
+          "upload_time_utc": "2025-04-22T14:54:22.983092Z",
+          "yanked": false,
+          "kind": "wheel",
+          "matrix_cells": [
+            "windows-cp312",
+            "windows-cp313",
+            "windows-cp314",
+            "linux-cp312",
+            "linux-cp313",
+            "linux-cp314"
+          ],
+          "downloaded": false,
+          "artifact_bytes_verified": false
+        }
+      ]
+    },
+    {
+      "name": "typing-extensions",
+      "version": "4.16.0",
+      "role": "transitive-dev",
+      "build_dependency": false,
+      "requires_python": ">=3.9",
+      "license_declared": "PSF-2.0",
+      "license_source": "https://pypi.org/project/typing-extensions/4.16.0/",
+      "license_files_declared": [
+        "LICENSE"
+      ],
+      "bundled_notices_verified": false,
+      "requires_dist": [],
+      "extras_requested": [],
+      "metadata_url": "https://pypi.org/pypi/typing-extensions/4.16.0/json",
+      "metadata_sha256": "2140da00d62dde967f52d0be0ae28444f1d6a3fe603f52c83c23988c32122d5a",
+      "pypi_reported_vulnerabilities": [],
+      "matrix_cells": [
+        "windows-cp312",
+        "windows-cp313",
+        "windows-cp314",
+        "linux-cp312",
+        "linux-cp313",
+        "linux-cp314"
+      ],
+      "artifacts": [
+        {
+          "filename": "typing_extensions-4.16.0-py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl",
+          "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+          "size_bytes": 45571,
+          "upload_time_utc": "2026-07-02T08:40:04.659120Z",
+          "yanked": false,
+          "kind": "wheel",
+          "matrix_cells": [
+            "windows-cp312",
+            "windows-cp313",
+            "windows-cp314",
+            "linux-cp312",
+            "linux-cp313",
+            "linux-cp314"
+          ],
+          "downloaded": false,
+          "artifact_bytes_verified": false
+        }
+      ]
+    },
+    {
+      "name": "librt",
+      "version": "0.16.0",
+      "role": "transitive-dev",
+      "build_dependency": false,
+      "requires_python": ">=3.9",
+      "license_declared": "MIT",
+      "license_source": "https://pypi.org/project/librt/0.16.0/",
+      "license_files_declared": [
+        "LICENSE"
+      ],
+      "bundled_notices_verified": false,
+      "requires_dist": [],
+      "extras_requested": [],
+      "metadata_url": "https://pypi.org/pypi/librt/0.16.0/json",
+      "metadata_sha256": "15903fc6fea8431c709b032d2dc99d27da1ab61f2f06998a6bb73b07d9e71ef0",
+      "pypi_reported_vulnerabilities": [],
+      "matrix_cells": [
+        "windows-cp312",
+        "windows-cp313",
+        "windows-cp314",
+        "linux-cp312",
+        "linux-cp313",
+        "linux-cp314"
+      ],
+      "artifacts": [
+        {
+          "filename": "librt-0.16.0-cp312-cp312-win_amd64.whl",
+          "url": "https://files.pythonhosted.org/packages/f0/2c/5193dc81127cd5ddfad031391b046bf32dda219b38463ab872407ca30646/librt-0.16.0-cp312-cp312-win_amd64.whl",
+          "sha256": "25a58a19ea8d83b68209f04912df765e9260635ef77646542ed4b4abe6bc7940",
+          "size_bytes": 126176,
+          "upload_time_utc": "2026-09-29T00:53:03.445542Z",
+          "yanked": false,
+          "kind": "wheel",
+          "matrix_cells": [
+            "windows-cp312"
+          ],
+          "downloaded": false,
+          "artifact_bytes_verified": false
+        },
+        {
+          "filename": "librt-0.16.0-cp313-cp313-win_amd64.whl",
+          "url": "https://files.pythonhosted.org/packages/cf/24/80bbb463c60ed18e29cb26aba386ddb76609580e4e7160710e550587018c/librt-0.16.0-cp313-cp313-win_amd64.whl",
+          "sha256": "14ed6ebe3e4f85f326d7920011ad30ff49ed9334e62cf88caef9ba973d9e3a92",
+          "size_bytes": 126180,
+          "upload_time_utc": "2026-09-29T00:53:28.700349Z",
+          "yanked": false,
+          "kind": "wheel",
+          "matrix_cells": [
+            "windows-cp313"
+          ],
+          "downloaded": false,
+          "artifact_bytes_verified": false
+        },
+        {
+          "filename": "librt-0.16.0-cp314-cp314-win_amd64.whl",
+          "url": "https://files.pythonhosted.org/packages/c2/98/769712f356a1e897df3581bb0c3100375d054a000de26099360ea65b5111/librt-0.16.0-cp314-cp314-win_amd64.whl",
+          "sha256": "3f0b8114c44b2ac06ff5dacd08e07e8e807ff4f46083f2a1602685122559be41",
+          "size_bytes": 120464,
+          "upload_time_utc": "2026-09-29T00:53:53.495431Z",
+          "yanked": false,
+          "kind": "wheel",
+          "matrix_cells": [
+            "windows-cp314"
+          ],
+          "downloaded": false,
+          "artifact_bytes_verified": false
+        },
+        {
+          "filename": "librt-0.16.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+          "url": "https://files.pythonhosted.org/packages/ad/f7/7ce72cbf19d0addd05090b339152fd0548a02562c2866a603e6e3b3da2df/librt-0.16.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+          "sha256": "36e53948e99bbe3ffea257124cfcae1cfb01831555c9a9c903c9f9a72db7fd07",
+          "size_bytes": 531952,
+          "upload_time_utc": "2026-09-29T00:52:49.816320Z",
+          "yanked": false,
+          "kind": "wheel",
+          "matrix_cells": [
+            "linux-cp312"
+          ],
+          "downloaded": false,
+          "artifact_bytes_verified": false
+        },
+        {
+          "filename": "librt-0.16.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+          "url": "https://files.pythonhosted.org/packages/a9/59/16c409c56f708eda2db9a0553662845d45e3871c77d70a240dae3f3bdc56/librt-0.16.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+          "sha256": "17bac7f7a16b328fff77e440287693eb017abde913595b5827ebccbc21ecd8a6",
+          "size_bytes": 531689,
+          "upload_time_utc": "2026-09-29T00:53:14.390964Z",
+          "yanked": false,
+          "kind": "wheel",
+          "matrix_cells": [
+            "linux-cp313"
+          ],
+          "downloaded": false,
+          "artifact_bytes_verified": false
+        },
+        {
+          "filename": "librt-0.16.0-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+          "url": "https://files.pythonhosted.org/packages/50/07/79007d2165f649ea93e08c0962d1d62c70af9cde77965255095bf9d96f9a/librt-0.16.0-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+          "sha256": "ca8052401c55d7511dda6760719fda7618067e83535d7d0010096d216c34b667",
+          "size_bytes": 523057,
+          "upload_time_utc": "2026-09-29T00:53:39.301071Z",
+          "yanked": false,
+          "kind": "wheel",
+          "matrix_cells": [
+            "linux-cp314"
+          ],
+          "downloaded": false,
+          "artifact_bytes_verified": false
+        }
+      ]
+    },
+    {
+      "name": "tomlkit",
+      "version": "0.15.1",
+      "role": "transitive-dev",
+      "build_dependency": true,
+      "requires_python": ">=3.9",
+      "license_declared": "MIT",
+      "license_source": "https://pypi.org/project/tomlkit/0.15.1/",
+      "license_files_declared": [
+        "LICENSE"
+      ],
+      "bundled_notices_verified": false,
+      "requires_dist": [],
+      "extras_requested": [],
+      "metadata_url": "https://pypi.org/pypi/tomlkit/0.15.1/json",
+      "metadata_sha256": "1fbf5e091a2fa4aec078b995db1ba7dc341fd28746895eb9b910442b1558c0cb",
+      "pypi_reported_vulnerabilities": [],
+      "matrix_cells": [
+        "windows-cp312",
+        "windows-cp313",
+        "windows-cp314",
+        "linux-cp312",
+        "linux-cp313",
+        "linux-cp314"
+      ],
+      "artifacts": [
+        {
+          "filename": "tomlkit-0.15.1-py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/13/bc/8c13eb66537dce1d2bd3a57132902f38d0e7f5bb46fa9f4daed9fe9d76ee/tomlkit-0.15.1-py3-none-any.whl",
+          "sha256": "177a05aece5a8ca5266fd3c448abb47b8d352f09d477d3ca8332db4d89b24304",
+          "size_bytes": 49449,
+          "upload_time_utc": "2026-07-17T01:48:05.728578Z",
+          "yanked": false,
+          "kind": "wheel",
+          "matrix_cells": [
+            "windows-cp312",
+            "windows-cp313",
+            "windows-cp314",
+            "linux-cp312",
+            "linux-cp313",
+            "linux-cp314"
+          ],
+          "downloaded": false,
+          "artifact_bytes_verified": false
+        }
+      ]
+    },
+    {
+      "name": "ast-serialize",
+      "version": "0.12.1",
+      "role": "transitive-dev",
+      "build_dependency": false,
+      "requires_python": ">=3.7",
+      "license_declared": "MIT",
+      "license_source": "https://pypi.org/project/ast-serialize/0.12.1/",
+      "license_files_declared": [
+        "LICENSE",
+        "crates/LICENSE"
+      ],
+      "bundled_notices_verified": false,
+      "requires_dist": [],
+      "extras_requested": [],
+      "metadata_url": "https://pypi.org/pypi/ast-serialize/0.12.1/json",
+      "metadata_sha256": "6f30a3815a4fe248b6e311e7872fba98c2c05bc1cd33ec27e3af46998d6e4d41",
+      "pypi_reported_vulnerabilities": [],
+      "matrix_cells": [
+        "windows-cp312",
+        "windows-cp313",
+        "windows-cp314",
+        "linux-cp312",
+        "linux-cp313",
+        "linux-cp314"
+      ],
+      "artifacts": [
+        {
+          "filename": "ast_serialize-0.12.1-cp39-abi3-win_amd64.whl",
+          "url": "https://files.pythonhosted.org/packages/86/14/5d4fb733c18a1d69e237c067b183842f3a7ea1c999a51ddc87093a281c88/ast_serialize-0.12.1-cp39-abi3-win_amd64.whl",
+          "sha256": "3d6ed63d4fc1ec867b8cb522d58c36df0e8f05e487bea0ffd102043a37636d72",
+          "size_bytes": 1165798,
+          "upload_time_utc": "2026-10-03T12:24:57.052442Z",
+          "yanked": false,
+          "kind": "wheel",
+          "matrix_cells": [
+            "windows-cp312",
+            "windows-cp313",
+            "windows-cp314"
+          ],
+          "downloaded": false,
+          "artifact_bytes_verified": false
+        },
+        {
+          "filename": "ast_serialize-0.12.1-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "url": "https://files.pythonhosted.org/packages/c0/60/58961e7fd129e226ce36788fe328d20034f3105f5d3380df690050517737/ast_serialize-0.12.1-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "sha256": "50a9eaedf1db4857dad7cc47dd757ed70bfcc40b89d44d516c4a2f0d5033bd76",
+          "size_bytes": 1311809,
+          "upload_time_utc": "2026-10-03T12:24:39.306087Z",
+          "yanked": false,
+          "kind": "wheel",
+          "matrix_cells": [
+            "linux-cp312",
+            "linux-cp313",
+            "linux-cp314"
+          ],
+          "downloaded": false,
+          "artifact_bytes_verified": false
+        }
+      ]
+    }
+  ],
+  "runtimes": [
+    {
+      "runtime": "CPython",
+      "version": "3.12.15",
+      "matrix_cell": "windows-cp312",
+      "arch": "x86_64",
+      "variant": "standard-gil",
+      "build": "20261009",
+      "publisher": "astral-sh/python-build-standalone",
+      "filename": "cpython-3.12.15+20261009-x86_64-pc-windows-msvc-install_only_stripped.tar.gz",
+      "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261009/cpython-3.12.15%2B20261009-x86_64-pc-windows-msvc-install_only_stripped.tar.gz",
+      "sha256": "11ed9f8a6ac64fb1b5a55e40e305a6744a3f77a70863c8f8197a6e4349abc64a",
+      "release_asset_digest": "sha256:11ed9f8a6ac64fb1b5a55e40e305a6744a3f77a70863c8f8197a6e4349abc64a",
+      "size_bytes": 22011208,
+      "metadata_url": "https://raw.githubusercontent.com/astral-sh/uv/4ecd0eff2a81e3ffdcd7cfee10d08936e4747c17/crates/uv-python-managed/download-metadata.json",
+      "metadata_sha256": "c68324c2a24a77ef0fa667b6bb6ba8312b90cc6ea0016424c1729574ea86a03d",
+      "release_metadata_url": "https://api.github.com/repos/astral-sh/python-build-standalone/releases/tags/20261009",
+      "release_metadata_sha256": "716bd16dc4ea2d7d55fff1845f061d9aca8d3600057da027c95ca505b0a82ff4",
+      "license": "PSF-2.0 plus bundled component licenses; exact artifact notices pending",
+      "downloaded": false,
+      "artifact_bytes_verified": false,
+      "bundled_notices_verified": false
+    },
+    {
+      "runtime": "CPython",
+      "version": "3.12.15",
+      "matrix_cell": "linux-cp312",
+      "arch": "x86_64",
+      "variant": "standard-gil",
+      "build": "20261009",
+      "publisher": "astral-sh/python-build-standalone",
+      "filename": "cpython-3.12.15+20261009-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz",
+      "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261009/cpython-3.12.15%2B20261009-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz",
+      "sha256": "ffa8f85f1b56e88b687f08d743d817015524b86a9365fd921243132b80f1a36d",
+      "release_asset_digest": "sha256:ffa8f85f1b56e88b687f08d743d817015524b86a9365fd921243132b80f1a36d",
+      "size_bytes": 34304557,
+      "metadata_url": "https://raw.githubusercontent.com/astral-sh/uv/4ecd0eff2a81e3ffdcd7cfee10d08936e4747c17/crates/uv-python-managed/download-metadata.json",
+      "metadata_sha256": "c68324c2a24a77ef0fa667b6bb6ba8312b90cc6ea0016424c1729574ea86a03d",
+      "release_metadata_url": "https://api.github.com/repos/astral-sh/python-build-standalone/releases/tags/20261009",
+      "release_metadata_sha256": "716bd16dc4ea2d7d55fff1845f061d9aca8d3600057da027c95ca505b0a82ff4",
+      "license": "PSF-2.0 plus bundled component licenses; exact artifact notices pending",
+      "downloaded": false,
+      "artifact_bytes_verified": false,
+      "bundled_notices_verified": false
+    },
+    {
+      "runtime": "CPython",
+      "version": "3.13.16",
+      "matrix_cell": "windows-cp313",
+      "arch": "x86_64",
+      "variant": "standard-gil",
+      "build": "20261009",
+      "publisher": "astral-sh/python-build-standalone",
+      "filename": "cpython-3.13.16+20261009-x86_64-pc-windows-msvc-install_only_stripped.tar.gz",
+      "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261009/cpython-3.13.16%2B20261009-x86_64-pc-windows-msvc-install_only_stripped.tar.gz",
+      "sha256": "3a7adfb69e3ff02a41ed38ac637808532b438ab3c8619af46ca5dbec5c1f5190",
+      "release_asset_digest": "sha256:3a7adfb69e3ff02a41ed38ac637808532b438ab3c8619af46ca5dbec5c1f5190",
+      "size_bytes": 21969508,
+      "metadata_url": "https://raw.githubusercontent.com/astral-sh/uv/4ecd0eff2a81e3ffdcd7cfee10d08936e4747c17/crates/uv-python-managed/download-metadata.json",
+      "metadata_sha256": "c68324c2a24a77ef0fa667b6bb6ba8312b90cc6ea0016424c1729574ea86a03d",
+      "release_metadata_url": "https://api.github.com/repos/astral-sh/python-build-standalone/releases/tags/20261009",
+      "release_metadata_sha256": "716bd16dc4ea2d7d55fff1845f061d9aca8d3600057da027c95ca505b0a82ff4",
+      "license": "PSF-2.0 plus bundled component licenses; exact artifact notices pending",
+      "downloaded": false,
+      "artifact_bytes_verified": false,
+      "bundled_notices_verified": false
+    },
+    {
+      "runtime": "CPython",
+      "version": "3.13.16",
+      "matrix_cell": "linux-cp313",
+      "arch": "x86_64",
+      "variant": "standard-gil",
+      "build": "20261009",
+      "publisher": "astral-sh/python-build-standalone",
+      "filename": "cpython-3.13.16+20261009-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz",
+      "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261009/cpython-3.13.16%2B20261009-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz",
+      "sha256": "24801ea31c7d406d559a17e2226325c723d50c56900b9c0da7b62adaae2affc9",
+      "release_asset_digest": "sha256:24801ea31c7d406d559a17e2226325c723d50c56900b9c0da7b62adaae2affc9",
+      "size_bytes": 35082735,
+      "metadata_url": "https://raw.githubusercontent.com/astral-sh/uv/4ecd0eff2a81e3ffdcd7cfee10d08936e4747c17/crates/uv-python-managed/download-metadata.json",
+      "metadata_sha256": "c68324c2a24a77ef0fa667b6bb6ba8312b90cc6ea0016424c1729574ea86a03d",
+      "release_metadata_url": "https://api.github.com/repos/astral-sh/python-build-standalone/releases/tags/20261009",
+      "release_metadata_sha256": "716bd16dc4ea2d7d55fff1845f061d9aca8d3600057da027c95ca505b0a82ff4",
+      "license": "PSF-2.0 plus bundled component licenses; exact artifact notices pending",
+      "downloaded": false,
+      "artifact_bytes_verified": false,
+      "bundled_notices_verified": false
+    },
+    {
+      "runtime": "CPython",
+      "version": "3.14.8",
+      "matrix_cell": "windows-cp314",
+      "arch": "x86_64",
+      "variant": "standard-gil",
+      "build": "20261009",
+      "publisher": "astral-sh/python-build-standalone",
+      "filename": "cpython-3.14.8+20261009-x86_64-pc-windows-msvc-install_only_stripped.tar.gz",
+      "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261009/cpython-3.14.8%2B20261009-x86_64-pc-windows-msvc-install_only_stripped.tar.gz",
+      "sha256": "5b6fa7ddeabe23ae83d7b54e5043eb4fa1ccb10a73fa4c6b0f541dea8160d505",
+      "release_asset_digest": "sha256:5b6fa7ddeabe23ae83d7b54e5043eb4fa1ccb10a73fa4c6b0f541dea8160d505",
+      "size_bytes": 23228299,
+      "metadata_url": "https://raw.githubusercontent.com/astral-sh/uv/4ecd0eff2a81e3ffdcd7cfee10d08936e4747c17/crates/uv-python-managed/download-metadata.json",
+      "metadata_sha256": "c68324c2a24a77ef0fa667b6bb6ba8312b90cc6ea0016424c1729574ea86a03d",
+      "release_metadata_url": "https://api.github.com/repos/astral-sh/python-build-standalone/releases/tags/20261009",
+      "release_metadata_sha256": "716bd16dc4ea2d7d55fff1845f061d9aca8d3600057da027c95ca505b0a82ff4",
+      "license": "PSF-2.0 plus bundled component licenses; exact artifact notices pending",
+      "downloaded": false,
+      "artifact_bytes_verified": false,
+      "bundled_notices_verified": false
+    },
+    {
+      "runtime": "CPython",
+      "version": "3.14.8",
+      "matrix_cell": "linux-cp314",
+      "arch": "x86_64",
+      "variant": "standard-gil",
+      "build": "20261009",
+      "publisher": "astral-sh/python-build-standalone",
+      "filename": "cpython-3.14.8+20261009-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz",
+      "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261009/cpython-3.14.8%2B20261009-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz",
+      "sha256": "ddc902fd26460f728758c67d80417c1031edf97589f1f162c4ba3aa158a35998",
+      "release_asset_digest": "sha256:ddc902fd26460f728758c67d80417c1031edf97589f1f162c4ba3aa158a35998",
+      "size_bytes": 36299807,
+      "metadata_url": "https://raw.githubusercontent.com/astral-sh/uv/4ecd0eff2a81e3ffdcd7cfee10d08936e4747c17/crates/uv-python-managed/download-metadata.json",
+      "metadata_sha256": "c68324c2a24a77ef0fa667b6bb6ba8312b90cc6ea0016424c1729574ea86a03d",
+      "release_metadata_url": "https://api.github.com/repos/astral-sh/python-build-standalone/releases/tags/20261009",
+      "release_metadata_sha256": "716bd16dc4ea2d7d55fff1845f061d9aca8d3600057da027c95ca505b0a82ff4",
+      "license": "PSF-2.0 plus bundled component licenses; exact artifact notices pending",
+      "downloaded": false,
+      "artifact_bytes_verified": false,
+      "bundled_notices_verified": false
+    }
+  ],
+  "acquisition_proposal": {
+    "status": "PENDING_OWNER_DECISION",
+    "phase": "QUARANTINE_AND_INSPECT_ONLY",
+    "transfer_limit_bytes": 1073741824,
+    "local_storage_limit_bytes": 2147483648,
+    "time_limit_seconds": 1800,
+    "paid_service_cost_limit": 0,
+    "redirect_hop_limit": 3,
+    "allowed_artifact_hosts": [
+      "files.pythonhosted.org",
+      "github.com"
+    ],
+    "allowed_github_asset_redirect_hosts": [
+      "release-assets.githubusercontent.com",
+      "objects.githubusercontent.com"
+    ],
+    "private_data_transmission": "NONE",
+    "execute_downloaded_code": false,
+    "install_dependencies": false,
+    "change_global_python_or_path": false,
+    "remote_ci": false,
+    "push": false
+  },
+  "resolution_status": "METADATA_CLOSURE_CANDIDATE_NOT_RESOLVED_OR_INSTALLED",
+  "verification": {
+    "wheel_tag_availability": "METADATA_ONLY",
+    "actual_wheel_bytes": "NOT_RUN",
+    "interpreter_execution": "NOT_RUN",
+    "dependency_resolution": "NOT_RUN",
+    "license_notice_inspection": "NOT_RUN",
+    "project_build_install": "NOT_RUN",
+    "six_cell_runtime_matrix": "NOT_RUN",
+    "remote_ci": "NOT_RUN",
+    "broader_advisory_or_bundle_audit": "NOT_RUN"
+  }
+}
