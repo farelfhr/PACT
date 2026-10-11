@@ -1,0 +1,41 @@
+{
+  "template_version": "0.1",
+  "authority": "PROVISIONAL_DOCUMENTATION_ONLY",
+  "profile_status": "PLANNED_UNCONFIGURED",
+  "profile_id": null,
+  "tool_name": null,
+  "tool_version": null,
+  "tool_references": [],
+  "responsible_operator": null,
+  "security_reviewer": null,
+  "stackhawk_entitlement_reference": null,
+  "external_network_requests_enabled": false,
+  "approved_external_target_origins": [],
+  "approved_external_service_destinations": [],
+  "authorized_staging_environment": null,
+  "permitted_external_data_categories": [],
+  "external_retention_policy": null,
+  "external_execution_time_budget_seconds": 0,
+  "external_service_cost_budget": {
+    "maximum": 0,
+    "currency": null,
+    "authorization_reference": null
+  },
+  "local_synthetic_data_scope": "EXISTING_AUTHORIZED_DEVELOPMENT_BOUNDARIES_ONLY",
+  "activation_evidence": {
+    "accepted_protocol_digest": null,
+    "reviewed_corpus_manifest_digest": null,
+    "independent_key_review_reference": null,
+    "held_out_access_control_test_reference": null,
+    "approved_tool_version_license_reference": null,
+    "execution_scope_authorization_reference": null,
+    "network_and_data_flow_review_reference": null,
+    "resource_limit_and_cleanup_test_reference": null
+  },
+  "notes": [
+    "Null fields and empty lists mean NOT ASSIGNED, NOT VERIFIED, NONE or PENDING as described in EVALUATION_REPORT.md.",
+    "Zero budgets are owner-imposed prohibitions on external execution and spending, not measurements of benchmark cost or duration.",
+    "This template is not loaded by a runtime and cannot authenticate approval or authorize requests.",
+    "Do not request unchanged missing fields again until the owner initiates external benchmark setup or supplies new configuration."
+  ]
+}

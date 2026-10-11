@@ -496,7 +496,7 @@ Definition of Done: <measurable evidence>
 Review: <normal or security-sensitive>
 ```
 
-**Status values:** `NOT_STARTED`, `BLOCKED`, `IN_PROGRESS`, `IN_REVIEW`, `DONE`, `DEFERRED`. This document lists **planned** work, not its current completion status. Track actual state in `docs/ROADMAP.md` or issue tracker; do not silently update source-of-truth requirement priority.
+**Status values:** `NOT_STARTED`, `BLOCKED`, `IN_PROGRESS`, `IN_REVIEW`, `DONE`, `DEFERRED`. This document lists **planned** work, not its current completion status. Track actual state in [root `todo.md`](../todo.md), the canonical progress and issue ledger; `docs/ROADMAP.md`, if present, may summarize or link to that ledger. Do not silently update source-of-truth requirement priority.
 
 ### M0 — Architecture, security and repository foundations (P0)
 
@@ -921,7 +921,7 @@ Next task: M1-08 (only if M1-07 is verified)
 
 - Architecture changes require corresponding ADR and, if normative behavior changes, an approved PRD revision.
 - New packages/interfaces must update component maps, trust boundaries, test traceability and runbooks.
-- Keep the roadmap's task state separate from architecture expectations; use links to pull requests/test evidence.
+- Keep actual task state in [root `todo.md`](../todo.md) separate from architecture expectations; any roadmap summary must derive from that ledger and link to actual review/test evidence.
 - Update the diagrams and examples when code is merged; distinguish implemented features from planned ones.
 - Do **not** claim PACT is universally secure, autonomous without approval, or benchmark-superior without direct evidence.
 
