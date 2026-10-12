@@ -11,6 +11,8 @@ import hashlib
 import json
 import os
 from pathlib import Path, PurePosixPath
+import platform
+import posixpath
 import stat
 import subprocess
 import sys
@@ -25,6 +27,7 @@ MANIFEST_HASH = "8fedff4be21abac355b8b9251d55608f75c7e2864bb6e7676c53c00cf32deef
 PYTHONS = ("3.12.15", "3.13.16", "3.14.8")
 UV_RELATIVE = Path(".bootstrap/tools/uv-0.13.0/uv-0.13.0.data/scripts/uv.exe")
 START = time.monotonic()
+LINUX_EXECUTION_AUTHORIZED = False  # Future reviewed execution grant; no CLI bypass.
 
 
 def digest(path: Path) -> str:
@@ -33,7 +36,7 @@ def digest(path: Path) -> str:
     return result.hexdigest()
 
 
-def inside(root: Path, name: str) -> Path:
+def inside(root: Path, name: str, *, windows: bool = True) -> Path:
     """Reject archive traversal and Windows aliases before creating any file."""
     parsed = PurePosixPath(name)
     if parsed.is_absolute() or ".." in parsed.parts or any(c in name for c in "\\:\0"):
@@ -42,7 +45,7 @@ def inside(root: Path, name: str) -> Path:
         raise ValueError("empty bootstrap path")
     for part in parsed.parts:
         stem = part.split(".")[0].upper()
-        if (
+        if windows and (
             part.endswith((".", " "))
             or stem in {"CON", "PRN", "AUX", "NUL"}
             or (len(stem) == 4 and stem[:3] in {"COM", "LPT"} and stem[3] in "123456789")
@@ -109,8 +112,10 @@ def validate_lock(root: Path, data: dict) -> None:
         raise ValueError("build dependency pin/hash closure changed")
 
 
-def write_member(base: Path, name: str, content: bytes) -> None:
-    path = inside(base, name)
+def write_member(base: Path, name: str, content: bytes, *, windows: bool = True) -> None:
+    path = inside(base, name, windows=windows)
+    if path.is_symlink() or any(parent.is_symlink() for parent in path.parents):
+        raise ValueError("prepared path is a symlink")
     if path.exists():
         if path.read_bytes() != content:
             raise ValueError("prepared tool/runtime bytes were modified")
@@ -120,35 +125,142 @@ def write_member(base: Path, name: str, content: bytes) -> None:
         output.write(content)
 
 
-def prepare(root: Path, data: dict, version: str) -> None:
-    """Extract only selected Windows artifacts, retaining all licenses/SBOM."""
+def platform_name(system: str, machine: str) -> str:
+    if (system, machine) == ("win32", "AMD64"):
+        return "windows"
+    if (system, machine) == ("linux", "x86_64"):
+        return "linux"
+    raise ValueError("unsupported bootstrap OS/architecture")
+
+
+def layout(root: Path, version: str, system: str) -> tuple[Path, Path, str]:
+    if version not in PYTHONS or system not in {"windows", "linux"}:
+        raise ValueError("unsupported bootstrap layout")
+    runtime = root / f".bootstrap/runtimes/cpython-{version}-{system}-x64/python"
+    if system == "windows":
+        return root / UV_RELATIVE, runtime / "python.exe", "Scripts"
+    return (
+        root / ".bootstrap/tools/uv-0.13.0/uv-0.13.0.data/scripts/uv",
+        runtime / "bin/python3",
+        "bin",
+    )
+
+
+def runtime_plan(members: list[tarfile.TarInfo], *, windows: bool) -> list[tarfile.TarInfo]:
+    """Validate the whole archive before writes; Linux planning is safe on Windows."""
+    names: dict[str, tarfile.TarInfo] = {}
+    seen: set[str] = set()
+    total = 0
+    if len(members) > 100000:
+        raise ValueError("runtime member count exceeded")
+    for member in members:
+        # Lexical validation is independent of native filesystem case behavior.
+        inside(Path.cwd(), member.name, windows=windows)
+        name = str(PurePosixPath(member.name))
+        if name != "python" and not name.startswith("python/"):
+            raise ValueError("runtime member outside python tree")
+        key = name.casefold() if windows else name
+        if key in seen or not 0 <= member.size <= 128 * 1024**2:
+            raise ValueError("runtime member/type/size constraint")
+        seen.add(key)
+        names[name] = member
+        total += member.size
+        if total > 512 * 1024**2:
+            raise ValueError("runtime expanded-size budget exceeded")
+        if not (member.isfile() or member.isdir() or (not windows and member.issym())):
+            raise ValueError("runtime links/special files forbidden in this profile")
+        if member.mode & 0o7000:
+            raise ValueError("privileged runtime file mode")
+    links = {name: member for name, member in names.items() if member.issym()}
+    for name in names:
+        if any(str(parent) in links for parent in PurePosixPath(name).parents):
+            raise ValueError("archive member traverses symlink parent")
+    for name in links:
+        visited: set[str] = set()
+        current = name
+        while current in links:
+            if current in visited or len(visited) >= 32:
+                raise ValueError("cyclic or excessive runtime symlink chain")
+            visited.add(current)
+            target = links[current].linkname
+            if not target or target.startswith("/") or any(c in target for c in "\\:\0"):
+                raise ValueError("unsafe runtime symlink target")
+            current = posixpath.normpath(posixpath.join(posixpath.dirname(current), target))
+            if current not in names or not current.startswith("python/"):
+                raise ValueError("runtime symlink escapes tree or has missing target")
+            if any(str(parent) in links for parent in PurePosixPath(current).parents):
+                raise ValueError("runtime link traverses another symlink parent")
+    return members
+
+
+def require_case_sensitive(base: Path) -> None:
+    """Linux archives contain case-distinct paths; never extract them on Windows."""
+    if sys.platform != "linux":
+        raise ValueError("Linux extraction requires a Linux filesystem")
+    base.mkdir(parents=True, exist_ok=True)
+    first = base / ".pact-case-probe"
+    second = base / ".PACT-CASE-PROBE"
+    if first.exists() or second.exists():
+        raise ValueError("unexpected case probe file")
+    with first.open("xb"):
+        pass
+    try:
+        if second.exists():
+            raise ValueError("Linux filesystem is not case-sensitive")
+    finally:
+        first.unlink()
+
+
+def extract_runtime(archive: tarfile.TarFile, base: Path, *, windows: bool) -> None:
+    members = runtime_plan(archive.getmembers(), windows=windows)
+    if not windows:
+        require_case_sensitive(base)
+    for member in members:
+        path = inside(base, member.name, windows=windows)
+        if member.isdir():
+            path.mkdir(parents=True, exist_ok=True)
+            continue
+        if member.issym():
+            continue
+        stream = archive.extractfile(member)
+        if stream is None:
+            raise ValueError("missing runtime payload")
+        with stream:
+            write_member(base, member.name, stream.read(), windows=windows)
+        if not windows:
+            path.chmod(member.mode & 0o777)
+    for member in members:
+        if member.issym():
+            path = inside(base, member.name, windows=False)
+            if path.is_symlink():
+                if os.readlink(path) != member.linkname:
+                    raise ValueError("prepared symlink was modified")
+            elif path.exists():
+                raise ValueError("runtime symlink path already occupied")
+            else:
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.symlink_to(member.linkname)
+
+
+def prepare(root: Path, data: dict, version: str, system: str = "windows") -> None:
+    """Extract selected artifacts; Linux execution remains disabled pending grant."""
+    if system not in {"windows", "linux"} or version not in PYTHONS:
+        raise ValueError("unsupported preparation profile")
+    if system == "linux" and not LINUX_EXECUTION_AUTHORIZED:
+        raise ValueError("Linux execution profile is not authorized")
     runtime = next(
         r
         for r in data["runtimes"]
-        if r["version"] == version and r["matrix_cell"].startswith("windows-")
+        if r["version"] == version and r["matrix_cell"].startswith(system + "-")
     )
-    base = root / f".bootstrap/runtimes/cpython-{version}-windows-x64"
+    base = root / f".bootstrap/runtimes/cpython-{version}-{system}-x64"
     if not base.resolve().is_relative_to(root.resolve()):
         raise ValueError("runtime root escapes project")
     with tarfile.open(root / QUARANTINE / runtime["filename"]) as archive:
-        seen: set[str] = set()
-        for member in archive:
-            inside(base, member.name)
-            key = member.name.casefold()
-            if key in seen or len(seen) >= 100000 or member.size > 128 * 1024**2:
-                raise ValueError("runtime member/type/size constraint")
-            seen.add(key)
-            if member.isdir():
-                continue
-            if not member.isfile():
-                raise ValueError("runtime links/special files forbidden in Windows profile")
-            stream = archive.extractfile(member)
-            if stream is None:
-                raise ValueError("missing runtime payload")
-            with stream:
-                write_member(base, member.name, stream.read())
+        extract_runtime(archive, base, windows=system == "windows")
     uv = next(p for p in data["packages"] if p["name"] == "uv")
-    wheel = next(a for a in uv["artifacts"] if "win_amd64" in a["filename"])
+    marker = "win_amd64" if system == "windows" else "manylinux"
+    wheel = next(a for a in uv["artifacts"] if marker in a["filename"])
     base = root / ".bootstrap/tools/uv-0.13.0"
     if not base.resolve().is_relative_to(root.resolve()):
         raise ValueError("tool root escapes project")
@@ -156,7 +268,11 @@ def prepare(root: Path, data: dict, version: str) -> None:
         for member in archive.infolist():
             if stat.S_ISLNK(member.external_attr >> 16):
                 raise ValueError("tool archive symlink forbidden")
-            write_member(base, member.filename, archive.read(member))
+            write_member(base, member.filename, archive.read(member), windows=system == "windows")
+            if system == "linux":
+                inside(base, member.filename, windows=False).chmod(
+                    (member.external_attr >> 16) & 0o777 or 0o644
+                )
 
 
 def environment(root: Path, version: str) -> tuple[dict[str, str], Path]:
@@ -182,6 +298,7 @@ def environment(root: Path, version: str) -> tuple[dict[str, str], Path]:
         PIP_NO_INDEX="1",
         PIP_DISABLE_PIP_VERSION_CHECK="1",
         NO_COLOR="1",
+        LANG="C.UTF-8",
     )
     return values, target
 
@@ -205,19 +322,22 @@ def run(root: Path, args: list[str], env: dict[str, str], label: str) -> None:
     )
     folder = root / ".bootstrap/workspace-checks"
     folder.mkdir(parents=True, exist_ok=True)
-    (folder / (label + ".json")).write_text(
-        json.dumps(
-            {
-                "argv": args,
-                "exit_code": result.returncode,
-                "stdout": result.stdout,
-                "stderr": result.stderr,
-            },
-            indent=2,
+    # Preserve each invocation, including failures; reruns must not erase logs.
+    with (folder / (label + "-" + str(time.time_ns()) + ".json")).open(
+        "x", encoding="utf8"
+    ) as output:
+        output.write(
+            json.dumps(
+                {
+                    "argv": args,
+                    "exit_code": result.returncode,
+                    "stdout": result.stdout,
+                    "stderr": result.stderr,
+                },
+                indent=2,
+            )
+            + "\n"
         )
-        + "\n",
-        encoding="utf8",
-    )
     print(result.stdout, end="")
     print(result.stderr, end="", file=sys.stderr)
     if result.returncode:
@@ -243,18 +363,21 @@ def main() -> int:
     parser.add_argument("action", choices=("prepare", "sync", "check", "build"))
     parser.add_argument("--python", choices=PYTHONS, default="3.14.8")
     args = parser.parse_args()
-    if sys.platform != "win32":
-        parser.error("this approved executable profile is Windows only; Linux remains gated")
+    system = platform_name(sys.platform, platform.machine())
+    if system == "linux":
+        if not LINUX_EXECUTION_AUTHORIZED:
+            parser.error("Linux execution profile is disabled pending remote approval")
+        if platform.libc_ver()[0] != "glibc":
+            parser.error("Linux bootstrap requires glibc")
     data = manifest(ROOT)
     validate_lock(ROOT, data)
-    prepare(ROOT, data, args.python)
+    prepare(ROOT, data, args.python, system)
     if args.action == "prepare":
         return 0
     env, target = environment(ROOT, args.python)
-    uv = str(ROOT / UV_RELATIVE)
-    interpreter = str(
-        ROOT / f".bootstrap/runtimes/cpython-{args.python}-windows-x64/python/python.exe"
-    )
+    uv_path, interpreter_path, scripts = layout(ROOT, args.python, system)
+    uv = str(uv_path)
+    interpreter = str(interpreter_path)
     common = [
         "--offline",
         "--no-index",
@@ -300,7 +423,7 @@ def main() -> int:
             "build-" + args.python,
         )
     else:
-        python = str(target / "Scripts/python.exe")
+        python = str(target / scripts / ("python.exe" if system == "windows" else "python"))
         run(ROOT, [python, "-I", "-B", str(ROOT / "tools/smoke.py")], env, "smoke-" + args.python)
         run(ROOT, [python, "-I", "-B", "-m", "pytest", "-q"], env, "pytest-" + args.python)
         run(
@@ -309,10 +432,11 @@ def main() -> int:
             env,
             "mypy-" + args.python,
         )
-        run(ROOT, [str(target / "Scripts/ruff.exe"), "check", "."], env, "ruff-" + args.python)
+        ruff = str(target / scripts / ("ruff.exe" if system == "windows" else "ruff"))
+        run(ROOT, [ruff, "check", "."], env, "ruff-" + args.python)
         run(
             ROOT,
-            [str(target / "Scripts/ruff.exe"), "format", "--check", "tools", "tests"],
+            [ruff, "format", "--check", "tools", "tests"],
             env,
             "format-" + args.python,
         )

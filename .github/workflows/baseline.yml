@@ -1,9 +1,10 @@
-name: PACT baseline skeleton (disabled)
+name: PACT six-cell baseline proposal (disabled)
 
 # This file has not run remotely. Source/artifact upload, runner images/actions
 # and the supported six-cell execution profile require a separate owner review.
 on:
-  workflow_dispatch:
+  push:
+    branches: [codex/m0-07-ci]
 
 permissions:
   contents: read
@@ -11,8 +12,10 @@ permissions:
 jobs:
   baseline:
     if: ${{ false }}
+    timeout-minutes: 20
     strategy:
       fail-fast: false
+      max-parallel: 1
       matrix:
         os: [windows-2025, ubuntu-24.04]
         python: ['3.12.15', '3.13.16', '3.14.8']
@@ -22,11 +25,29 @@ jobs:
         # Deliberate failure if the disabled gate is removed without a concrete
         # reviewed bootstrap. No checkout/setup action is implicitly accepted.
         run: exit 1
-      - name: Locked Windows installation
-        if: runner.os == 'Windows'
+      - name: Exact source checkout candidate
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 1
+          fetch-tags: false
+          persist-credentials: false
+          submodules: false
+          lfs: false
+          set-safe-directory: false
+          allow-unsafe-pr-checkout: false
+      - name: Independent remote grant preflight (disabled)
+        shell: pwsh
+        run: python tools/ci.py preflight
+      - name: Artifact acquisition adapter (not live)
+        shell: pwsh
+        run: python tools/ci.py acquire
+      - name: Locked offline installation for selected OS
         shell: pwsh
         run: python tools/workspace.py sync --python ${{ matrix.python }}
       - name: Installed import and quality checks
-        if: runner.os == 'Windows'
         shell: pwsh
         run: python tools/workspace.py check --python ${{ matrix.python }}
+      - name: Private wheel and source build
+        shell: pwsh
+        run: python tools/workspace.py build --python ${{ matrix.python }}
