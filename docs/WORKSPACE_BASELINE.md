@@ -9,7 +9,7 @@ BOOTSTRAP_RECOVERY §5 at commit a17d2cf, EV-0070 digest
 76109C4FDD638EBFA39CB8EDCEABADB49F2F51DA765882B6F54189DA5CD18A49.
 This permits exact reviewed Windows tool/runtime execution and project-local
 installation, 2 GiB additional storage, a bounded 60-minute serial run, zero
-paid cost and no network/acquisition/upload/services/global/admin/target/provider
+paid cost and no network/acquisition/upload/services/global/admin/target/provider 
 or remote CI/push. The review packet and all foundation/ADR bytes remain unchanged.
 
 ## Implemented scope
