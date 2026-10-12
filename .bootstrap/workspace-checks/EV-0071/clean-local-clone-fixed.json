@@ -1,0 +1,19 @@
+{
+  "label": "clean-local-clone-fixed",
+  "argv": [
+    "git",
+    "-c",
+    "protocol.file.allow=always",
+    "-c",
+    "core.hooksPath=D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0071\\empty-git-hooks",
+    "clone",
+    "--no-hardlinks",
+    "D:\\Dev\\PACT\\.git",
+    "D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0071\\clean-git-checkout-verified"
+  ],
+  "cwd": "D:\\Dev\\PACT",
+  "exit_code": 0,
+  "seconds": 0.441,
+  "stdout": "",
+  "stderr": "Cloning into 'D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0071\\clean-git-checkout-verified'...\ndone.\n"
+}

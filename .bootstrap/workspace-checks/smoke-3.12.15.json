@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "D:\\Dev\\PACT\\.venv-cp312\\Scripts\\python.exe",
+    "-I",
+    "-B",
+    "D:\\Dev\\PACT\\tools\\smoke.py"
+  ],
+  "exit_code": 0,
+  "stdout": "installed pact-core smoke: schema resources match; approval remains unavailable\n",
+  "stderr": ""
+}

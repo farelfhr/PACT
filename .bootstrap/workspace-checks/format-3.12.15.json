@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "D:\\Dev\\PACT\\.venv-cp312\\Scripts\\ruff.exe",
+    "format",
+    "--check",
+    "tools",
+    "tests"
+  ],
+  "exit_code": 0,
+  "stdout": "3 files already formatted\n",
+  "stderr": ""
+}

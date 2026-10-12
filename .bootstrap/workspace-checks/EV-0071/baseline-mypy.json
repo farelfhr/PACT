@@ -1,0 +1,18 @@
+{
+  "label": "baseline-mypy",
+  "argv": [
+    "D:\\Dev\\PACT\\.venv\\Scripts\\python.exe",
+    "-I",
+    "-B",
+    "-m",
+    "mypy",
+    "--config-file",
+    "pyproject.toml"
+  ],
+  "exit_code": 1,
+  "seconds": 0.075,
+  "stdout": "",
+  "stderr": "D:\\Dev\\PACT\\.venv\\Scripts\\python.exe: No module named mypy\n",
+  "offline_flags": true,
+  "source_upload": false
+}

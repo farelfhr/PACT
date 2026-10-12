@@ -1,0 +1,98 @@
+{
+  "source_commit": "fbe63f6086b7a9bd150defd3da5c129f64e9b8bd",
+  "local_git_clone": true,
+  "fresh_environment_install": true,
+  "installed_smoke_and_91_tests": true,
+  "quality_pass": true,
+  "stale_lock_nonzero": true,
+  "missing_lock_nonzero": true,
+  "clone_tracked_clean": true,
+  "original_lock_unchanged": true,
+  "additional_storage_bytes": 1521897230,
+  "remote_network_or_CI": false,
+  "commands": [
+    {
+      "label": "clean-local-clone-fixed",
+      "argv": [
+        "git",
+        "-c",
+        "protocol.file.allow=always",
+        "-c",
+        "core.hooksPath=D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0071\\empty-git-hooks",
+        "clone",
+        "--no-hardlinks",
+        "D:\\Dev\\PACT\\.git",
+        "D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0071\\clean-git-checkout-verified"
+      ],
+      "cwd": "D:\\Dev\\PACT",
+      "exit_code": 0,
+      "seconds": 0.441
+    },
+    {
+      "label": "clean-sync-314-fixed",
+      "argv": [
+        "D:\\Dev\\PACT\\.bootstrap\\runtimes\\cpython-3.14.8-windows-x64\\python\\python.exe",
+        "-I",
+        "-B",
+        "tools/workspace.py",
+        "sync",
+        "--python",
+        "3.14.8"
+      ],
+      "cwd": "D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0071\\clean-git-checkout-verified",
+      "exit_code": 0,
+      "seconds": 19.267
+    },
+    {
+      "label": "clean-check-314-fixed",
+      "argv": [
+        "D:\\Dev\\PACT\\.bootstrap\\runtimes\\cpython-3.14.8-windows-x64\\python\\python.exe",
+        "-I",
+        "-B",
+        "tools/workspace.py",
+        "check",
+        "--python",
+        "3.14.8"
+      ],
+      "cwd": "D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0071\\clean-git-checkout-verified",
+      "exit_code": 0,
+      "seconds": 40.397
+    },
+    {
+      "label": "stale-lock-rejected",
+      "argv": [
+        "D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0071\\clean-git-checkout-verified\\.bootstrap\\tools\\uv-0.13.0\\uv-0.13.0.data\\scripts\\uv.exe",
+        "lock",
+        "--check",
+        "--offline",
+        "--no-index",
+        "--find-links",
+        ".bootstrap/quarantine/EV-0068-d6e690c",
+        "--python",
+        "D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0071\\clean-git-checkout-verified\\.bootstrap\\runtimes\\cpython-3.14.8-windows-x64\\python\\python.exe",
+        "--no-python-downloads"
+      ],
+      "cwd": "D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0071\\clean-git-checkout-verified",
+      "exit_code": 1,
+      "seconds": 0.353
+    },
+    {
+      "label": "missing-lock-rejected",
+      "argv": [
+        "D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0071\\clean-git-checkout-verified\\.bootstrap\\tools\\uv-0.13.0\\uv-0.13.0.data\\scripts\\uv.exe",
+        "lock",
+        "--check",
+        "--offline",
+        "--no-index",
+        "--find-links",
+        ".bootstrap/quarantine/EV-0068-d6e690c",
+        "--python",
+        "D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0071\\clean-git-checkout-verified\\.bootstrap\\runtimes\\cpython-3.14.8-windows-x64\\python\\python.exe",
+        "--no-python-downloads"
+      ],
+      "cwd": "D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0071\\clean-git-checkout-verified",
+      "exit_code": 1,
+      "seconds": 0.034
+    }
+  ]
+}

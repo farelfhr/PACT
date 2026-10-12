@@ -1,0 +1,13 @@
+{
+  "label": "uv-version",
+  "argv": [
+    "D:\\Dev\\PACT\\.bootstrap\\tools\\uv-0.13.0\\uv-0.13.0.data\\scripts\\uv.exe",
+    "--version"
+  ],
+  "exit_code": 0,
+  "seconds": 2.034,
+  "stdout": "uv 0.13.0 (4ecd0eff2 2026-10-09 x86_64-pc-windows-msvc)\n",
+  "stderr": "",
+  "offline_flags": true,
+  "source_upload": false
+}

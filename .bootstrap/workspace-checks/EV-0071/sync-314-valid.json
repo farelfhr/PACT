@@ -1,0 +1,27 @@
+{
+  "label": "sync-314-valid",
+  "argv": [
+    "D:\\Dev\\PACT\\.bootstrap\\tools\\uv-0.13.0\\uv-0.13.0.data\\scripts\\uv.exe",
+    "sync",
+    "--locked",
+    "--offline",
+    "--no-index",
+    "--find-links",
+    ".bootstrap/quarantine/EV-0068-d6e690c",
+    "--python",
+    ".bootstrap/runtimes/cpython-3.14.8-windows-x64/python/python.exe",
+    "--no-python-downloads",
+    "--all-packages",
+    "--group",
+    "dev",
+    "--require-build-hashes",
+    "--no-build-package",
+    "hatchling"
+  ],
+  "exit_code": 1,
+  "seconds": 8.263,
+  "stdout": "",
+  "stderr": "warning: The `--require-build-hashes` option is experimental and may change without warning. Pass `--preview-features build-dependency-hashes` to disable this warning.\nUsing CPython 3.14.8 interpreter at: .bootstrap\\runtimes\\cpython-3.14.8-windows-x64\\python\\python.exe\nCreating virtual environment at: .venv\nResolved 18 packages in 2ms\n   Building pact-core @ file:///D:/Dev/PACT/packages/pact-core\nerror: Failed to build `pact-core @ file:///D:/Dev/PACT/packages/pact-core`\n  cause: Failed to resolve requirements from `build-system.requires`\n  cause: No solution found when resolving: `hatchling==1.32.4`, `editables~=0.3`\n  cause: Because editables was not found in the provided package locations and you require editables>=0.3,<1.dev0, we can conclude that your requirements are unsatisfiable.\n",
+  "offline_flags": true,
+  "source_upload": false
+}

@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "canonicalization": "pact-json-1",
+  "contract_id": "orders.read",
+  "project_ref": "synthetic-marketplace",
+  "version": 1,
+  "source_refs": [
+    "REQ-ORDER-007"
+  ],
+  "roles": [
+    "seller",
+    "viewer"
+  ],
+  "resource_types": [
+    "order",
+    "document"
+  ],
+  "actions": [
+    "read"
+  ],
+  "combining": "reject_conflicts",
+  "on_unmatched": "NEEDS_REVIEW",
+  "rules": [
+    {
+      "rule_id": "own-tenant-allow",
+      "actor": {
+        "role": "seller"
+      },
+      "resource": {
+        "type": "order"
+      },
+      "action": "read",
+      "when": [
+        {
+          "relation": "same_tenant",
+          "subject": "actor.tenant",
+          "object": "resource.tenant"
+        },
+        {
+          "relation": "member_of",
+          "subject": "actor",
+          "object": "resource.tenant"
+        }
+      ],
+      "expect": "ALLOW",
+      "assertion_profile": "object-read-allow-v1"
+    },
+    {
+      "rule_id": "other-tenant-deny",
+      "actor": {
+        "role": "seller"
+      },
+      "resource": {
+        "type": "order"
+      },
+      "action": "read",
+      "when": [
+        {
+          "relation": "different_tenant",
+          "subject": "actor.tenant",
+          "object": "resource.tenant"
+        }
+      ],
+      "expect": "DENY",
+      "assertion_profile": "object-read-deny-403-404-v1"
+    }
+  ]
+}

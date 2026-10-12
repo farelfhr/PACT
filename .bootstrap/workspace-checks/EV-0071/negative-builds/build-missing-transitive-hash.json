@@ -1,0 +1,26 @@
+{
+  "label": "build-missing-transitive-hash",
+  "argv": [
+    "D:\\Dev\\PACT\\.bootstrap\\tools\\uv-0.13.0\\uv-0.13.0.data\\scripts\\uv.exe",
+    "build",
+    "D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0071\\negative-builds\\package",
+    "--offline",
+    "--no-index",
+    "--find-links",
+    "D:\\Dev\\PACT\\.bootstrap\\quarantine\\EV-0068-d6e690c",
+    "--no-python-downloads",
+    "--python",
+    "D:\\Dev\\PACT\\.bootstrap\\runtimes\\cpython-3.14.8-windows-x64\\python\\python.exe",
+    "--no-cache",
+    "--require-build-hashes",
+    "--build-constraints",
+    "D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0071\\negative-builds\\build-missing-transitive-hash.txt",
+    "--out-dir",
+    "D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0071\\negative-builds\\build-missing-transitive-hash"
+  ],
+  "exit_code": 2,
+  "seconds": 0.421,
+  "stdout": "",
+  "stderr": "warning: The `--require-build-hashes` option is experimental and may change without warning. Pass `--preview-features build-dependency-hashes` to disable this warning.\nBuilding source distribution...\nerror: Failed to build `D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0071\\negative-builds\\package`\n  cause: Failed to resolve requirements from `build-system.requires`\n  cause: No solution found when resolving: `hatchling==1.32.4`\n  cause: In `--require-hashes` mode, all requirements must be pinned upfront with `==`, but found: `pathspec`\n",
+  "expected_success": false
+}

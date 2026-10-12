@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "D:\\Dev\\PACT\\.bootstrap\\tools\\uv-0.13.0\\uv-0.13.0.data\\scripts\\uv.exe",
+    "lock",
+    "--check",
+    "--offline",
+    "--no-index",
+    "--find-links",
+    ".bootstrap/quarantine/EV-0068-d6e690c",
+    "--no-python-downloads",
+    "--python",
+    "D:\\Dev\\PACT\\.bootstrap\\runtimes\\cpython-3.13.16-windows-x64\\python\\python.exe"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "Using CPython 3.13.16 interpreter at: .bootstrap\\runtimes\\cpython-3.13.16-windows-x64\\python\\python.exe\nResolved 18 packages in 2ms\n"
+}

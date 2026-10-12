@@ -1,0 +1,17 @@
+{
+  "label": "clean-sync-314-fixed",
+  "argv": [
+    "D:\\Dev\\PACT\\.bootstrap\\runtimes\\cpython-3.14.8-windows-x64\\python\\python.exe",
+    "-I",
+    "-B",
+    "tools/workspace.py",
+    "sync",
+    "--python",
+    "3.14.8"
+  ],
+  "cwd": "D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0071\\clean-git-checkout-verified",
+  "exit_code": 0,
+  "seconds": 19.267,
+  "stdout": "",
+  "stderr": "Using CPython 3.14.8 interpreter at: .bootstrap\\runtimes\\cpython-3.14.8-windows-x64\\python\\python.exe\nResolved 18 packages in 1ms\nwarning: The `--require-build-hashes` option is experimental and may change without warning. Pass `--preview-features build-dependency-hashes` to disable this warning.\nUsing CPython 3.14.8 interpreter at: .bootstrap\\runtimes\\cpython-3.14.8-windows-x64\\python\\python.exe\nCreating virtual environment at: .venv\nResolved 18 packages in 2ms\n   Building pact-core @ file:///D:/Dev/PACT/.bootstrap/workspace-checks/EV-0071/clean-git-checkout-verified/packages/pact-core\n      Built pact-core @ file:///D:/Dev/PACT/.bootstrap/workspace-checks/EV-0071/clean-git-checkout-verified/packages/pact-core\nPrepared 17 packages in 6.64s\nInstalled 17 packages in 817ms\n + ast-serialize==0.12.1\n + colorama==0.4.6\n + hatchling==1.32.4\n + iniconfig==2.3.1\n + librt==0.16.0\n + mypy==2.4.0\n + mypy-extensions==1.1.0\n + packaging==26.3\n + pact-core==0.0.0 (from file:///D:/Dev/PACT/.bootstrap/workspace-checks/EV-0071/clean-git-checkout-verified/packages/pact-core)\n + pathspec==1.1.1\n + pluggy==1.6.0\n + pygments==2.21.0\n + pytest==9.1.1\n + ruff==0.16.8\n + tomlkit==0.15.1\n + trove-classifiers==2026.9.21.13\n + typing-extensions==4.16.0\n"
+}

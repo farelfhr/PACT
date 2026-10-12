@@ -1,0 +1,18 @@
+{
+  "label": "workflow-sync-314",
+  "argv": [
+    "D:\\Dev\\PACT\\.bootstrap\\runtimes\\cpython-3.14.8-windows-x64\\python\\python.exe",
+    "-I",
+    "-B",
+    "tools/workspace.py",
+    "sync",
+    "--python",
+    "3.14.8"
+  ],
+  "exit_code": 1,
+  "seconds": 36.819,
+  "stdout": "",
+  "stderr": "Resolved 18 packages in 35ms\nerror: The lockfile at `uv.lock` needs to be updated, but `--check` was provided.\n\nhint: To update the lockfile, run `uv lock`.\nworkspace command failed: lock-check-3.14.8 (exit 1)\n",
+  "offline_flags": true,
+  "source_upload": false
+}

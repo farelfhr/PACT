@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "C:/Program Files/Python314/python.exe",
+    "-I",
+    "-B",
+    "tools/workspace.py",
+    "sync",
+    "--python",
+    "3.14.8"
+  ],
+  "exit_code": 0,
+  "seconds": 41.422,
+  "elapsed_window": 391.984,
+  "stdout": "",
+  "stderr": "Resolved 18 packages in 1ms\nwarning: The `--require-build-hashes` option is experimental and may change without warning. Pass `--preview-features build-dependency-hashes` to disable this warning.\nResolved 18 packages in 2ms\n   Building pact-core @ file:///D:/Dev/PACT/packages/pact-core\n      Built pact-core @ file:///D:/Dev/PACT/packages/pact-core\nPrepared 1 package in 1.75s\nUninstalled 1 package in 16ms\nInstalled 1 package in 10ms\n ~ pact-core==0.0.0 (from file:///D:/Dev/PACT/packages/pact-core)\n",
+  "additional_storage_bytes": 144343,
+  "network_grant": false
+}

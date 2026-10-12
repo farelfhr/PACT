@@ -1,0 +1,17 @@
+{
+  "label": "clean-sync-314",
+  "argv": [
+    "D:\\Dev\\PACT\\.bootstrap\\runtimes\\cpython-3.14.8-windows-x64\\python\\python.exe",
+    "-I",
+    "-B",
+    "tools/workspace.py",
+    "sync",
+    "--python",
+    "3.14.8"
+  ],
+  "cwd": "D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0071\\clean-git-checkout",
+  "exit_code": 1,
+  "seconds": 0.437,
+  "stdout": "",
+  "stderr": "reviewed bootstrap manifest digest changed\n"
+}

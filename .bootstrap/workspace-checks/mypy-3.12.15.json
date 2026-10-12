@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "D:\\Dev\\PACT\\.venv-cp312\\Scripts\\python.exe",
+    "-I",
+    "-B",
+    "-m",
+    "mypy",
+    "--config-file",
+    "pyproject.toml"
+  ],
+  "exit_code": 0,
+  "stdout": "Success: no issues found in 17 source files\n",
+  "stderr": ""
+}

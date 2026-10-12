@@ -1,0 +1,18 @@
+{
+  "label": "updated-mypy",
+  "argv": [
+    "D:\\Dev\\PACT\\.venv\\Scripts\\python.exe",
+    "-I",
+    "-B",
+    "-m",
+    "mypy",
+    "--config-file",
+    "pyproject.toml"
+  ],
+  "exit_code": 0,
+  "seconds": 1.027,
+  "stdout": "Success: no issues found in 17 source files\n",
+  "stderr": "",
+  "offline_flags": true,
+  "source_upload": false
+}

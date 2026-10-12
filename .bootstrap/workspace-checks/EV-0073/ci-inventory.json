@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "C:/Program Files/Python314/python.exe",
+    "-I",
+    "-B",
+    "tools/ci.py",
+    "inventory"
+  ],
+  "exit_code": 0,
+  "seconds": 0.13,
+  "elapsed_window": 1066.856,
+  "stdout": "{\"artifact_bytes_per_cell\": 314881608, \"artifact_count\": 36, \"checkout\": \"d23441a48e516b6c34aea4fa41551a30e30af803\", \"live_client\": \"NOT_IMPLEMENTED\", \"matrix_cells\": 6, \"status\": \"DISABLED_NOT_RUN\"}\n",
+  "stderr": "",
+  "additional_storage_bytes": 155069,
+  "network_grant": false
+}

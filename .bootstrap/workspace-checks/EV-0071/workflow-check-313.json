@@ -1,0 +1,18 @@
+{
+  "label": "workflow-check-313",
+  "argv": [
+    "D:\\Dev\\PACT\\.bootstrap\\runtimes\\cpython-3.13.16-windows-x64\\python\\python.exe",
+    "-I",
+    "-B",
+    "tools/workspace.py",
+    "check",
+    "--python",
+    "3.13.16"
+  ],
+  "exit_code": 0,
+  "seconds": 11.978,
+  "stdout": "installed pact-core smoke: schema resources match; approval remains unavailable\n.............................................................................. [ 85%]\n.............                                                            [100%]\n91 passed, 2730 subtests passed in 4.73s\nSuccess: no issues found in 17 source files\nAll checks passed!\n3 files already formatted\n",
+  "stderr": "",
+  "offline_flags": true,
+  "source_upload": false
+}

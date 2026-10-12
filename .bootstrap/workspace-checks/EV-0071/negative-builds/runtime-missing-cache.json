@@ -1,0 +1,25 @@
+{
+  "label": "runtime-missing-cache",
+  "argv": [
+    "D:\\Dev\\PACT\\.bootstrap\\tools\\uv-0.13.0\\uv-0.13.0.data\\scripts\\uv.exe",
+    "pip",
+    "install",
+    "--offline",
+    "--no-index",
+    "--no-python-downloads",
+    "--no-cache",
+    "--require-hashes",
+    "--no-build",
+    "--python",
+    "D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0071\\negative-builds\\runtime-venv\\Scripts\\python.exe",
+    "-r",
+    "D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0071\\negative-builds\\runtime-requirements.txt",
+    "--find-links",
+    "D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0071\\negative-builds\\empty-wheelhouse"
+  ],
+  "exit_code": 1,
+  "seconds": 0.549,
+  "stdout": "",
+  "stderr": "Using Python 3.14.8 environment at: .bootstrap\\workspace-checks\\EV-0071\\negative-builds\\runtime-venv\nerror: No solution found when resolving dependencies\n  cause: Because pytest was not found in the provided package locations and you require pytest==9.1.1, we can conclude that your requirements are unsatisfiable.\n",
+  "expected_success": false
+}

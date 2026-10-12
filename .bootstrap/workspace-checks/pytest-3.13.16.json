@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "D:\\Dev\\PACT\\.venv-cp313\\Scripts\\python.exe",
+    "-I",
+    "-B",
+    "-m",
+    "pytest",
+    "-q"
+  ],
+  "exit_code": 0,
+  "stdout": ".............................................................................. [ 85%]\n.............                                                            [100%]\n91 passed, 2730 subtests passed in 4.73s\n",
+  "stderr": ""
+}

@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "D:/Dev/PACT/.venv/Scripts/python.exe",
+    "-I",
+    "-B",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/test_ci_preparation.py",
+    "tests/test_workspace.py"
+  ],
+  "exit_code": 0,
+  "seconds": 2.158,
+  "elapsed_window": 296.343,
+  "stdout": "...............................................................          [100%]\n63 passed in 0.75s\n",
+  "stderr": "",
+  "additional_storage_bytes": 2535,
+  "network_grant": false
+}

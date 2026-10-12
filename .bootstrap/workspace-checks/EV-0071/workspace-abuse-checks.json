@@ -1,0 +1,15 @@
+{
+  "label": "workspace-abuse-checks",
+  "argv": [
+    "D:\\Dev\\PACT\\.bootstrap\\runtimes\\cpython-3.14.8-windows-x64\\python\\python.exe",
+    "-I",
+    "-B",
+    "C:\\Users\\user\\AppData\\Local\\Temp\\PACT-bootstrap-20261012\\verify_workspace_abuse.py"
+  ],
+  "exit_code": 1,
+  "seconds": 9.688,
+  "stdout": "build-positive exit 0 expected 0\nbuild-wrong-transitive-hash exit 2 expected nonzero\nbuild-missing-transitive-hash exit 2 expected nonzero\nnegative-runtime-venv exit 0 expected 0\nruntime-wrong-wheel-hash exit 1 expected nonzero\nruntime-missing-cache exit 1 expected nonzero\nsdist-rebuild exit 2 expected 0\n",
+  "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\user\\AppData\\Local\\Temp\\PACT-bootstrap-20261012\\verify_workspace_abuse.py\", line 49, in <module>\n    run('sdist-rebuild',[uv,'build',str(sdist),*common,'--build-constraints',str(root/'build-constraints.txt'),'--out-dir',str(base/'rebuilt')])\n    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\user\\AppData\\Local\\Temp\\PACT-bootstrap-20261012\\verify_workspace_abuse.py\", line 15, in run\n    assert (r.returncode==0)==good,label+': '+r.stderr[:300]\n           ^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: sdist-rebuild: warning: The `--require-build-hashes` option is experimental and may change without warning. Pass `--preview-features build-dependency-hashes` to disable this warning.\nerror: Failed to build `D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0071\\negative-builds\\positive\\pact_core-0.0.0.tar.gz`\n  cause: Pa\n",
+  "offline_flags": true,
+  "source_upload": false
+}

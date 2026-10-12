@@ -1,0 +1,13 @@
+uv/__init__.py,sha256=DLA95X6E43S_PG_aShLgH2Mx0Os_P31OmoGXrS2Mc30,778
+uv/__main__.py,sha256=Apkco79EqrcRs5YPRMA4NfwkzbYdknTg4IwZTdyUSQc,1211
+uv/_find_uv.py,sha256=CLps15bavfKFrHLOaw90f2g18Y3y4LC9ylI35o_qlKE,3139
+uv/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+uv-0.13.0.data/scripts/uv.exe,sha256=K_vlPTzJV5npj6CDI7BIRPwB1PjIfdXAAInkP2VU8WI,33307440
+uv-0.13.0.data/scripts/uvw.exe,sha256=pupllQAJ8lmgjZVBAlQyb5E9v59_lm50PE021pvOnWo,346928
+uv-0.13.0.data/scripts/uvx.exe,sha256=NInWkxyu9JR7M4odkLP0UJFbVuwZDlbBOuM-VdpKzIk,347440
+uv-0.13.0.dist-info/METADATA,sha256=mTGHj18chGACu2dBKBkwtKP6QRJCjpEUG-Q9v5q60MI,11476
+uv-0.13.0.dist-info/WHEEL,sha256=8Aej0W0a6Cz6apA3IzJrTnxLRVLAt-w0Oh8SA3Con_c,94
+uv-0.13.0.dist-info/licenses/LICENSE-APACHE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+uv-0.13.0.dist-info/licenses/LICENSE-MIT,sha256=hg49eoa4TmpwEsemNfxk30dc68bM403-tzpZguxYF2w,1077
+uv-0.13.0.dist-info/sboms/uv.cyclonedx.json,sha256=tY0dRpw1Vv6jzqNbMAYdqQm-pUXzBbO05qKK8nouOK8,806489
+uv-0.13.0.dist-info/RECORD,,

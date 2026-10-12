@@ -1,0 +1,25 @@
+{
+  "argv": [
+    "D:\\Dev\\PACT\\.bootstrap\\tools\\uv-0.13.0\\uv-0.13.0.data\\scripts\\uv.exe",
+    "build",
+    "D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0071\\negative-builds\\positive\\pact_core-0.0.0.tar.gz",
+    "--wheel",
+    "--offline",
+    "--no-index",
+    "--find-links",
+    "D:\\Dev\\PACT\\.bootstrap\\quarantine\\EV-0068-d6e690c",
+    "--no-python-downloads",
+    "--python",
+    "D:\\Dev\\PACT\\.bootstrap\\runtimes\\cpython-3.14.8-windows-x64\\python\\python.exe",
+    "--no-cache",
+    "--require-build-hashes",
+    "--build-constraints",
+    "D:\\Dev\\PACT\\build-constraints.txt",
+    "--out-dir",
+    "D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0071\\negative-builds\\rebuilt"
+  ],
+  "exit_code": 0,
+  "seconds": 2.974,
+  "stdout": "",
+  "stderr": "warning: The `--require-build-hashes` option is experimental and may change without warning. Pass `--preview-features build-dependency-hashes` to disable this warning.\nBuilding wheel from source distribution...\nSuccessfully built .bootstrap\\workspace-checks\\EV-0071\\negative-builds\\rebuilt\\pact_core-0.0.0-py3-none-any.whl\n"
+}

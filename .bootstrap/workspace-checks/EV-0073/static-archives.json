@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "C:/Program Files/Python314/python.exe",
+    "-X",
+    "utf8",
+    "-I",
+    "-B",
+    "C:/Users/user/AppData/Local/Temp/PACT-bootstrap-20261012/inspect_ci_static.py"
+  ],
+  "exit_code": 0,
+  "seconds": 14.58,
+  "elapsed_window": 477.273,
+  "stdout": "[\n  {\n    \"cell\": \"windows-cp312\",\n    \"members\": 3344,\n    \"relative_symlinks\": 0,\n    \"expanded_bytes\": 63231381,\n    \"plan\": \"PASS\",\n    \"runtime\": \"NOT RUN in this static check\"\n  },\n  {\n    \"cell\": \"linux-cp312\",\n    \"members\": 4534,\n    \"relative_symlinks\": 1049,\n    \"expanded_bytes\": 98471265,\n    \"plan\": \"PASS\",\n    \"runtime\": \"NOT RUN in this static check\"\n  },\n  {\n    \"cell\": \"windows-cp313\",\n    \"members\": 3309,\n    \"relative_symlinks\": 0,\n    \"expanded_bytes\": 62598944,\n    \"plan\": \"PASS\",\n    \"runtime\": \"NOT RUN in this static check\"\n  },\n  {\n    \"cell\": \"linux-cp313\",\n    \"members\": 4526,\n    \"relative_symlinks\": 1048,\n    \"expanded_bytes\": 99165255,\n    \"plan\": \"PASS\",\n    \"runtime\": \"NOT RUN in this static check\"\n  },\n  {\n    \"cell\": \"windows-cp314\",\n    \"members\": 2190,\n    \"relative_symlinks\": 0,\n    \"expanded_bytes\": 61641623,\n    \"plan\": \"PASS\",\n    \"runtime\": \"NOT RUN in this static check\"\n  },\n  {\n    \"cell\": \"linux-cp314\",\n    \"members\": 4569,\n    \"relative_symlinks\": 1048,\n    \"expanded_bytes\": 101919307,\n    \"plan\": \"PASS\",\n    \"runtime\": \"NOT RUN in this static check\"\n  },\n  {\n    \"linux_uv\": \"uv-0.13.0-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl\",\n    \"executables\": [\n      {\n        \"path\": \"uv-0.13.0.data/scripts/uv\",\n        \"mode\": \"0o755\"\n      },\n      {\n        \"path\": \"uv-0.13.0.data/scripts/uvx\",\n        \"mode\": \"0o755\"\n      }\n    ],\n    \"runtime\": \"NOT RUN\"\n  }\n]\n",
+  "stderr": "",
+  "additional_storage_bytes": 146606,
+  "network_grant": false
+}

@@ -1,0 +1,17 @@
+{
+  "label": "negative-runtime-venv",
+  "argv": [
+    "D:\\Dev\\PACT\\.bootstrap\\tools\\uv-0.13.0\\uv-0.13.0.data\\scripts\\uv.exe",
+    "venv",
+    "D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0071\\negative-builds\\runtime-venv",
+    "--offline",
+    "--no-python-downloads",
+    "--python",
+    "D:\\Dev\\PACT\\.bootstrap\\runtimes\\cpython-3.14.8-windows-x64\\python\\python.exe"
+  ],
+  "exit_code": 0,
+  "seconds": 0.472,
+  "stdout": "",
+  "stderr": "Using CPython 3.14.8 interpreter at: .bootstrap\\runtimes\\cpython-3.14.8-windows-x64\\python\\python.exe\nCreating virtual environment at: .bootstrap\\workspace-checks\\EV-0071\\negative-builds\\runtime-venv\nActivate with: .bootstrap\\workspace-checks\\EV-0071\\negative-builds\\runtime-venv\\Scripts\\activate\n",
+  "expected_success": true
+}

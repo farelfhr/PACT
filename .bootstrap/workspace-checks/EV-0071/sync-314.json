@@ -1,0 +1,29 @@
+{
+  "label": "sync-314",
+  "argv": [
+    "D:\\Dev\\PACT\\.bootstrap\\tools\\uv-0.13.0\\uv-0.13.0.data\\scripts\\uv.exe",
+    "sync",
+    "--locked",
+    "--offline",
+    "--no-index",
+    "--find-links",
+    ".bootstrap/quarantine/EV-0068-d6e690c",
+    "--python",
+    ".bootstrap/runtimes/cpython-3.14.8-windows-x64/python/python.exe",
+    "--no-python-downloads",
+    "--all-packages",
+    "--group",
+    "dev",
+    "--require-build-hashes",
+    "--no-build-package",
+    "*",
+    "--no-build-package",
+    "hatchling"
+  ],
+  "exit_code": 2,
+  "seconds": 0.028,
+  "stdout": "",
+  "stderr": "error: invalid value '*' for '--no-build-package <NO_BUILD_PACKAGE>': Not a valid package or extra name: \"*\". Names must start and end with a letter or digit and may only contain -, _, ., and alphanumeric characters.\n\nFor more information, try '--help'.\n",
+  "offline_flags": true,
+  "source_upload": false
+}

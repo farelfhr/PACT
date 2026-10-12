@@ -1,0 +1,15 @@
+{
+  "label": "format-tooling-budget",
+  "argv": [
+    "D:\\Dev\\PACT\\.venv\\Scripts\\ruff.exe",
+    "format",
+    "tools",
+    "tests"
+  ],
+  "exit_code": 0,
+  "seconds": 0.067,
+  "stdout": "1 file reformatted, 2 files left unchanged\n",
+  "stderr": "",
+  "offline_flags": true,
+  "source_upload": false
+}

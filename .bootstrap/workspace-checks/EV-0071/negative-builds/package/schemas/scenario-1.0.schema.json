@@ -1,0 +1,269 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "scenario_id": {
+      "$ref": "#/$defs/identifier"
+    },
+    "contract_ref": {
+      "type": "object",
+      "properties": {
+        "contract_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "project_ref": {
+          "$ref": "#/$defs/identifier"
+        },
+        "version": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$",
+          "minLength": 64,
+          "maxLength": 64
+        }
+      },
+      "required": [
+        "contract_id",
+        "project_ref",
+        "version",
+        "digest"
+      ],
+      "additionalProperties": false
+    },
+    "fixture_adapter": {
+      "$ref": "#/$defs/identifier"
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/setup"
+          },
+          {
+            "$ref": "#/$defs/request"
+          },
+          {
+            "$ref": "#/$defs/teardown"
+          }
+        ]
+      },
+      "minItems": 3,
+      "maxItems": 32
+    }
+  },
+  "required": [
+    "schema_version",
+    "scenario_id",
+    "contract_ref",
+    "fixture_adapter",
+    "steps"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:pact:provisional-scenario:1.0",
+  "title": "PROVISIONAL PACT scenario 1.0 (parser-only, not approved)",
+  "$comment": "M1-05 scoped mock-based proposal. Parser additionally enforces UTF-8/ASCII, 64 KiB/depth 16, duplicate JSON keys, exact integer tokens, unique step IDs, setup/request/teardown ordering, required assertion sequence and candidate/catalog bindings. No templates, URLs, credentials or executable operations. Schema validity grants no authority. The external metaschema URI is metadata only and is never fetched.",
+  "$defs": {
+    "identifier": {
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$",
+      "minLength": 1,
+      "maxLength": 96,
+      "not": {
+        "pattern": "[^A-Za-z0-9._-]"
+      }
+    },
+    "setup": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "operation": {
+          "const": "fixture.setup"
+        },
+        "actors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/identifier"
+          },
+          "minItems": 1,
+          "maxItems": 64,
+          "uniqueItems": true
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/identifier"
+          },
+          "minItems": 1,
+          "maxItems": 64,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "id",
+        "operation",
+        "actors",
+        "resources"
+      ],
+      "additionalProperties": false
+    },
+    "request": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "operation": {
+          "const": "http.request"
+        },
+        "as_actor": {
+          "$ref": "#/$defs/identifier"
+        },
+        "method": {
+          "const": "GET"
+        },
+        "route": {
+          "type": "object",
+          "properties": {
+            "route_ref": {
+              "$ref": "#/$defs/identifier"
+            },
+            "resource_ref": {
+              "$ref": "#/$defs/identifier"
+            }
+          },
+          "required": [
+            "route_ref",
+            "resource_ref"
+          ],
+          "additionalProperties": false
+        },
+        "expected_rule": {
+          "$ref": "#/$defs/identifier"
+        },
+        "assertions": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/$defs/decision"
+              },
+              {
+                "$ref": "#/$defs/resource_assertion"
+              }
+            ]
+          },
+          "minItems": 2,
+          "maxItems": 3
+        }
+      },
+      "required": [
+        "id",
+        "operation",
+        "as_actor",
+        "method",
+        "route",
+        "expected_rule",
+        "assertions"
+      ],
+      "additionalProperties": false
+    },
+    "teardown": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "operation": {
+          "const": "fixture.teardown"
+        }
+      },
+      "required": [
+        "id",
+        "operation"
+      ],
+      "additionalProperties": false
+    },
+    "decision": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "decision"
+        },
+        "expected": {
+          "enum": [
+            "ALLOW",
+            "DENY"
+          ]
+        },
+        "profile": {
+          "enum": [
+            "object-read-allow-v1",
+            "object-read-deny-403-404-v1",
+            "object-read-deny-401-403-404-v1"
+          ]
+        }
+      },
+      "required": [
+        "kind",
+        "expected",
+        "profile"
+      ],
+      "additionalProperties": false,
+      "oneOf": [
+        {
+          "properties": {
+            "expected": {
+              "const": "ALLOW"
+            },
+            "profile": {
+              "const": "object-read-allow-v1"
+            }
+          }
+        },
+        {
+          "properties": {
+            "expected": {
+              "const": "DENY"
+            },
+            "profile": {
+              "enum": [
+                "object-read-deny-403-404-v1",
+                "object-read-deny-401-403-404-v1"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "resource_assertion": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "enum": [
+            "intended_resource",
+            "no_protected_resource_disclosure",
+            "no_protected_state_change"
+          ]
+        },
+        "resource_ref": {
+          "$ref": "#/$defs/identifier"
+        }
+      },
+      "required": [
+        "kind",
+        "resource_ref"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

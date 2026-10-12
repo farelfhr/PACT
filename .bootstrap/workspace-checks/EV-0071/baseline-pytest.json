@@ -1,0 +1,17 @@
+{
+  "label": "baseline-pytest",
+  "argv": [
+    "D:\\Dev\\PACT\\.venv\\Scripts\\python.exe",
+    "-I",
+    "-B",
+    "-m",
+    "pytest",
+    "-q"
+  ],
+  "exit_code": 1,
+  "seconds": 0.173,
+  "stdout": "",
+  "stderr": "D:\\Dev\\PACT\\.venv\\Scripts\\python.exe: No module named pytest\n",
+  "offline_flags": true,
+  "source_upload": false
+}

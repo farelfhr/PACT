@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "C:/Program Files/Python314/python.exe",
+    "-I",
+    "-B",
+    "tools/ci.py",
+    "preflight"
+  ],
+  "exit_code": 1,
+  "seconds": 0.113,
+  "elapsed_window": 1068.897,
+  "stdout": "REMOTE_CI_DISABLED: owner remote grant and verified controls absent\n",
+  "stderr": "",
+  "additional_storage_bytes": 155571,
+  "network_grant": false
+}

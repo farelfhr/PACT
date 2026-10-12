@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "D:/Dev/PACT/.venv/Scripts/python.exe",
+    "-I",
+    "-B",
+    "-m",
+    "pytest",
+    "-q"
+  ],
+  "exit_code": 0,
+  "seconds": 9.99,
+  "elapsed_window": 11.89,
+  "stdout": ".............................................................................. [ 85%]\n.............                                                            [100%]\n91 passed, 2730 subtests passed in 7.51s\n",
+  "stderr": "",
+  "additional_storage_bytes": 0,
+  "network_grant": false
+}

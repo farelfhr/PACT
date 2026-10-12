@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "D:/Dev/PACT/.venv/Scripts/ruff.exe",
+    "format",
+    "tools/workspace.py"
+  ],
+  "exit_code": 0,
+  "seconds": 0.038,
+  "elapsed_window": 549.839,
+  "stdout": "1 file reformatted\n",
+  "stderr": "",
+  "additional_storage_bytes": 147159,
+  "network_grant": false
+}

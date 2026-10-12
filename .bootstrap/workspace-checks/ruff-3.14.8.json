@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "D:\\Dev\\PACT\\.venv\\Scripts\\ruff.exe",
+    "check",
+    "."
+  ],
+  "exit_code": 0,
+  "stdout": "All checks passed!\n",
+  "stderr": ""
+}

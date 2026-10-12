@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "D:\\Dev\\PACT\\.bootstrap\\tools\\uv-0.13.0\\uv-0.13.0.data\\scripts\\uv.exe",
+    "lock",
+    "--check",
+    "--offline",
+    "--no-index",
+    "--find-links",
+    ".bootstrap/quarantine/EV-0068-d6e690c",
+    "--no-python-downloads",
+    "--python",
+    "D:\\Dev\\PACT\\.bootstrap\\runtimes\\cpython-3.14.8-windows-x64\\python\\python.exe"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "Resolved 18 packages in 1ms\n"
+}

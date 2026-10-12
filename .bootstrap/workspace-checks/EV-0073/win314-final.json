@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "C:/Program Files/Python314/python.exe",
+    "-I",
+    "-B",
+    "tools/workspace.py",
+    "check",
+    "--python",
+    "3.14.8"
+  ],
+  "exit_code": 0,
+  "seconds": 86.256,
+  "elapsed_window": 744.49,
+  "stdout": "installed pact-core smoke: schema resources match; approval remains unavailable\n.............................................................................. [ 50%]\n........................................................................ [ 96%]\n.....                                                                    [100%]\n155 passed, 2730 subtests passed in 4.84s\nSuccess: no issues found in 17 source files\nAll checks passed!\n5 files already formatted\n",
+  "stderr": "",
+  "additional_storage_bytes": 149891,
+  "network_grant": false
+}

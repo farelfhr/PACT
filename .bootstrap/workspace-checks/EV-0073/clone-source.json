@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "git",
+    "-c",
+    "protocol.file.allow=always",
+    "-c",
+    "core.hooksPath=D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0073\\empty-hooks",
+    "clone",
+    "--no-hardlinks",
+    "D:\\Dev\\PACT\\.git",
+    "D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0073\\clean-checkout"
+  ],
+  "cwd": "D:\\Dev\\PACT",
+  "exit_code": 0,
+  "seconds": 0.509,
+  "stdout": "",
+  "stderr": "Cloning into 'D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0073\\clean-checkout'...\ndone.\n"
+}

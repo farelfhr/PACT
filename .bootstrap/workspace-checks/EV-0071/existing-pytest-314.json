@@ -1,0 +1,17 @@
+{
+  "label": "existing-pytest-314",
+  "argv": [
+    "D:\\Dev\\PACT\\.venv\\Scripts\\python.exe",
+    "-I",
+    "-B",
+    "-m",
+    "pytest",
+    "-q"
+  ],
+  "exit_code": 0,
+  "seconds": 9.054,
+  "stdout": ".............................................................................  [100%]\n77 passed, 2730 subtests passed in 5.86s\n",
+  "stderr": "",
+  "offline_flags": true,
+  "source_upload": false
+}

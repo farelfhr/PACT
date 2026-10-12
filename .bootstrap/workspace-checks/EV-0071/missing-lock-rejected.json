@@ -1,0 +1,20 @@
+{
+  "label": "missing-lock-rejected",
+  "argv": [
+    "D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0071\\clean-git-checkout-verified\\.bootstrap\\tools\\uv-0.13.0\\uv-0.13.0.data\\scripts\\uv.exe",
+    "lock",
+    "--check",
+    "--offline",
+    "--no-index",
+    "--find-links",
+    ".bootstrap/quarantine/EV-0068-d6e690c",
+    "--python",
+    "D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0071\\clean-git-checkout-verified\\.bootstrap\\runtimes\\cpython-3.14.8-windows-x64\\python\\python.exe",
+    "--no-python-downloads"
+  ],
+  "cwd": "D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0071\\clean-git-checkout-verified",
+  "exit_code": 1,
+  "seconds": 0.034,
+  "stdout": "",
+  "stderr": "Using CPython 3.14.8 interpreter at: .bootstrap\\runtimes\\cpython-3.14.8-windows-x64\\python\\python.exe\nerror: Unable to find lockfile at `uv.lock`, but `--check` was provided. To create a lockfile, run `uv lock` or `uv sync` without the flag.\n"
+}

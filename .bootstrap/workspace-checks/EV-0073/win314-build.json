@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "C:/Program Files/Python314/python.exe",
+    "-I",
+    "-B",
+    "tools/workspace.py",
+    "build",
+    "--python",
+    "3.14.8"
+  ],
+  "exit_code": 0,
+  "seconds": 22.095,
+  "elapsed_window": 1095.422,
+  "stdout": "",
+  "stderr": "warning: The `--require-build-hashes` option is experimental and may change without warning. Pass `--preview-features build-dependency-hashes` to disable this warning.\nBuilding source distribution...\nBuilding wheel from source distribution...\nSuccessfully built dist\\pact_core-0.0.0.tar.gz\nSuccessfully built dist\\pact_core-0.0.0-py3-none-any.whl\n",
+  "additional_storage_bytes": 157187,
+  "network_grant": false
+}

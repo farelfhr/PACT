@@ -1,0 +1,15 @@
+{
+  "label": "format-new-tooling",
+  "argv": [
+    "D:\\Dev\\PACT\\.venv\\Scripts\\ruff.exe",
+    "format",
+    "tools",
+    "tests"
+  ],
+  "exit_code": 0,
+  "seconds": 0.964,
+  "stdout": "3 files reformatted\n",
+  "stderr": "",
+  "offline_flags": true,
+  "source_upload": false
+}

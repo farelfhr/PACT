@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "C:/Program Files/Python314/python.exe",
+    "-X",
+    "utf8",
+    "-I",
+    "-B",
+    "C:/Users/user/AppData/Local/Temp/PACT-bootstrap-20261012/check_ci_clean_checkout.py"
+  ],
+  "exit_code": 1,
+  "seconds": 5.901,
+  "elapsed_window": 1354.281,
+  "stdout": "clone-source : 0\nclone-sync : 1\n",
+  "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\user\\AppData\\Local\\Temp\\PACT-bootstrap-20261012\\check_ci_clean_checkout.py\", line 18, in <module>\n    result=run('clone-sync',[python,'-I','-B','tools/workspace.py','sync','--python','3.14.8'],clone);assert result.returncode==0,result.stderr\n                                                                                                             ^^^^^^^^^^^^^^^^^^^^\nAssertionError: [Errno 28] No space left on device\n\n",
+  "additional_storage_bytes": 360351071,
+  "network_grant": false
+}

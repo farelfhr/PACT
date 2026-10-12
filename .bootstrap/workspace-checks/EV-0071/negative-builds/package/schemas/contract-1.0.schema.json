@@ -1,0 +1,302 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "canonicalization": {
+      "const": "pact-json-1"
+    },
+    "contract_id": {
+      "$ref": "#/$defs/identifier"
+    },
+    "project_ref": {
+      "$ref": "#/$defs/identifier"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 2147483647
+    },
+    "source_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/identifier"
+      },
+      "minItems": 1,
+      "maxItems": 32,
+      "uniqueItems": false
+    },
+    "roles": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/identifier"
+      },
+      "minItems": 1,
+      "maxItems": 64,
+      "uniqueItems": true
+    },
+    "resource_types": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/identifier"
+      },
+      "minItems": 1,
+      "maxItems": 64,
+      "uniqueItems": true
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "const": "read"
+      },
+      "minItems": 1,
+      "maxItems": 1,
+      "uniqueItems": true
+    },
+    "combining": {
+      "const": "reject_conflicts"
+    },
+    "on_unmatched": {
+      "const": "NEEDS_REVIEW"
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/rule"
+      },
+      "minItems": 1,
+      "maxItems": 64,
+      "uniqueItems": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "canonicalization",
+    "contract_id",
+    "project_ref",
+    "version",
+    "source_refs",
+    "roles",
+    "resource_types",
+    "actions",
+    "combining",
+    "on_unmatched",
+    "rules"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:pact:contract-policy:1.0",
+  "title": "PACT 1.0 candidate policy body (not approval)",
+  "$comment": "The decoder additionally enforces 64 KiB UTF-8, depth 16, duplicate-key rejection and integer-token grammar (no floats/non-finite values). Domain checks enforce declared selectors and unique rule IDs. Normalization rejects possible decision/profile conflicts and unsatisfiable tenant conjunctions. This schema and any body digest confer no approval or execution authority.",
+  "$defs": {
+    "identifier": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 96,
+      "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$",
+      "not": {
+        "pattern": "[^A-Za-z0-9._-]"
+      }
+    },
+    "actor": {
+      "type": "object",
+      "properties": {
+        "role": {
+          "$ref": "#/$defs/identifier"
+        }
+      },
+      "required": [
+        "role"
+      ],
+      "additionalProperties": false
+    },
+    "resource": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/$defs/identifier"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "predicate": {
+      "type": "object",
+      "properties": {
+        "relation": {
+          "enum": [
+            "owns",
+            "member_of",
+            "shared_with",
+            "same_tenant",
+            "different_tenant"
+          ]
+        },
+        "subject": {
+          "enum": [
+            "actor",
+            "resource",
+            "actor.tenant"
+          ]
+        },
+        "object": {
+          "enum": [
+            "actor",
+            "resource",
+            "resource.tenant"
+          ]
+        }
+      },
+      "required": [
+        "relation",
+        "subject",
+        "object"
+      ],
+      "additionalProperties": false,
+      "oneOf": [
+        {
+          "properties": {
+            "relation": {
+              "const": "owns"
+            },
+            "subject": {
+              "const": "actor"
+            },
+            "object": {
+              "const": "resource"
+            }
+          }
+        },
+        {
+          "properties": {
+            "relation": {
+              "const": "member_of"
+            },
+            "subject": {
+              "const": "actor"
+            },
+            "object": {
+              "const": "resource.tenant"
+            }
+          }
+        },
+        {
+          "properties": {
+            "relation": {
+              "const": "shared_with"
+            },
+            "subject": {
+              "const": "resource"
+            },
+            "object": {
+              "const": "actor"
+            }
+          }
+        },
+        {
+          "properties": {
+            "relation": {
+              "const": "same_tenant"
+            },
+            "subject": {
+              "const": "actor.tenant"
+            },
+            "object": {
+              "const": "resource.tenant"
+            }
+          }
+        },
+        {
+          "properties": {
+            "relation": {
+              "const": "different_tenant"
+            },
+            "subject": {
+              "const": "actor.tenant"
+            },
+            "object": {
+              "const": "resource.tenant"
+            }
+          }
+        }
+      ]
+    },
+    "rule": {
+      "type": "object",
+      "properties": {
+        "rule_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "actor": {
+          "$ref": "#/$defs/actor"
+        },
+        "resource": {
+          "$ref": "#/$defs/resource"
+        },
+        "action": {
+          "const": "read"
+        },
+        "when": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/predicate"
+          },
+          "minItems": 1,
+          "maxItems": 8,
+          "uniqueItems": false
+        },
+        "expect": {
+          "enum": [
+            "ALLOW",
+            "DENY"
+          ]
+        },
+        "assertion_profile": {
+          "enum": [
+            "object-read-allow-v1",
+            "object-read-deny-403-404-v1",
+            "object-read-deny-401-403-404-v1"
+          ]
+        }
+      },
+      "required": [
+        "rule_id",
+        "actor",
+        "resource",
+        "action",
+        "when",
+        "expect",
+        "assertion_profile"
+      ],
+      "additionalProperties": false,
+      "oneOf": [
+        {
+          "properties": {
+            "expect": {
+              "const": "ALLOW"
+            },
+            "assertion_profile": {
+              "const": "object-read-allow-v1"
+            }
+          }
+        },
+        {
+          "properties": {
+            "expect": {
+              "const": "DENY"
+            },
+            "assertion_profile": {
+              "enum": [
+                "object-read-deny-403-404-v1",
+                "object-read-deny-401-403-404-v1"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}

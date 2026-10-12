@@ -1,0 +1,26 @@
+{
+  "label": "build-wrong-transitive-hash",
+  "argv": [
+    "D:\\Dev\\PACT\\.bootstrap\\tools\\uv-0.13.0\\uv-0.13.0.data\\scripts\\uv.exe",
+    "build",
+    "D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0071\\negative-builds\\package",
+    "--offline",
+    "--no-index",
+    "--find-links",
+    "D:\\Dev\\PACT\\.bootstrap\\quarantine\\EV-0068-d6e690c",
+    "--no-python-downloads",
+    "--python",
+    "D:\\Dev\\PACT\\.bootstrap\\runtimes\\cpython-3.14.8-windows-x64\\python\\python.exe",
+    "--no-cache",
+    "--require-build-hashes",
+    "--build-constraints",
+    "D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0071\\negative-builds\\build-wrong-transitive-hash.txt",
+    "--out-dir",
+    "D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0071\\negative-builds\\build-wrong-transitive-hash"
+  ],
+  "exit_code": 2,
+  "seconds": 0.663,
+  "stdout": "",
+  "stderr": "warning: The `--require-build-hashes` option is experimental and may change without warning. Pass `--preview-features build-dependency-hashes` to disable this warning.\nBuilding source distribution...\nerror: Failed to build `D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0071\\negative-builds\\package`\n  cause: Failed to install requirements from `build-system.requires`\n  cause: Failed to download `pathspec==1.1.1`\n  cause: Hash mismatch for `pathspec==1.1.1`\n\n         Expected:\n           sha256:0000000000000000000000000000000000000000000000000000000000000000\n\n         Computed:\n           sha256:a00ce642f577bf7f473932318056212bc4f8bfdf53128c78bbd5af0b9b20b189\n",
+  "expected_success": false
+}

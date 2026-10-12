@@ -1,0 +1,21 @@
+{
+  "label": "lock-check",
+  "argv": [
+    "D:\\Dev\\PACT\\.bootstrap\\tools\\uv-0.13.0\\uv-0.13.0.data\\scripts\\uv.exe",
+    "lock",
+    "--check",
+    "--offline",
+    "--no-index",
+    "--find-links",
+    ".bootstrap/quarantine/EV-0068-d6e690c",
+    "--python",
+    ".bootstrap/runtimes/cpython-3.14.8-windows-x64/python/python.exe",
+    "--no-python-downloads"
+  ],
+  "exit_code": 0,
+  "seconds": 0.09,
+  "stdout": "",
+  "stderr": "Using CPython 3.14.8 interpreter at: .bootstrap\\runtimes\\cpython-3.14.8-windows-x64\\python\\python.exe\nResolved 18 packages in 2ms\n",
+  "offline_flags": true,
+  "source_upload": false
+}

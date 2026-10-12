@@ -1,0 +1,15 @@
+{
+  "label": "clean-git-checkout-proof",
+  "argv": [
+    "D:\\Dev\\PACT\\.bootstrap\\runtimes\\cpython-3.14.8-windows-x64\\python\\python.exe",
+    "-I",
+    "-B",
+    "C:\\Users\\user\\AppData\\Local\\Temp\\PACT-bootstrap-20261012\\check_clean_checkout.py"
+  ],
+  "exit_code": 1,
+  "seconds": 7.154,
+  "stdout": "clean-local-clone exit 0\nclean-sync-314 exit 1\n",
+  "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\user\\AppData\\Local\\Temp\\PACT-bootstrap-20261012\\check_clean_checkout.py\", line 19, in <module>\n    r=run('clean-sync-314',[python,'-I','-B','tools/workspace.py','sync','--python','3.14.8'],clone);assert r.returncode==0,r.stderr\n                                                                                                            ^^^^^^^^^^^^^^^\nAssertionError: reviewed bootstrap manifest digest changed\n\n",
+  "offline_flags": true,
+  "source_upload": false
+}

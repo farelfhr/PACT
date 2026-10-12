@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "D:/Dev/PACT/.venv/Scripts/ruff.exe",
+    "format",
+    "tools/workspace.py",
+    "tools/ci.py",
+    "tests/test_ci_preparation.py"
+  ],
+  "exit_code": 0,
+  "seconds": 0.036,
+  "elapsed_window": 348.503,
+  "stdout": "1 file reformatted, 2 files left unchanged\n",
+  "stderr": "",
+  "additional_storage_bytes": 3341,
+  "network_grant": false
+}

@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "C:/Program Files/Python314/python.exe",
+    "-I",
+    "-B",
+    "tools/workspace.py",
+    "sync",
+    "--python",
+    "3.14.8"
+  ],
+  "cwd": "D:\\Dev\\PACT\\.bootstrap\\workspace-checks\\EV-0073\\clean-checkout",
+  "exit_code": 1,
+  "seconds": 4.153,
+  "stdout": "",
+  "stderr": "[Errno 28] No space left on device\n"
+}
