@@ -1,0 +1,11 @@
+# Review bindings use exact bytes, so never autocrlf-convert this manifest.
+docs/bootstrap-artifacts.json -text
+
+# Stable source/build input bytes across Windows and future Linux checkouts.
+*.py text eol=lf
+*.toml text eol=lf
+uv.lock text eol=lf
+build-constraints.txt text eol=lf
+.python-version text eol=lf
+.gitignore text eol=lf
+.github/workflows/*.yml text eol=lf
