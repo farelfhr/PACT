@@ -10,7 +10,7 @@ import unittest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from pact_core.domain import (
-    Action, Actor, ActorId, ActorSelector, AssertionProfile, Binding,
+    Actor, ActorId, ActorSelector, AssertionProfile, Binding,
     Decision, DomainCatalog, DomainValidationError, Predicate, Relation,
     Resource, ResourceId, ResourceSelector, ResourceTypeId, RoleId, Rule,
     RuleId, ScenarioVerdict, Tenant, TenantId,

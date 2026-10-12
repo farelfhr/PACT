@@ -4,6 +4,7 @@ from dataclasses import dataclass
 import hashlib
 from itertools import combinations
 import json
+from typing import cast
 
 from ._validation import DomainValidationError, array, closed, enum_value, typed_tuple
 from .enums import Action, Relation
@@ -46,6 +47,7 @@ def _plain_tree(value: object) -> None:
             raise ContractValidationError("candidate exceeds traversal budget", "INPUT_SIZE")
         item, parent_depth = pending.pop()
         if type(item) in (dict, list):
+            item = cast(dict[str, object] | list[object], item)
             depth = parent_depth + 1
             if depth > MAX_DEPTH:
                 raise ContractValidationError("candidate exceeds container depth", "INPUT_DEPTH")
@@ -135,14 +137,16 @@ class ContractBody:
         try:
             _plain_tree(value)
             data = closed(value, set(FIELDS), "contract body")
-            return cls(data["schema_version"], data["canonicalization"],
-                       data["contract_id"], data["project_ref"], data["version"],
+            # Casts describe constructor inputs; __post_init__ still validates
+            # exact runtime types and conventions without coercion.
+            return cls(cast(str, data["schema_version"]), cast(str, data["canonicalization"]),
+                       cast(str, data["contract_id"]), cast(str, data["project_ref"]), cast(int, data["version"]),
                        array(data["source_refs"], _identifier, "source_refs", minimum=1, maximum=32),
                        array(data["roles"], RoleId.from_value, "roles", minimum=1),
                        array(data["resource_types"], ResourceTypeId.from_value, "resource_types", minimum=1),
                        array(data["actions"], lambda v: enum_value(Action, v, "action"),
                              "actions", minimum=1, maximum=1),
-                       data["combining"], data["on_unmatched"],
+                       cast(str, data["combining"]), cast(str, data["on_unmatched"]),
                        array(data["rules"], Rule.from_mapping, "rules", minimum=1))
         except ContractValidationError:
             raise
@@ -211,7 +215,7 @@ def parse_contract(source: object, *, format: str = "json") -> ContractBody:
     if type(source) not in (str, bytes):
         raise ContractValidationError("expected JSON text or UTF-8 bytes")
     try:
-        raw = source.encode("utf-8") if type(source) is str else source
+        raw = source.encode("utf-8") if type(source) is str else cast(bytes, source)
         if len(raw) > MAX_BYTES:
             raise ContractValidationError("candidate exceeds byte limit", "INPUT_SIZE")
         text = raw.decode("utf-8")

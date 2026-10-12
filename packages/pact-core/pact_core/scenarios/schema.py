@@ -1,13 +1,15 @@
 """Fresh local JSON Schema: structural companion, not a semantic validator."""
 
+from collections.abc import Mapping
+
 
 def scenario_json_schema() -> dict[str, object]:
-    def closed(properties):
+    def closed(properties: Mapping[str, object]) -> dict[str, object]:
         return {"type": "object", "properties": properties, "required": list(properties),
                 "additionalProperties": False}
 
-    def array(items, minimum, maximum, unique=False):
-        value = {"type": "array", "items": items, "minItems": minimum, "maxItems": maximum}
+    def array(items: object, minimum: int, maximum: int, unique: bool = False) -> dict[str, object]:
+        value: dict[str, object] = {"type": "array", "items": items, "minItems": minimum, "maxItems": maximum}
         if unique:
             value["uniqueItems"] = True
         return value

@@ -4,6 +4,7 @@ from dataclasses import dataclass, replace
 from datetime import datetime, timezone
 from enum import Enum
 import re
+from typing import cast
 
 from ._validation import DomainValidationError, require_type, typed_tuple
 from .contracts import ContractBody, canonical_bytes, contract_digest, parse_contract
@@ -148,9 +149,10 @@ class UntrustedContractState:
                 raise DomainValidationError("snapshot without modeled approval event")
         else:
             require_type(self.snapshot, UntrustedApprovalSnapshot, "claimed snapshot")
-            if (self.snapshot.body != self.body or self.snapshot.content_digest != digest
-                    or self.snapshot.claimed_author_ref != self.claimed_author_ref
-                    or self.snapshot.claimed_review_ref != approval_event):
+            snapshot = cast(UntrustedApprovalSnapshot, self.snapshot)
+            if (snapshot.body != self.body or snapshot.content_digest != digest
+                    or snapshot.claimed_author_ref != self.claimed_author_ref
+                    or snapshot.claimed_review_ref != approval_event):
                 raise DomainValidationError("claimed snapshot and modeled event disagree")
 
     @property
@@ -181,6 +183,7 @@ def transition_model(record: UntrustedContractState, target: ContractStatus, *, 
     if type(expected_digest) is not str or expected_digest != record.content_digest:
         raise ModelTransitionError("STALE_CONTENT")
     _edge(record.status, target)
+    chosen_snapshot: UntrustedApprovalSnapshot | None
     if target == ContractStatus.APPROVED:
         if (type(claimed_snapshot) is not UntrustedApprovalSnapshot
                 or claimed_snapshot.body != record.body
