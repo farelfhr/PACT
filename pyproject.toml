@@ -1,0 +1,54 @@
+[project]
+name = "pact-workspace"
+version = "0.0.0"
+requires-python = ">=3.12,<3.15"
+dependencies = []
+classifiers = ["Private :: Do Not Upload"]
+
+[dependency-groups]
+dev = ["pytest==9.1.1", "ruff==0.16.8", "mypy==2.4.0", "hatchling==1.32.4"]
+
+[tool.uv]
+package = false
+required-version = "==0.13.0"
+python-downloads = "never"
+no-index = true
+find-links = [".bootstrap/quarantine/EV-0068-d6e690c"]
+environments = [
+  "sys_platform == 'win32' and platform_machine == 'AMD64'",
+  "sys_platform == 'linux' and platform_machine == 'x86_64'",
+]
+constraint-dependencies = [
+  "packaging==26.3", "pathspec==1.1.1", "pluggy==1.6.0",
+  "trove-classifiers==2026.9.21.13", "tomlkit==0.15.1", "iniconfig==2.3.1",
+  "pygments==2.21.0", "colorama==0.4.6", "typing-extensions==4.16.0",
+  "mypy-extensions==1.1.0", "librt==0.16.0", "ast-serialize==0.12.1",
+]
+
+[tool.uv.workspace]
+members = ["packages/pact-core"]
+
+[tool.pytest.ini_options]
+testpaths = ["packages/pact-core/tests", "tests"]
+addopts = "-ra --strict-config --strict-markers"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+extend-exclude = [".bootstrap"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]
+
+[tool.ruff.lint.per-file-ignores]
+# These legacy unittest files deliberately establish the uninstalled source
+# path before imports. Keep that standalone verification behavior intact.
+"packages/pact-core/tests/test_providers.py" = ["E402"]
+"packages/pact-core/tests/test_scenarios.py" = ["E402"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+files = ["packages/pact-core/pact_core"]
+mypy_path = "packages/pact-core"
+show_error_codes = true

@@ -1,0 +1,32 @@
+name: PACT baseline skeleton (disabled)
+
+# This file has not run remotely. Source/artifact upload, runner images/actions
+# and the supported six-cell execution profile require a separate owner review.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  baseline:
+    if: ${{ false }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-2025, ubuntu-24.04]
+        python: ['3.12.15', '3.13.16', '3.14.8']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Require approved checkout and artifact-transfer profile
+        # Deliberate failure if the disabled gate is removed without a concrete
+        # reviewed bootstrap. No checkout/setup action is implicitly accepted.
+        run: exit 1
+      - name: Locked Windows installation
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: python tools/workspace.py sync --python ${{ matrix.python }}
+      - name: Installed import and quality checks
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: python tools/workspace.py check --python ${{ matrix.python }}

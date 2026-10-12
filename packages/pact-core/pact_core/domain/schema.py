@@ -1,5 +1,7 @@
 """Offline, fresh JSON Schema description of candidate policy structure."""
 
+from collections.abc import Mapping
+
 
 def contract_json_schema() -> dict[str, object]:
     """No remote resolution or filesystem access; semantic normalization is separate."""
@@ -7,11 +9,11 @@ def contract_json_schema() -> dict[str, object]:
                   "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,95}$",
                   "not": {"pattern": "[^A-Za-z0-9._-]"}}
 
-    def closed(properties):
+    def closed(properties: Mapping[str, object]) -> dict[str, object]:
         return {"type": "object", "properties": properties,
                 "required": list(properties), "additionalProperties": False}
 
-    def bounded(items, maximum, unique=False):
+    def bounded(items: object, maximum: int, unique: bool = False) -> dict[str, object]:
         return {"type": "array", "items": items, "minItems": 1,
                 "maxItems": maximum, "uniqueItems": unique}
 

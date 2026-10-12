@@ -3,6 +3,7 @@
 from dataclasses import dataclass
 from enum import Enum
 import re
+from typing import cast
 
 from ..domain import (ActorId, AssertionProfile, ContractBody, Decision, DomainCatalog,
                       DomainValidationError, ResourceId, ResourceTypeId, RuleId,
@@ -195,13 +196,15 @@ class HttpRequestStep:
         if type(self.assertions) is not tuple or not 2 <= len(self.assertions) <= 3:
             raise ScenarioValidationError("invalid bounded request assertions")
         _typed(self.assertions[0], DecisionAssertion)
-        for assertion in self.assertions[1:]:
+        resources = cast(tuple[ResourceAssertion, ...], self.assertions[1:])
+        for assertion in resources:
             _typed(assertion, ResourceAssertion)
             if assertion.resource_ref != self.route.resource_ref:
                 raise ScenarioValidationError("assertion/resource binding mismatch")
-        required = ((ResourceAssertionKind.INTENDED_RESOURCE,) if self.assertions[0].expected == Decision.ALLOW
+        decision = cast(DecisionAssertion, self.assertions[0])
+        required = ((ResourceAssertionKind.INTENDED_RESOURCE,) if decision.expected == Decision.ALLOW
                     else (ResourceAssertionKind.NO_DISCLOSURE, ResourceAssertionKind.NO_STATE_CHANGE))
-        if tuple(assertion.kind for assertion in self.assertions[1:]) != required:
+        if tuple(assertion.kind for assertion in resources) != required:
             raise ScenarioValidationError("missing or conflicting required profile assertions")
 
     def to_mapping(self) -> dict[str, object]:

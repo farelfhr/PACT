@@ -12,7 +12,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from pact_core.domain import (
     ApprovalRequiredError, ContractStatus, DomainValidationError, ModelTransitionError,
-    UntrustedApprovalSnapshot, UntrustedContractState, canonical_bytes, contract_digest,
+    UntrustedApprovalSnapshot, canonical_bytes, contract_digest,
     import_candidate, new_draft_version, parse_contract, require_authenticated_approval,
     transition_model,
 )

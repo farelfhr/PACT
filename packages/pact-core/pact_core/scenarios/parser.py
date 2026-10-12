@@ -1,6 +1,7 @@
 """Bounded JSON parser and declaration checks, never an interpreter or executor."""
 
 import json
+from typing import cast
 
 from ..domain import (ActorId, AssertionProfile, Decision, DomainValidationError,
                       ResourceId, RuleId, contract_digest)
@@ -36,7 +37,7 @@ def _decode(value: object) -> object:
     if type(value) not in (str, bytes):
         raise ScenarioValidationError("scenario input must be JSON text or UTF-8 bytes")
     try:
-        raw = value.encode("utf-8") if type(value) is str else value
+        raw = value.encode("utf-8") if type(value) is str else cast(bytes, value)
         if len(raw) > MAX_BYTES:
             raise ScenarioValidationError("scenario exceeds byte bound", "INPUT_SIZE")
         text = raw.decode("utf-8")
@@ -104,18 +105,18 @@ def _step(value: object) -> SetupStep | HttpRequestStep | TeardownStep:
     operation = value.get("operation")
     if operation == "fixture.setup":
         data = closed(value, {"id", "operation", "actors", "resources"}, "setup")
-        return SetupStep(data["id"], array(data["actors"], ActorId.from_value, "actors", minimum=1),
+        return SetupStep(cast(str, data["id"]), array(data["actors"], ActorId.from_value, "actors", minimum=1),
                          array(data["resources"], ResourceId.from_value, "resources", minimum=1))
     if operation == "fixture.teardown":
-        return TeardownStep(closed(value, {"id", "operation"}, "teardown")["id"])
+        return TeardownStep(cast(str, closed(value, {"id", "operation"}, "teardown")["id"]))
     if operation != "http.request":
         raise ScenarioValidationError("unsupported scenario operation", "UNKNOWN_OPERATION")
     data = closed(value, {"id", "operation", "as_actor", "method", "route",
                           "expected_rule", "assertions"}, "request")
     route = closed(data["route"], {"route_ref", "resource_ref"}, "resource path")
-    return HttpRequestStep(data["id"], ActorId.from_value(data["as_actor"]),
+    return HttpRequestStep(cast(str, data["id"]), ActorId.from_value(data["as_actor"]),
                            enum_value(HttpMethod, data["method"], "method"),
-                           ResourcePath(route["route_ref"], ResourceId.from_value(route["resource_ref"])),
+                           ResourcePath(cast(str, route["route_ref"]), ResourceId.from_value(route["resource_ref"])),
                            RuleId.from_value(data["expected_rule"]),
                            array(data["assertions"], _assertion, "assertions", minimum=2, maximum=3))
 
@@ -130,16 +131,17 @@ def _bind(scenario: Scenario, declarations: ScenarioDeclarations) -> None:
     resources = {resource.id: resource for resource in declarations.fixtures.resources}
     routes = {route.route_ref: route for route in declarations.routes}
     rules = {rule.rule_id: rule for rule in body.rules}
-    setup = scenario.steps[0]
+    # Scenario.__post_init__ already checked these exact step/assertion types.
+    setup = cast(SetupStep, scenario.steps[0])
     if not set(setup.actors) <= actors.keys() or not set(setup.resources) <= resources.keys():
         raise ScenarioValidationError("undeclared setup reference", "UNDECLARED_REFERENCE")
-    for request in scenario.steps[1:-1]:
+    for request in cast(tuple[HttpRequestStep, ...], scenario.steps[1:-1]):
         if (request.as_actor not in setup.actors or request.route.resource_ref not in setup.resources
                 or request.route.route_ref not in routes or request.expected_rule not in rules):
             raise ScenarioValidationError("undeclared request reference", "UNDECLARED_REFERENCE")
         actor, resource = actors[request.as_actor], resources[request.route.resource_ref]
         rule, route = rules[request.expected_rule], routes[request.route.route_ref]
-        decision = request.assertions[0]
+        decision = cast(DecisionAssertion, request.assertions[0])
         if (resource.type != route.resource_type or resource.type != rule.resource.type
                 or rule.actor.role not in actor.roles or decision.expected != rule.expect
                 or decision.profile != rule.assertion_profile):
@@ -155,9 +157,9 @@ def parse_scenario(value: str | bytes, declarations: ScenarioDeclarations) -> Sc
         data = closed(_decode(value), {"schema_version", "scenario_id", "contract_ref",
                                      "fixture_adapter", "steps"}, "scenario")
         ref = closed(data["contract_ref"], {"contract_id", "project_ref", "version", "digest"}, "contract ref")
-        scenario = Scenario(data["schema_version"], data["scenario_id"],
-                            ContractReference(ref["contract_id"], ref["project_ref"], ref["version"], ref["digest"]),
-                            data["fixture_adapter"], array(data["steps"], _step, "steps", minimum=3, maximum=32))
+        scenario = Scenario(cast(str, data["schema_version"]), cast(str, data["scenario_id"]),
+                            ContractReference(cast(str, ref["contract_id"]), cast(str, ref["project_ref"]), cast(int, ref["version"]), cast(str, ref["digest"])),
+                            cast(str, data["fixture_adapter"]), array(data["steps"], _step, "steps", minimum=3, maximum=32))
         _bind(scenario, declarations)
         return scenario
     except ScenarioValidationError:

@@ -1,6 +1,7 @@
 """Typed rule structure only; no matching, approval or HTTP assertions."""
 
 from dataclasses import dataclass
+from builtins import object as BuiltinObject
 
 from ._validation import DomainValidationError, array, closed, enum_value, require_type, typed_tuple
 from .enums import Action, AssertionProfile, Binding, Decision, Relation
@@ -54,7 +55,7 @@ class Predicate:
             raise DomainValidationError("predicate: invalid relation binding")
 
     @classmethod
-    def from_mapping(cls, value: object) -> "Predicate":
+    def from_mapping(cls, value: BuiltinObject) -> "Predicate":
         data = closed(value, {"relation", "subject", "object"}, "predicate")
         return cls(enum_value(Relation, data["relation"], "relation"),
                    enum_value(Binding, data["subject"], "subject"),

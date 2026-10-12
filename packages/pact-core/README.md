@@ -1,5 +1,14 @@
 # PACT Core: typed candidates, provisional scenarios and offline provider port
 
+> **Current workspace note (M0-07, 2026-10-12):** Private offline Windows
+> installation now uses the reviewed uv lock, hashed build constraints and
+> `tools/workspace.py`. See [workspace evidence](../../docs/WORKSPACE_BASELINE.md)
+> for actual commands, supported checks and open CI/Linux gates. The component
+> narratives below preserve their original M1/M2 checkpoint context; statements
+> about missing tooling/ADRs describe those earlier checkpoints. Pydantic and
+> all real approval/runner/provider interfaces remain unavailable. No public
+> release or complete P0 flow is claimed.
+
 Implemented scope: FR-AUT-001/002 structural types under `pact_core.domain`, using
 only Python's standard library. Frozen entities contain immutable tuples. Closed
 `from_mapping` methods reject missing/extra fields with `DomainValidationError`;

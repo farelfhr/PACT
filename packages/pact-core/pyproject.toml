@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling==1.32.4"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pact-core"
+version = "0.0.0"
+description = "PACT non-authoritative domain, canonical contract and offline fake provider components"
+readme = "README.md"
+requires-python = ">=3.12,<3.15"
+dependencies = []
+classifiers = ["Private :: Do Not Upload"]
+
+[tool.hatch.build]
+exclude = [".env", "**/.env", "**/.env.*", "**/__pycache__/**", "**/*.pyc"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["pact_core"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"schemas/contract-1.0.schema.json" = "pact_core/schemas/contract-1.0.schema.json"
+"schemas/scenario-1.0.schema.json" = "pact_core/schemas/scenario-1.0.schema.json"
+
+[tool.hatch.build.targets.sdist]
+include = ["pact_core", "schemas", "README.md", "pyproject.toml"]
