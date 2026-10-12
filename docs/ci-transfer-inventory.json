@@ -1,0 +1,1301 @@
+{
+  "version": "0.1",
+  "status": "DISABLED_PREPARATION_ONLY_NOT_AUTHORIZED_FOR_PUSH",
+  "task": "M0-07",
+  "source_commit": "9a2a21950bb0a80c1c06ce63849329cfae7e23c3",
+  "destination": "github.com/farelfhr/PACT",
+  "visibility": "OWNER_CONFIRMED_PRIVATE_REMOTE_NOT_VERIFIED",
+  "source_files": [
+    {
+      "path": ".agents/skills/pact-refactor/SKILL.md",
+      "git_blob": "924302b7f3ca13e680aa0b37e4f7c89a14706a63",
+      "size_bytes": 1681,
+      "sha256": "213deb8b9ad14546798854252c31d6552f7ac0cf625a0e2ee55618515c28334e"
+    },
+    {
+      "path": ".agents/skills/pact-security-review/SKILL.md",
+      "git_blob": "56d0d990141a9655f825ae1581015f3bb1d35190",
+      "size_bytes": 1773,
+      "sha256": "f3c139ae05cac79c83fc1b63f1d8c17a9ff8d048005fb8b75a63b969a2e74b1c"
+    },
+    {
+      "path": ".agents/skills/pact-testing/SKILL.md",
+      "git_blob": "b6ab6749cf94d8e49cd06a17471e87188e94614c",
+      "size_bytes": 1703,
+      "sha256": "c85a1692aaa27ee67567d4b68df0e822de81aede4e7d46dff2de55c9af8d800f"
+    },
+    {
+      "path": ".gitattributes",
+      "git_blob": "c5f21c7a41b4fa121e0277955bdf853770487f1c",
+      "size_bytes": 571,
+      "sha256": "4e35b2e63c9fbcbe6e332a63f8faa92cd54ffcd59e10f902cbec450a7479aacf"
+    },
+    {
+      "path": ".github/workflows/baseline.yml",
+      "git_blob": "da9f89722a41c9ea60282d452f7dba865da727a7",
+      "size_bytes": 1865,
+      "sha256": "41abad9af27e278a5eeac82f05f5e29556bb5ce6c74ce55da9c43edc746e30a3"
+    },
+    {
+      "path": ".gitignore",
+      "git_blob": "fac98df57e3936fd24ccd08815dc2afc7ed93a95",
+      "size_bytes": 143,
+      "sha256": "93c8fd06eecfbc41723f2fe7601cde8a6db74f6cc2b083ba6d36b42096750ae1"
+    },
+    {
+      "path": ".python-version",
+      "git_blob": "9b8fe2fbb8568ac60fa11a56ed0e7c3334fd23b0",
+      "size_bytes": 7,
+      "sha256": "5abd4dc1efa09469b88916c8e4e027a8c266a9b6d06f43ac9da3e30cd00b4ab5"
+    },
+    {
+      "path": "AGENTS.md",
+      "git_blob": "36e57c7d573575200e1b2fefafff31b6653bac8d",
+      "size_bytes": 39599,
+      "sha256": "a3cba939b41070a3991f0991db750486fbace96fa205874a9d32397b2c3b9f56"
+    },
+    {
+      "path": "PRD.MD",
+      "git_blob": "fa63ceac6075185e21de4bd9963fde21f25dfd75",
+      "size_bytes": 88064,
+      "sha256": "812808fe7ea92fb5ae1f900522b1ef6ceeb015a9e681071956b88d35610b48dd"
+    },
+    {
+      "path": "build-constraints.txt",
+      "git_blob": "5998f3113d0e5e46844ff2bd3f0f0764a50090a3",
+      "size_bytes": 586,
+      "sha256": "754c8ba798c59df08271ffd61951521ccc5f01d7b6812f40efbdbdc5615d0028"
+    },
+    {
+      "path": "docs/API_SPEC.md",
+      "git_blob": "24a743dded2c6982a7b910ebba7d7e445f1b6698",
+      "size_bytes": 20410,
+      "sha256": "30dbfe6aceccdfe2a9d3738532b6eaed00449b97327960f5c107114af022a3a5"
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "git_blob": "1f64de1a67d3cbf5dcab59878a2ec63844346fba",
+      "size_bytes": 78245,
+      "sha256": "c0062f65713f70b44ba44fa9c44ecac16011b281b14c82150ceb942eadb6971b"
+    },
+    {
+      "path": "docs/BENCHMARK_PROTOCOL.md",
+      "git_blob": "75b679d1d642356c612417d720c586a0689d4351",
+      "size_bytes": 22564,
+      "sha256": "9705ba8bb6ae332130b86e3ed56a74cfd15275bd1d8dc59854629441edb8afca"
+    },
+    {
+      "path": "docs/BOOTSTRAP_INSPECTION.md",
+      "git_blob": "ff88c9628fb2d1c4d865e8539e349746b8878ee6",
+      "size_bytes": 20078,
+      "sha256": "a4500c6b840de9c84f3a5e98a92d0401d2a7b01b967241c536e2a26701c35e7a"
+    },
+    {
+      "path": "docs/BOOTSTRAP_RECOVERY.md",
+      "git_blob": "720fa9cd924890ea13490a6d84a70524e60d736c",
+      "size_bytes": 10290,
+      "sha256": "76109c4fdd638ebfa39cb8edceabadb49f2f51da765882b6f54189da5cd18a49"
+    },
+    {
+      "path": "docs/BOOTSTRAP_REVIEW.md",
+      "git_blob": "ed0a877d9950a9e08f5ca96ac537a3b2adc8fdb1",
+      "size_bytes": 15721,
+      "sha256": "0fd2ff58734792e151ef00c4d67b9d91d84b268cfcaf78f727dbbb4509bc2cc0"
+    },
+    {
+      "path": "docs/CI_REVIEW.md",
+      "git_blob": "e73236e03eba74130ef305d22b6bcc3a9a3bc164",
+      "size_bytes": 17898,
+      "sha256": "0d7008649f5a0f1aba67dba6258b0c29ea77324ae88b7a0843462eec6917db19"
+    },
+    {
+      "path": "docs/DATA_MODEL.md",
+      "git_blob": "d14374f420e051a1404648c3e21c949bca1af7e5",
+      "size_bytes": 33009,
+      "sha256": "fc29cca20c1046cc1f3f6f098d29ef5e7717c2abb348da523ea157cc83200c38"
+    },
+    {
+      "path": "docs/DECISIONS.md",
+      "git_blob": "d5f5f6411c359501fabc147f2c33ecaf76518211",
+      "size_bytes": 8909,
+      "sha256": "55de0e7a288479232ce48e1911926f2d1bf6a22b867c0ee42fd0c7ac1ca89e6b"
+    },
+    {
+      "path": "docs/EVALUATION_REPORT.md",
+      "git_blob": "d2953df197f3d6317139f1a9e1c1fd72a584532e",
+      "size_bytes": 13895,
+      "sha256": "8ced9170083bebc59b2940bff167d9ce66b7144aa65e50e1cb0fbe7907920492"
+    },
+    {
+      "path": "docs/IMPLEMENTATION_PLAN.md",
+      "git_blob": "2e1b86f731a20ec75673a9aee629828666cc6896",
+      "size_bytes": 12651,
+      "sha256": "08bfd0627ec00ae7c22b56aaee016282f94e2de2ba7381fc31ad0f217d5826d3"
+    },
+    {
+      "path": "docs/M1_OFFLINE_GATE.md",
+      "git_blob": "aebebdb358fc04f07180e543e96236c301a6ffcf",
+      "size_bytes": 9558,
+      "sha256": "f3ec8cd245132c8e63759300b441697c26447b21660650cb19551d525320d3de"
+    },
+    {
+      "path": "docs/M2_SECURITY_CONFORMANCE.md",
+      "git_blob": "8a891b5d12ebc8b638d96fabed554fc12988ae1a",
+      "size_bytes": 15577,
+      "sha256": "588c7db2d0d66b146dc77189330665b95ade9bc9cb42aa653e3bf89efe5d17b5"
+    },
+    {
+      "path": "docs/M4_REPEATABILITY_GATE.md",
+      "git_blob": "7108462f264a45de964a7e7ac75e2cef9b37ba3a",
+      "size_bytes": 18398,
+      "sha256": "08242e07f4e66e6b46bc30b7462ac28f6e30954f22265320579d40f1ca808487"
+    },
+    {
+      "path": "docs/M5_HOSTED_GATE.md",
+      "git_blob": "0a9608906d7bbda42e7e83a823c622069b9486e2",
+      "size_bytes": 22958,
+      "sha256": "8ecbd46672de9b0ebe47beb74126ef56249258fc1c60e56b56e980a272178258"
+    },
+    {
+      "path": "docs/P0_FOUNDATION_REVIEW.md",
+      "git_blob": "7914968d28a1e8897b6b3beb379f4e5dca99e466",
+      "size_bytes": 16055,
+      "sha256": "dbaeb7485b1ce304f718c3ce272b6d3cd4f29dfd5bd2fb4d32c47646fca43c57"
+    },
+    {
+      "path": "docs/REPOSITORY_INVENTORY.md",
+      "git_blob": "e3c3f64ddf8e177623d68093b30983b7e13655aa",
+      "size_bytes": 19750,
+      "sha256": "7d605b69b86526a375aa701104c94a6aecd89de5b31b56895de1b51f4138cb81"
+    },
+    {
+      "path": "docs/SECURITY.md",
+      "git_blob": "4da8d4de83fdfa562d71cbdac41b7112855cd842",
+      "size_bytes": 86874,
+      "sha256": "a51ad296cfae08660903d0289102e99a57132c8375550e7b2391df81279ae4d6"
+    },
+    {
+      "path": "docs/TEST_PLAN.md",
+      "git_blob": "269d32888aed185e04308e89a80fbb20f7f7a25f",
+      "size_bytes": 58764,
+      "sha256": "70b01c0a3dbadb5c5f8178875f8d6cac63c4819e3c0cf5978e6cd2ceb194c726"
+    },
+    {
+      "path": "docs/TOOL_BASELINES.md",
+      "git_blob": "54878d4a12cfc380761bf8a7872fca8c6d431aa8",
+      "size_bytes": 11069,
+      "sha256": "0564b56096d7fa12f2a3c998d1789995e7ae3b5ba76cf745028704b0bde6c63b"
+    },
+    {
+      "path": "docs/WORKSPACE_BASELINE.md",
+      "git_blob": "ad5bdf759a0bd33f5ae817132e3f0e59e2600deb",
+      "size_bytes": 25781,
+      "sha256": "cf54fe165f08b8b5d7ed80f88a1cbbdde61fd172989418e99b43a9b51e8569fa"
+    },
+    {
+      "path": "docs/adr/0001-contract-dsl.md",
+      "git_blob": "56a66b21de28917e0005c0200d2026b1f92759df",
+      "size_bytes": 23768,
+      "sha256": "3b2388d551475519cadfbfd037766c3349677d0b7e9d21d92fa0b54943d9c925"
+    },
+    {
+      "path": "docs/adr/0002-fixture-runner.md",
+      "git_blob": "8de3ea124e552f0236c4c6ee689ab97811135bb4",
+      "size_bytes": 42990,
+      "sha256": "85c207bae17f210a4370fdd0db69a39b8946f5d15ff2b7f28a007edb5df35011"
+    },
+    {
+      "path": "docs/adr/0003-human-approval.md",
+      "git_blob": "3705b7a82e656a33ff3c682954261696114a1b00",
+      "size_bytes": 38554,
+      "sha256": "0360aee8db412b4923b05a069bb5e3d1c0b5b2b49f7677b6a15ae40f32e82aff"
+    },
+    {
+      "path": "docs/adr/0004-repository-and-stack.md",
+      "git_blob": "a8290abdc5fa085124ded63247910f169a9f4ddd",
+      "size_bytes": 24344,
+      "sha256": "b7f6f7d25397697ae6209d583d67bd32a09ed45374947c79c383c18d281efc53"
+    },
+    {
+      "path": "docs/adr/0007-hosted-trust.md",
+      "git_blob": "4052a9c8f6975246e5df0498a327bda4a1bb2d0f",
+      "size_bytes": 33245,
+      "sha256": "f358945b82b9e670905c7a7d583ff05b30460a1e0f7a5a7aac7dc587581512d2"
+    },
+    {
+      "path": "docs/adr/0009-evaluation.md",
+      "git_blob": "14e6b1953fe5d8db9460fcb52252fc97a8aeb3ee",
+      "size_bytes": 4241,
+      "sha256": "436da3e1bf258d3166ddd2e1f968df285990f931fe8a8d7d65ec7bc7ee9287be"
+    },
+    {
+      "path": "docs/adr/examples/0001-cases.json",
+      "git_blob": "d450350976401ef078e85a6adcd8291e9bdcd752",
+      "size_bytes": 5733,
+      "sha256": "c891c856d414a4c930a2718704f8de2e4505c11f5d8841f93185563830082808"
+    },
+    {
+      "path": "docs/adr/examples/0001-valid-contract.json",
+      "git_blob": "514cf7e74ef31ce2e98ebf3e880b0797bebae93c",
+      "size_bytes": 1150,
+      "sha256": "f80d9cfcc2f73ef747c464d443f7bbfbedef5f5112956c8be79534326941274b"
+    },
+    {
+      "path": "docs/benchmark-tool-profile.template.json",
+      "git_blob": "5696c9678611055b5fb671c438886a8f24e23498",
+      "size_bytes": 1765,
+      "sha256": "751b81d4314eef7c01097f012cce87ba8c93d3638972d39c8c139731c6a4852d"
+    },
+    {
+      "path": "docs/bootstrap-artifacts.json",
+      "git_blob": "db5a639bc03946b57faf2bc51e1355fabd92b949",
+      "size_bytes": 47831,
+      "sha256": "8fedff4be21abac355b8b9251d55608f75c7e2864bb6e7676c53c00cf32deefe"
+    },
+    {
+      "path": "docs/ci-source-inventory.json",
+      "git_blob": "4d1c8894a3d47b6a1370ad20fb29bb237ef68966",
+      "size_bytes": 20644,
+      "sha256": "658c1135e6f5d61f80e0242758bf589bcf1c84dd6e106ecf26eddf04bfe71b8d"
+    },
+    {
+      "path": "docs/schema.md",
+      "git_blob": "f756c579ef242ee5eda2b0b5affc1ca9ce76fdf8",
+      "size_bytes": 65868,
+      "sha256": "567a769145b00f2f42267ef671548384e97d56baca5ba9f04b50d901131f9edf"
+    },
+    {
+      "path": "packages/pact-core/README.md",
+      "git_blob": "012bb26ac16a4c0b30f912cfe8f03d7ebbd864bf",
+      "size_bytes": 17515,
+      "sha256": "b3c817427b5c0f3327c88761135fe4f80cd8be77dee3bbc786dae57f3adc2564"
+    },
+    {
+      "path": "packages/pact-core/pact_core/__init__.py",
+      "git_blob": "c45e776ccfccd4a9747db3586206b43582dd82fa",
+      "size_bytes": 78,
+      "sha256": "1317f49f56821c799c8e9043dbe17fd09afc912cf1fc9143d52fe072e9d618f8"
+    },
+    {
+      "path": "packages/pact-core/pact_core/domain/__init__.py",
+      "git_blob": "9e52322d44273d4ece1e86b2ccad95a25044474c",
+      "size_bytes": 1633,
+      "sha256": "22c2ce32e13201467c0a650dea27ed0c30fe85b41e17708283ea7971527b6c43"
+    },
+    {
+      "path": "packages/pact-core/pact_core/domain/_validation.py",
+      "git_blob": "aa84b0f295ee898948dceec42bb0167711a87583",
+      "size_bytes": 1931,
+      "sha256": "21c420f0187c8f24d1b87cd03c1198aa0a968623a0c92750f508e4606770b40e"
+    },
+    {
+      "path": "packages/pact-core/pact_core/domain/approval_model.py",
+      "git_blob": "7b8d55ecfb03a3916f04505595464b825882a208",
+      "size_bytes": 9554,
+      "sha256": "2b5d9cbf0fd15dffabadc7a35a6e35b1196ba4a3b3d479c8e64964e666933561"
+    },
+    {
+      "path": "packages/pact-core/pact_core/domain/contracts.py",
+      "git_blob": "43201a06e8752bd1d27021c3ebdbf3cdb4e8de2b",
+      "size_bytes": 11913,
+      "sha256": "6b2df4d4f2ff1142b8f695efaa05ba9cb647cd7927398bfc3b0e5377bf452914"
+    },
+    {
+      "path": "packages/pact-core/pact_core/domain/entities.py",
+      "git_blob": "bec7cccb77b7716eee068c440ab5cca4d90e81d8",
+      "size_bytes": 4979,
+      "sha256": "ffff021a0479582fdc457dc3a8824d6e7d1cfd5fe412a7f97984e8113e3a2f3a"
+    },
+    {
+      "path": "packages/pact-core/pact_core/domain/enums.py",
+      "git_blob": "918ab4687d74d5621d2069b90820b121288518ea",
+      "size_bytes": 901,
+      "sha256": "3057111b09dabd7c6668b1ca56c797de889fdc0e491d5fc641fdf3b558723d9c"
+    },
+    {
+      "path": "packages/pact-core/pact_core/domain/identifiers.py",
+      "git_blob": "97de790ddc27526f100f06f3da49655fce154979",
+      "size_bytes": 1225,
+      "sha256": "8a1f973415ee92dfcb7811b017dd204ef5698702da12b3ac21cffec4884a1400"
+    },
+    {
+      "path": "packages/pact-core/pact_core/domain/rules.py",
+      "git_blob": "3ab522c6803540c00d68ba6376aa1abe6674a179",
+      "size_bytes": 4093,
+      "sha256": "e26f6121acd2a8ef14eced06df095259aa7f2a62f2e556fa6d2b2384a53edcd9"
+    },
+    {
+      "path": "packages/pact-core/pact_core/domain/schema.py",
+      "git_blob": "f12db51f45f856857318bdef9f5583517aeb45c6",
+      "size_bytes": 4288,
+      "sha256": "d51aa4badc43ad88eb23cdf1aa92019247d874f2e04211d88af957d28017b721"
+    },
+    {
+      "path": "packages/pact-core/pact_core/providers/__init__.py",
+      "git_blob": "580aab5037185ec645feaf092c9ac59c2dc99ed7",
+      "size_bytes": 505,
+      "sha256": "aa1f78e0bc2f1e4c438ea1f34b68bd5d8a53f3d99f58fbd0bb4133830bb5f54c"
+    },
+    {
+      "path": "packages/pact-core/pact_core/providers/fake.py",
+      "git_blob": "a62287ae96a78e5f47fd04dfe7059f8ccacdec9f",
+      "size_bytes": 2263,
+      "sha256": "35fb5c5a3b4015ae944fa6dfc7a5cb1431af26280b4e4037bf44032469f56fe7"
+    },
+    {
+      "path": "packages/pact-core/pact_core/providers/port.py",
+      "git_blob": "6e17b709ec1dda008184655f7c65d9b3b988df52",
+      "size_bytes": 4241,
+      "sha256": "a4eb352c1bed654c58f8754a9f30fcea266f0015d3cf5adf4254d1957bc145be"
+    },
+    {
+      "path": "packages/pact-core/pact_core/py.typed",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "packages/pact-core/pact_core/scenarios/__init__.py",
+      "git_blob": "051ba539ae2a38bb00c2df09922bccfd2d0cb610",
+      "size_bytes": 775,
+      "sha256": "abc84ed434ce2f6c926782f9aa07fcb23f0f1e8196e5eaad2291c52889ac8595"
+    },
+    {
+      "path": "packages/pact-core/pact_core/scenarios/models.py",
+      "git_blob": "b301222b5df18ab27cb01e4966d67d61dbe75c26",
+      "size_bytes": 9723,
+      "sha256": "6d5cdeb53ca013bf0c9051d7afcf5eeffe4622a091426b585f61d45df5a00050"
+    },
+    {
+      "path": "packages/pact-core/pact_core/scenarios/parser.py",
+      "git_blob": "738b0ec6b629e5ab779650011e919aecf83d953d",
+      "size_bytes": 8940,
+      "sha256": "ca113c648bbf3ce95edece963b6c3e191f2bb60ca4fe14796fd3877bd04761e4"
+    },
+    {
+      "path": "packages/pact-core/pact_core/scenarios/schema.py",
+      "git_blob": "25e1d8078f728e95a203ea9f1096a76513fdf870",
+      "size_bytes": 3885,
+      "sha256": "c64bc5a1985fb0a7074dcb28b4c8d318bb120e6c9dc4d095f33441aefeabec89"
+    },
+    {
+      "path": "packages/pact-core/pyproject.toml",
+      "git_blob": "a202201bea92773500f637c3db41cd58c55a0381",
+      "size_bytes": 815,
+      "sha256": "35437cad7b4e27e46d9af69fa14263f5cbe2e1ffde710b30cd528849cb63e0fd"
+    },
+    {
+      "path": "packages/pact-core/schemas/contract-1.0.schema.json",
+      "git_blob": "56f850ea4dc256b3ac90fa7e7503830ca446377b",
+      "size_bytes": 6623,
+      "sha256": "15537d9ce84fc41fe71d3240b2fbd5e8c1b9887a20474fee5ed5395fa04af9f4"
+    },
+    {
+      "path": "packages/pact-core/schemas/scenario-1.0.schema.json",
+      "git_blob": "a5a2b1377dab9bc7605d3ee374ca1e6fd731966c",
+      "size_bytes": 6186,
+      "sha256": "893054982a8dfd448aa615b9eb6c7b4e2fd95aaa87aa5a2ee84a536d676cdf89"
+    },
+    {
+      "path": "packages/pact-core/tests/fixtures/contracts/ambiguous-conflict-v1.json",
+      "git_blob": "95388531dd69e7e6cc3b2ea409fb4786449197c2",
+      "size_bytes": 1914,
+      "sha256": "1d402f334cb025fcb6be9183eae5041ccca6513bdb4ce3d094f6c3e3cfbd8522"
+    },
+    {
+      "path": "packages/pact-core/tests/fixtures/contracts/invalid-forged-approval.json",
+      "git_blob": "f4c8614e8aebb3bb08a0f7f4568931e4231a8d54",
+      "size_bytes": 1398,
+      "sha256": "15d7334b2f248f39b6424396f92187552342e20b117a5441044f043285881d19"
+    },
+    {
+      "path": "packages/pact-core/tests/fixtures/contracts/invalid-schema-v2.json",
+      "git_blob": "39aef75bd9c0e599b8aa0285f35c9802f103fb1f",
+      "size_bytes": 1374,
+      "sha256": "5e56f37d42f398424915abbe544af4944c6e6330522b87e3e5a064aaf818f360"
+    },
+    {
+      "path": "packages/pact-core/tests/fixtures/contracts/sharing-v1.json",
+      "git_blob": "15b9d59d72fb545a10f092a319d36af1ae945687",
+      "size_bytes": 1244,
+      "sha256": "bedd80a1107fcf3888eb9ace65d767c4f78ed1a5e9eea426ebb0d588eaece7ef"
+    },
+    {
+      "path": "packages/pact-core/tests/fixtures/contracts/valid-v1.json",
+      "git_blob": "a74aacd59ef36c47478a85efd9452db0c72aeb1e",
+      "size_bytes": 1374,
+      "sha256": "d528fd0a01edebf92dd6bc9c26a854e55450966666be3cf251a0bffc8a7ee357"
+    },
+    {
+      "path": "packages/pact-core/tests/fixtures/scenarios/valid-deny-v1.json",
+      "git_blob": "7fe2458fd581a6ecdf2ecb5d03e9cc7690c28a8a",
+      "size_bytes": 1005,
+      "sha256": "c3db2f692dd4ddb28c988f76a6ceae13038ab324ee1c52195df8aa4b51a67499"
+    },
+    {
+      "path": "packages/pact-core/tests/fixtures/scenarios/valid-read-v1.json",
+      "git_blob": "ac3f105342087d1ef770e73d07278f50faaaed86",
+      "size_bytes": 901,
+      "sha256": "577fe37c66c85809df085f0d4c3541e58f6160a017313ca854669cd24bf045e1"
+    },
+    {
+      "path": "packages/pact-core/tests/test_approval_model.py",
+      "git_blob": "937202492b0532f16eba8c4679a2eb57929fe9c7",
+      "size_bytes": 13984,
+      "sha256": "75d18763adba9c1bb8b11e413544d0b75189864051598e5c4073018f9373d015"
+    },
+    {
+      "path": "packages/pact-core/tests/test_contracts.py",
+      "git_blob": "694383d04f4879d499714d6d2f7fbcbcea24f38c",
+      "size_bytes": 21081,
+      "sha256": "d340d1bfad9bf5e5a54f6da37409040364fd88a08be7bf79f40dbe7e356ef775"
+    },
+    {
+      "path": "packages/pact-core/tests/test_domain.py",
+      "git_blob": "0fe23d6868232d9e6219cff769ffe0ae73c0a97b",
+      "size_bytes": 15330,
+      "sha256": "2fb0fdf77f63edbcbca403a0789c41b2e0a0c295dbe96fa8aac37c35fa308601"
+    },
+    {
+      "path": "packages/pact-core/tests/test_imports.py",
+      "git_blob": "fc93d2070d7b0fe9b87485bcfac14d247529c269",
+      "size_bytes": 4373,
+      "sha256": "dbc974be4f01574a36f0693d9399efcbc22c6ad52adb8ed09b4ac59d4a64cfd9"
+    },
+    {
+      "path": "packages/pact-core/tests/test_providers.py",
+      "git_blob": "0002fc234127b8a09133c6bd2d2056cb548120e9",
+      "size_bytes": 11805,
+      "sha256": "3300f02f41f4dff06982e08826f072aa982610ea0346a882084932b293f5652a"
+    },
+    {
+      "path": "packages/pact-core/tests/test_scenarios.py",
+      "git_blob": "48b8f8f9283be2f13f54d2ec65e2e66bcd92123d",
+      "size_bytes": 22432,
+      "sha256": "8689f3445de01470b82692d5986305a66da6efc5e000031df4911eb4e7bb38f6"
+    },
+    {
+      "path": "pyproject.toml",
+      "git_blob": "6edf9f865b06716fb9e7b2083752a0c0f2fd0a1e",
+      "size_bytes": 1608,
+      "sha256": "6f225648720d1c147f6717ee78ee9e4f067ea1fc1a67b4c2a1dbac2c3fa13d60"
+    },
+    {
+      "path": "skill.md",
+      "git_blob": "c9e579487420486b47810f70e2e745bc6d375633",
+      "size_bytes": 26938,
+      "sha256": "5b82a82e1ae5f12ecdb6145f02647676673c585027324c95ebf5788863c6d6a9"
+    },
+    {
+      "path": "tests/test_ci_preparation.py",
+      "git_blob": "ac9d26a041614429be15e8460187eb4aae7ba1d0",
+      "size_bytes": 14024,
+      "sha256": "942d110450b064cd85ce8bd655868cd65affed36a09ec10cd044ac707b42c469"
+    },
+    {
+      "path": "tests/test_workspace.py",
+      "git_blob": "357b789647e1c4cc13f6a48a6fc921313d29cc6d",
+      "size_bytes": 2901,
+      "sha256": "02841cc37a20e94ec9c519504c0b326f6e7b19ba340018b20f221db0148cca0a"
+    },
+    {
+      "path": "todo.md",
+      "git_blob": "8dc62015cb6e2b63e87c4cf1de9a3a7e4f48fe3e",
+      "size_bytes": 827631,
+      "sha256": "5c3ca9c471e9fb3ba5a3509d159476b95ac5257bb20cbd60754fe8a0408638b3"
+    },
+    {
+      "path": "tools/ci.py",
+      "git_blob": "6e5f4ebdb6acc5e7358f1edb329b2e8b251fdd99",
+      "size_bytes": 6716,
+      "sha256": "5fb930f697f9f0d679113ec511cec22074a4df1a959ca57d9b4654ba7704a56a"
+    },
+    {
+      "path": "tools/smoke.py",
+      "git_blob": "2fa6b78d85ae189447fca28b1684d967ab346ce9",
+      "size_bytes": 2445,
+      "sha256": "e5a37fd505031b0f7203e460eac2899a15f840eed5218baf697e295487ad7b96"
+    },
+    {
+      "path": "tools/workspace.py",
+      "git_blob": "2b8005a213dadcc8b7032a57449cd47900f81fb6",
+      "size_bytes": 18293,
+      "sha256": "bac25a79445ef741aed74b405b1249754b4fe0d537463057fca50c6f75139ea2"
+    },
+    {
+      "path": "uv.lock",
+      "git_blob": "08db42160af5a9f988bde309b490b76f3dd75ad7",
+      "size_bytes": 8935,
+      "sha256": "a53eb02a20df4e2ff6f41bd4907bc8469104fad202b9a136743b33fd4e0b73b2"
+    },
+    {
+      "path": "workflow.md",
+      "git_blob": "54c76ac62256f325a12e402bfe44622e3311fa57",
+      "size_bytes": 40440,
+      "sha256": "0fc80e3ca6ee427e0a89dcc99f8ef5258652cb643ac79a53c0497b85204752b6"
+    }
+  ],
+  "file_count": 88,
+  "committed_file_bytes": 2134791,
+  "reachable_commit_count": 13,
+  "reachable_object_count": 191,
+  "reachable_object_bytes_uncompressed": 9555698,
+  "reachable_blob_count": 120,
+  "reachable_blobs": [
+    {
+      "git_blob": "924302b7f3ca13e680aa0b37e4f7c89a14706a63",
+      "example_path": ".agents/skills/pact-refactor/SKILL.md",
+      "size_bytes": 1681,
+      "sha256": "213deb8b9ad14546798854252c31d6552f7ac0cf625a0e2ee55618515c28334e"
+    },
+    {
+      "git_blob": "56d0d990141a9655f825ae1581015f3bb1d35190",
+      "example_path": ".agents/skills/pact-security-review/SKILL.md",
+      "size_bytes": 1773,
+      "sha256": "f3c139ae05cac79c83fc1b63f1d8c17a9ff8d048005fb8b75a63b969a2e74b1c"
+    },
+    {
+      "git_blob": "b6ab6749cf94d8e49cd06a17471e87188e94614c",
+      "example_path": ".agents/skills/pact-testing/SKILL.md",
+      "size_bytes": 1703,
+      "sha256": "c85a1692aaa27ee67567d4b68df0e822de81aede4e7d46dff2de55c9af8d800f"
+    },
+    {
+      "git_blob": "c5f21c7a41b4fa121e0277955bdf853770487f1c",
+      "example_path": ".gitattributes",
+      "size_bytes": 571,
+      "sha256": "4e35b2e63c9fbcbe6e332a63f8faa92cd54ffcd59e10f902cbec450a7479aacf"
+    },
+    {
+      "git_blob": "da9f89722a41c9ea60282d452f7dba865da727a7",
+      "example_path": ".github/workflows/baseline.yml",
+      "size_bytes": 1865,
+      "sha256": "41abad9af27e278a5eeac82f05f5e29556bb5ce6c74ce55da9c43edc746e30a3"
+    },
+    {
+      "git_blob": "fac98df57e3936fd24ccd08815dc2afc7ed93a95",
+      "example_path": ".gitignore",
+      "size_bytes": 143,
+      "sha256": "93c8fd06eecfbc41723f2fe7601cde8a6db74f6cc2b083ba6d36b42096750ae1"
+    },
+    {
+      "git_blob": "9b8fe2fbb8568ac60fa11a56ed0e7c3334fd23b0",
+      "example_path": ".python-version",
+      "size_bytes": 7,
+      "sha256": "5abd4dc1efa09469b88916c8e4e027a8c266a9b6d06f43ac9da3e30cd00b4ab5"
+    },
+    {
+      "git_blob": "36e57c7d573575200e1b2fefafff31b6653bac8d",
+      "example_path": "AGENTS.md",
+      "size_bytes": 39599,
+      "sha256": "a3cba939b41070a3991f0991db750486fbace96fa205874a9d32397b2c3b9f56"
+    },
+    {
+      "git_blob": "fa63ceac6075185e21de4bd9963fde21f25dfd75",
+      "example_path": "PRD.MD",
+      "size_bytes": 88064,
+      "sha256": "812808fe7ea92fb5ae1f900522b1ef6ceeb015a9e681071956b88d35610b48dd"
+    },
+    {
+      "git_blob": "5998f3113d0e5e46844ff2bd3f0f0764a50090a3",
+      "example_path": "build-constraints.txt",
+      "size_bytes": 586,
+      "sha256": "754c8ba798c59df08271ffd61951521ccc5f01d7b6812f40efbdbdc5615d0028"
+    },
+    {
+      "git_blob": "24a743dded2c6982a7b910ebba7d7e445f1b6698",
+      "example_path": "docs/API_SPEC.md",
+      "size_bytes": 20410,
+      "sha256": "30dbfe6aceccdfe2a9d3738532b6eaed00449b97327960f5c107114af022a3a5"
+    },
+    {
+      "git_blob": "1f64de1a67d3cbf5dcab59878a2ec63844346fba",
+      "example_path": "docs/ARCHITECTURE.md",
+      "size_bytes": 78245,
+      "sha256": "c0062f65713f70b44ba44fa9c44ecac16011b281b14c82150ceb942eadb6971b"
+    },
+    {
+      "git_blob": "75b679d1d642356c612417d720c586a0689d4351",
+      "example_path": "docs/BENCHMARK_PROTOCOL.md",
+      "size_bytes": 22564,
+      "sha256": "9705ba8bb6ae332130b86e3ed56a74cfd15275bd1d8dc59854629441edb8afca"
+    },
+    {
+      "git_blob": "ff88c9628fb2d1c4d865e8539e349746b8878ee6",
+      "example_path": "docs/BOOTSTRAP_INSPECTION.md",
+      "size_bytes": 20078,
+      "sha256": "a4500c6b840de9c84f3a5e98a92d0401d2a7b01b967241c536e2a26701c35e7a"
+    },
+    {
+      "git_blob": "720fa9cd924890ea13490a6d84a70524e60d736c",
+      "example_path": "docs/BOOTSTRAP_RECOVERY.md",
+      "size_bytes": 10290,
+      "sha256": "76109c4fdd638ebfa39cb8edceabadb49f2f51da765882b6f54189da5cd18a49"
+    },
+    {
+      "git_blob": "ed0a877d9950a9e08f5ca96ac537a3b2adc8fdb1",
+      "example_path": "docs/BOOTSTRAP_REVIEW.md",
+      "size_bytes": 15721,
+      "sha256": "0fd2ff58734792e151ef00c4d67b9d91d84b268cfcaf78f727dbbb4509bc2cc0"
+    },
+    {
+      "git_blob": "e73236e03eba74130ef305d22b6bcc3a9a3bc164",
+      "example_path": "docs/CI_REVIEW.md",
+      "size_bytes": 17898,
+      "sha256": "0d7008649f5a0f1aba67dba6258b0c29ea77324ae88b7a0843462eec6917db19"
+    },
+    {
+      "git_blob": "d14374f420e051a1404648c3e21c949bca1af7e5",
+      "example_path": "docs/DATA_MODEL.md",
+      "size_bytes": 33009,
+      "sha256": "fc29cca20c1046cc1f3f6f098d29ef5e7717c2abb348da523ea157cc83200c38"
+    },
+    {
+      "git_blob": "d5f5f6411c359501fabc147f2c33ecaf76518211",
+      "example_path": "docs/DECISIONS.md",
+      "size_bytes": 8909,
+      "sha256": "55de0e7a288479232ce48e1911926f2d1bf6a22b867c0ee42fd0c7ac1ca89e6b"
+    },
+    {
+      "git_blob": "d2953df197f3d6317139f1a9e1c1fd72a584532e",
+      "example_path": "docs/EVALUATION_REPORT.md",
+      "size_bytes": 13895,
+      "sha256": "8ced9170083bebc59b2940bff167d9ce66b7144aa65e50e1cb0fbe7907920492"
+    },
+    {
+      "git_blob": "2e1b86f731a20ec75673a9aee629828666cc6896",
+      "example_path": "docs/IMPLEMENTATION_PLAN.md",
+      "size_bytes": 12651,
+      "sha256": "08bfd0627ec00ae7c22b56aaee016282f94e2de2ba7381fc31ad0f217d5826d3"
+    },
+    {
+      "git_blob": "aebebdb358fc04f07180e543e96236c301a6ffcf",
+      "example_path": "docs/M1_OFFLINE_GATE.md",
+      "size_bytes": 9558,
+      "sha256": "f3ec8cd245132c8e63759300b441697c26447b21660650cb19551d525320d3de"
+    },
+    {
+      "git_blob": "8a891b5d12ebc8b638d96fabed554fc12988ae1a",
+      "example_path": "docs/M2_SECURITY_CONFORMANCE.md",
+      "size_bytes": 15577,
+      "sha256": "588c7db2d0d66b146dc77189330665b95ade9bc9cb42aa653e3bf89efe5d17b5"
+    },
+    {
+      "git_blob": "7108462f264a45de964a7e7ac75e2cef9b37ba3a",
+      "example_path": "docs/M4_REPEATABILITY_GATE.md",
+      "size_bytes": 18398,
+      "sha256": "08242e07f4e66e6b46bc30b7462ac28f6e30954f22265320579d40f1ca808487"
+    },
+    {
+      "git_blob": "0a9608906d7bbda42e7e83a823c622069b9486e2",
+      "example_path": "docs/M5_HOSTED_GATE.md",
+      "size_bytes": 22958,
+      "sha256": "8ecbd46672de9b0ebe47beb74126ef56249258fc1c60e56b56e980a272178258"
+    },
+    {
+      "git_blob": "7914968d28a1e8897b6b3beb379f4e5dca99e466",
+      "example_path": "docs/P0_FOUNDATION_REVIEW.md",
+      "size_bytes": 16055,
+      "sha256": "dbaeb7485b1ce304f718c3ce272b6d3cd4f29dfd5bd2fb4d32c47646fca43c57"
+    },
+    {
+      "git_blob": "e3c3f64ddf8e177623d68093b30983b7e13655aa",
+      "example_path": "docs/REPOSITORY_INVENTORY.md",
+      "size_bytes": 19750,
+      "sha256": "7d605b69b86526a375aa701104c94a6aecd89de5b31b56895de1b51f4138cb81"
+    },
+    {
+      "git_blob": "4da8d4de83fdfa562d71cbdac41b7112855cd842",
+      "example_path": "docs/SECURITY.md",
+      "size_bytes": 86874,
+      "sha256": "a51ad296cfae08660903d0289102e99a57132c8375550e7b2391df81279ae4d6"
+    },
+    {
+      "git_blob": "269d32888aed185e04308e89a80fbb20f7f7a25f",
+      "example_path": "docs/TEST_PLAN.md",
+      "size_bytes": 58764,
+      "sha256": "70b01c0a3dbadb5c5f8178875f8d6cac63c4819e3c0cf5978e6cd2ceb194c726"
+    },
+    {
+      "git_blob": "54878d4a12cfc380761bf8a7872fca8c6d431aa8",
+      "example_path": "docs/TOOL_BASELINES.md",
+      "size_bytes": 11069,
+      "sha256": "0564b56096d7fa12f2a3c998d1789995e7ae3b5ba76cf745028704b0bde6c63b"
+    },
+    {
+      "git_blob": "ad5bdf759a0bd33f5ae817132e3f0e59e2600deb",
+      "example_path": "docs/WORKSPACE_BASELINE.md",
+      "size_bytes": 25781,
+      "sha256": "cf54fe165f08b8b5d7ed80f88a1cbbdde61fd172989418e99b43a9b51e8569fa"
+    },
+    {
+      "git_blob": "56a66b21de28917e0005c0200d2026b1f92759df",
+      "example_path": "docs/adr/0001-contract-dsl.md",
+      "size_bytes": 23768,
+      "sha256": "3b2388d551475519cadfbfd037766c3349677d0b7e9d21d92fa0b54943d9c925"
+    },
+    {
+      "git_blob": "8de3ea124e552f0236c4c6ee689ab97811135bb4",
+      "example_path": "docs/adr/0002-fixture-runner.md",
+      "size_bytes": 42990,
+      "sha256": "85c207bae17f210a4370fdd0db69a39b8946f5d15ff2b7f28a007edb5df35011"
+    },
+    {
+      "git_blob": "3705b7a82e656a33ff3c682954261696114a1b00",
+      "example_path": "docs/adr/0003-human-approval.md",
+      "size_bytes": 38554,
+      "sha256": "0360aee8db412b4923b05a069bb5e3d1c0b5b2b49f7677b6a15ae40f32e82aff"
+    },
+    {
+      "git_blob": "a8290abdc5fa085124ded63247910f169a9f4ddd",
+      "example_path": "docs/adr/0004-repository-and-stack.md",
+      "size_bytes": 24344,
+      "sha256": "b7f6f7d25397697ae6209d583d67bd32a09ed45374947c79c383c18d281efc53"
+    },
+    {
+      "git_blob": "4052a9c8f6975246e5df0498a327bda4a1bb2d0f",
+      "example_path": "docs/adr/0007-hosted-trust.md",
+      "size_bytes": 33245,
+      "sha256": "f358945b82b9e670905c7a7d583ff05b30460a1e0f7a5a7aac7dc587581512d2"
+    },
+    {
+      "git_blob": "14e6b1953fe5d8db9460fcb52252fc97a8aeb3ee",
+      "example_path": "docs/adr/0009-evaluation.md",
+      "size_bytes": 4241,
+      "sha256": "436da3e1bf258d3166ddd2e1f968df285990f931fe8a8d7d65ec7bc7ee9287be"
+    },
+    {
+      "git_blob": "d450350976401ef078e85a6adcd8291e9bdcd752",
+      "example_path": "docs/adr/examples/0001-cases.json",
+      "size_bytes": 5733,
+      "sha256": "c891c856d414a4c930a2718704f8de2e4505c11f5d8841f93185563830082808"
+    },
+    {
+      "git_blob": "514cf7e74ef31ce2e98ebf3e880b0797bebae93c",
+      "example_path": "docs/adr/examples/0001-valid-contract.json",
+      "size_bytes": 1150,
+      "sha256": "f80d9cfcc2f73ef747c464d443f7bbfbedef5f5112956c8be79534326941274b"
+    },
+    {
+      "git_blob": "5696c9678611055b5fb671c438886a8f24e23498",
+      "example_path": "docs/benchmark-tool-profile.template.json",
+      "size_bytes": 1765,
+      "sha256": "751b81d4314eef7c01097f012cce87ba8c93d3638972d39c8c139731c6a4852d"
+    },
+    {
+      "git_blob": "db5a639bc03946b57faf2bc51e1355fabd92b949",
+      "example_path": "docs/bootstrap-artifacts.json",
+      "size_bytes": 47831,
+      "sha256": "8fedff4be21abac355b8b9251d55608f75c7e2864bb6e7676c53c00cf32deefe"
+    },
+    {
+      "git_blob": "4d1c8894a3d47b6a1370ad20fb29bb237ef68966",
+      "example_path": "docs/ci-source-inventory.json",
+      "size_bytes": 20644,
+      "sha256": "658c1135e6f5d61f80e0242758bf589bcf1c84dd6e106ecf26eddf04bfe71b8d"
+    },
+    {
+      "git_blob": "f756c579ef242ee5eda2b0b5affc1ca9ce76fdf8",
+      "example_path": "docs/schema.md",
+      "size_bytes": 65868,
+      "sha256": "567a769145b00f2f42267ef671548384e97d56baca5ba9f04b50d901131f9edf"
+    },
+    {
+      "git_blob": "012bb26ac16a4c0b30f912cfe8f03d7ebbd864bf",
+      "example_path": "packages/pact-core/README.md",
+      "size_bytes": 17515,
+      "sha256": "b3c817427b5c0f3327c88761135fe4f80cd8be77dee3bbc786dae57f3adc2564"
+    },
+    {
+      "git_blob": "c45e776ccfccd4a9747db3586206b43582dd82fa",
+      "example_path": "packages/pact-core/pact_core/__init__.py",
+      "size_bytes": 78,
+      "sha256": "1317f49f56821c799c8e9043dbe17fd09afc912cf1fc9143d52fe072e9d618f8"
+    },
+    {
+      "git_blob": "9e52322d44273d4ece1e86b2ccad95a25044474c",
+      "example_path": "packages/pact-core/pact_core/domain/__init__.py",
+      "size_bytes": 1633,
+      "sha256": "22c2ce32e13201467c0a650dea27ed0c30fe85b41e17708283ea7971527b6c43"
+    },
+    {
+      "git_blob": "aa84b0f295ee898948dceec42bb0167711a87583",
+      "example_path": "packages/pact-core/pact_core/domain/_validation.py",
+      "size_bytes": 1931,
+      "sha256": "21c420f0187c8f24d1b87cd03c1198aa0a968623a0c92750f508e4606770b40e"
+    },
+    {
+      "git_blob": "7b8d55ecfb03a3916f04505595464b825882a208",
+      "example_path": "packages/pact-core/pact_core/domain/approval_model.py",
+      "size_bytes": 9554,
+      "sha256": "2b5d9cbf0fd15dffabadc7a35a6e35b1196ba4a3b3d479c8e64964e666933561"
+    },
+    {
+      "git_blob": "43201a06e8752bd1d27021c3ebdbf3cdb4e8de2b",
+      "example_path": "packages/pact-core/pact_core/domain/contracts.py",
+      "size_bytes": 11913,
+      "sha256": "6b2df4d4f2ff1142b8f695efaa05ba9cb647cd7927398bfc3b0e5377bf452914"
+    },
+    {
+      "git_blob": "bec7cccb77b7716eee068c440ab5cca4d90e81d8",
+      "example_path": "packages/pact-core/pact_core/domain/entities.py",
+      "size_bytes": 4979,
+      "sha256": "ffff021a0479582fdc457dc3a8824d6e7d1cfd5fe412a7f97984e8113e3a2f3a"
+    },
+    {
+      "git_blob": "918ab4687d74d5621d2069b90820b121288518ea",
+      "example_path": "packages/pact-core/pact_core/domain/enums.py",
+      "size_bytes": 901,
+      "sha256": "3057111b09dabd7c6668b1ca56c797de889fdc0e491d5fc641fdf3b558723d9c"
+    },
+    {
+      "git_blob": "97de790ddc27526f100f06f3da49655fce154979",
+      "example_path": "packages/pact-core/pact_core/domain/identifiers.py",
+      "size_bytes": 1225,
+      "sha256": "8a1f973415ee92dfcb7811b017dd204ef5698702da12b3ac21cffec4884a1400"
+    },
+    {
+      "git_blob": "3ab522c6803540c00d68ba6376aa1abe6674a179",
+      "example_path": "packages/pact-core/pact_core/domain/rules.py",
+      "size_bytes": 4093,
+      "sha256": "e26f6121acd2a8ef14eced06df095259aa7f2a62f2e556fa6d2b2384a53edcd9"
+    },
+    {
+      "git_blob": "f12db51f45f856857318bdef9f5583517aeb45c6",
+      "example_path": "packages/pact-core/pact_core/domain/schema.py",
+      "size_bytes": 4288,
+      "sha256": "d51aa4badc43ad88eb23cdf1aa92019247d874f2e04211d88af957d28017b721"
+    },
+    {
+      "git_blob": "580aab5037185ec645feaf092c9ac59c2dc99ed7",
+      "example_path": "packages/pact-core/pact_core/providers/__init__.py",
+      "size_bytes": 505,
+      "sha256": "aa1f78e0bc2f1e4c438ea1f34b68bd5d8a53f3d99f58fbd0bb4133830bb5f54c"
+    },
+    {
+      "git_blob": "a62287ae96a78e5f47fd04dfe7059f8ccacdec9f",
+      "example_path": "packages/pact-core/pact_core/providers/fake.py",
+      "size_bytes": 2263,
+      "sha256": "35fb5c5a3b4015ae944fa6dfc7a5cb1431af26280b4e4037bf44032469f56fe7"
+    },
+    {
+      "git_blob": "6e17b709ec1dda008184655f7c65d9b3b988df52",
+      "example_path": "packages/pact-core/pact_core/providers/port.py",
+      "size_bytes": 4241,
+      "sha256": "a4eb352c1bed654c58f8754a9f30fcea266f0015d3cf5adf4254d1957bc145be"
+    },
+    {
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "example_path": "packages/pact-core/pact_core/py.typed",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "git_blob": "051ba539ae2a38bb00c2df09922bccfd2d0cb610",
+      "example_path": "packages/pact-core/pact_core/scenarios/__init__.py",
+      "size_bytes": 775,
+      "sha256": "abc84ed434ce2f6c926782f9aa07fcb23f0f1e8196e5eaad2291c52889ac8595"
+    },
+    {
+      "git_blob": "b301222b5df18ab27cb01e4966d67d61dbe75c26",
+      "example_path": "packages/pact-core/pact_core/scenarios/models.py",
+      "size_bytes": 9723,
+      "sha256": "6d5cdeb53ca013bf0c9051d7afcf5eeffe4622a091426b585f61d45df5a00050"
+    },
+    {
+      "git_blob": "738b0ec6b629e5ab779650011e919aecf83d953d",
+      "example_path": "packages/pact-core/pact_core/scenarios/parser.py",
+      "size_bytes": 8940,
+      "sha256": "ca113c648bbf3ce95edece963b6c3e191f2bb60ca4fe14796fd3877bd04761e4"
+    },
+    {
+      "git_blob": "25e1d8078f728e95a203ea9f1096a76513fdf870",
+      "example_path": "packages/pact-core/pact_core/scenarios/schema.py",
+      "size_bytes": 3885,
+      "sha256": "c64bc5a1985fb0a7074dcb28b4c8d318bb120e6c9dc4d095f33441aefeabec89"
+    },
+    {
+      "git_blob": "a202201bea92773500f637c3db41cd58c55a0381",
+      "example_path": "packages/pact-core/pyproject.toml",
+      "size_bytes": 815,
+      "sha256": "35437cad7b4e27e46d9af69fa14263f5cbe2e1ffde710b30cd528849cb63e0fd"
+    },
+    {
+      "git_blob": "56f850ea4dc256b3ac90fa7e7503830ca446377b",
+      "example_path": "packages/pact-core/schemas/contract-1.0.schema.json",
+      "size_bytes": 6623,
+      "sha256": "15537d9ce84fc41fe71d3240b2fbd5e8c1b9887a20474fee5ed5395fa04af9f4"
+    },
+    {
+      "git_blob": "a5a2b1377dab9bc7605d3ee374ca1e6fd731966c",
+      "example_path": "packages/pact-core/schemas/scenario-1.0.schema.json",
+      "size_bytes": 6186,
+      "sha256": "893054982a8dfd448aa615b9eb6c7b4e2fd95aaa87aa5a2ee84a536d676cdf89"
+    },
+    {
+      "git_blob": "95388531dd69e7e6cc3b2ea409fb4786449197c2",
+      "example_path": "packages/pact-core/tests/fixtures/contracts/ambiguous-conflict-v1.json",
+      "size_bytes": 1914,
+      "sha256": "1d402f334cb025fcb6be9183eae5041ccca6513bdb4ce3d094f6c3e3cfbd8522"
+    },
+    {
+      "git_blob": "f4c8614e8aebb3bb08a0f7f4568931e4231a8d54",
+      "example_path": "packages/pact-core/tests/fixtures/contracts/invalid-forged-approval.json",
+      "size_bytes": 1398,
+      "sha256": "15d7334b2f248f39b6424396f92187552342e20b117a5441044f043285881d19"
+    },
+    {
+      "git_blob": "39aef75bd9c0e599b8aa0285f35c9802f103fb1f",
+      "example_path": "packages/pact-core/tests/fixtures/contracts/invalid-schema-v2.json",
+      "size_bytes": 1374,
+      "sha256": "5e56f37d42f398424915abbe544af4944c6e6330522b87e3e5a064aaf818f360"
+    },
+    {
+      "git_blob": "15b9d59d72fb545a10f092a319d36af1ae945687",
+      "example_path": "packages/pact-core/tests/fixtures/contracts/sharing-v1.json",
+      "size_bytes": 1244,
+      "sha256": "bedd80a1107fcf3888eb9ace65d767c4f78ed1a5e9eea426ebb0d588eaece7ef"
+    },
+    {
+      "git_blob": "a74aacd59ef36c47478a85efd9452db0c72aeb1e",
+      "example_path": "packages/pact-core/tests/fixtures/contracts/valid-v1.json",
+      "size_bytes": 1374,
+      "sha256": "d528fd0a01edebf92dd6bc9c26a854e55450966666be3cf251a0bffc8a7ee357"
+    },
+    {
+      "git_blob": "7fe2458fd581a6ecdf2ecb5d03e9cc7690c28a8a",
+      "example_path": "packages/pact-core/tests/fixtures/scenarios/valid-deny-v1.json",
+      "size_bytes": 1005,
+      "sha256": "c3db2f692dd4ddb28c988f76a6ceae13038ab324ee1c52195df8aa4b51a67499"
+    },
+    {
+      "git_blob": "ac3f105342087d1ef770e73d07278f50faaaed86",
+      "example_path": "packages/pact-core/tests/fixtures/scenarios/valid-read-v1.json",
+      "size_bytes": 901,
+      "sha256": "577fe37c66c85809df085f0d4c3541e58f6160a017313ca854669cd24bf045e1"
+    },
+    {
+      "git_blob": "937202492b0532f16eba8c4679a2eb57929fe9c7",
+      "example_path": "packages/pact-core/tests/test_approval_model.py",
+      "size_bytes": 13984,
+      "sha256": "75d18763adba9c1bb8b11e413544d0b75189864051598e5c4073018f9373d015"
+    },
+    {
+      "git_blob": "694383d04f4879d499714d6d2f7fbcbcea24f38c",
+      "example_path": "packages/pact-core/tests/test_contracts.py",
+      "size_bytes": 21081,
+      "sha256": "d340d1bfad9bf5e5a54f6da37409040364fd88a08be7bf79f40dbe7e356ef775"
+    },
+    {
+      "git_blob": "0fe23d6868232d9e6219cff769ffe0ae73c0a97b",
+      "example_path": "packages/pact-core/tests/test_domain.py",
+      "size_bytes": 15330,
+      "sha256": "2fb0fdf77f63edbcbca403a0789c41b2e0a0c295dbe96fa8aac37c35fa308601"
+    },
+    {
+      "git_blob": "fc93d2070d7b0fe9b87485bcfac14d247529c269",
+      "example_path": "packages/pact-core/tests/test_imports.py",
+      "size_bytes": 4373,
+      "sha256": "dbc974be4f01574a36f0693d9399efcbc22c6ad52adb8ed09b4ac59d4a64cfd9"
+    },
+    {
+      "git_blob": "0002fc234127b8a09133c6bd2d2056cb548120e9",
+      "example_path": "packages/pact-core/tests/test_providers.py",
+      "size_bytes": 11805,
+      "sha256": "3300f02f41f4dff06982e08826f072aa982610ea0346a882084932b293f5652a"
+    },
+    {
+      "git_blob": "48b8f8f9283be2f13f54d2ec65e2e66bcd92123d",
+      "example_path": "packages/pact-core/tests/test_scenarios.py",
+      "size_bytes": 22432,
+      "sha256": "8689f3445de01470b82692d5986305a66da6efc5e000031df4911eb4e7bb38f6"
+    },
+    {
+      "git_blob": "6edf9f865b06716fb9e7b2083752a0c0f2fd0a1e",
+      "example_path": "pyproject.toml",
+      "size_bytes": 1608,
+      "sha256": "6f225648720d1c147f6717ee78ee9e4f067ea1fc1a67b4c2a1dbac2c3fa13d60"
+    },
+    {
+      "git_blob": "c9e579487420486b47810f70e2e745bc6d375633",
+      "example_path": "skill.md",
+      "size_bytes": 26938,
+      "sha256": "5b82a82e1ae5f12ecdb6145f02647676673c585027324c95ebf5788863c6d6a9"
+    },
+    {
+      "git_blob": "ac9d26a041614429be15e8460187eb4aae7ba1d0",
+      "example_path": "tests/test_ci_preparation.py",
+      "size_bytes": 14024,
+      "sha256": "942d110450b064cd85ce8bd655868cd65affed36a09ec10cd044ac707b42c469"
+    },
+    {
+      "git_blob": "357b789647e1c4cc13f6a48a6fc921313d29cc6d",
+      "example_path": "tests/test_workspace.py",
+      "size_bytes": 2901,
+      "sha256": "02841cc37a20e94ec9c519504c0b326f6e7b19ba340018b20f221db0148cca0a"
+    },
+    {
+      "git_blob": "8dc62015cb6e2b63e87c4cf1de9a3a7e4f48fe3e",
+      "example_path": "todo.md",
+      "size_bytes": 827631,
+      "sha256": "5c3ca9c471e9fb3ba5a3509d159476b95ac5257bb20cbd60754fe8a0408638b3"
+    },
+    {
+      "git_blob": "6e5f4ebdb6acc5e7358f1edb329b2e8b251fdd99",
+      "example_path": "tools/ci.py",
+      "size_bytes": 6716,
+      "sha256": "5fb930f697f9f0d679113ec511cec22074a4df1a959ca57d9b4654ba7704a56a"
+    },
+    {
+      "git_blob": "2fa6b78d85ae189447fca28b1684d967ab346ce9",
+      "example_path": "tools/smoke.py",
+      "size_bytes": 2445,
+      "sha256": "e5a37fd505031b0f7203e460eac2899a15f840eed5218baf697e295487ad7b96"
+    },
+    {
+      "git_blob": "2b8005a213dadcc8b7032a57449cd47900f81fb6",
+      "example_path": "tools/workspace.py",
+      "size_bytes": 18293,
+      "sha256": "bac25a79445ef741aed74b405b1249754b4fe0d537463057fca50c6f75139ea2"
+    },
+    {
+      "git_blob": "08db42160af5a9f988bde309b490b76f3dd75ad7",
+      "example_path": "uv.lock",
+      "size_bytes": 8935,
+      "sha256": "a53eb02a20df4e2ff6f41bd4907bc8469104fad202b9a136743b33fd4e0b73b2"
+    },
+    {
+      "git_blob": "54c76ac62256f325a12e402bfe44622e3311fa57",
+      "example_path": "workflow.md",
+      "size_bytes": 40440,
+      "sha256": "0fc80e3ca6ee427e0a89dcc99f8ef5258652cb643ac79a53c0497b85204752b6"
+    },
+    {
+      "git_blob": "e035f51c14ffaa71bdff21978e8120e4cd93a452",
+      "example_path": ".gitattributes",
+      "size_bytes": 367,
+      "sha256": "85db767d2914354baa99861f347058e2794ffa740e3bf4cb3650f7426f7f8a9c"
+    },
+    {
+      "git_blob": "b28f74a9c42aa6ab4cef1b0404d6d8c98ce5677d",
+      "example_path": ".github/workflows/baseline.yml",
+      "size_bytes": 1079,
+      "sha256": "541b0929e4906731fa13fa8bf5dd338c7d284dbc7b05e0dee3a6140cd0d2c197"
+    },
+    {
+      "git_blob": "9c9b18182b5178c3595bd6bc4149c6ddcf895fa3",
+      "example_path": "todo.md",
+      "size_bytes": 823012,
+      "sha256": "382f078a62ee2bcf9171f3ef0f67c70b0d5870fe804e4cf1d917ef25df4345d7"
+    },
+    {
+      "git_blob": "e79788f444e93be2c88b5d0ea44b33137b7f2dab",
+      "example_path": "tools/workspace.py",
+      "size_bytes": 12395,
+      "sha256": "43b1fcf14d2c550bbc12fabb5f8becf8f48ef3c7c89adbd964e9647af45c4b0e"
+    },
+    {
+      "git_blob": "4241d221a4d051dcd1712940862d9d3d91ad8e1d",
+      "example_path": "todo.md",
+      "size_bytes": 815736,
+      "sha256": "3236312a3201e7b97237e69bb516a492707f2a2ba0275aa859d428a7b5b2d368"
+    },
+    {
+      "git_blob": "5febdf9304011aa8b81907e579d19d0a2e7513d1",
+      "example_path": "docs/WORKSPACE_BASELINE.md",
+      "size_bytes": 8752,
+      "sha256": "e992dc06ad8eb41c908e1639dc8b82505af163dc3831dd239dcb64932d2ad40a"
+    },
+    {
+      "git_blob": "7db4b6dfa35e0b25d1c980f4481802d62138b2fb",
+      "example_path": "todo.md",
+      "size_bytes": 810872,
+      "sha256": "10b10fa567f170804e733f0ac5d30538db985d3efc493633cb15ca6703d3eefb"
+    },
+    {
+      "git_blob": "055d3f3e5a3badee99ff000d09b52c47d1fb1e44",
+      "example_path": "packages/pact-core/README.md",
+      "size_bytes": 16926,
+      "sha256": "f4c75d5c2c3aa674fec123f51b0dc75b11684ed7b10eecc392436119b604a0f2"
+    },
+    {
+      "git_blob": "15c774b2f447dbc201916d8998f0372cfd9c86fe",
+      "example_path": "packages/pact-core/pact_core/domain/approval_model.py",
+      "size_bytes": 9426,
+      "sha256": "121f76d53eaa5e9ca7ce9f38135615fa7668dfc7c10c54aa1ae6f2e7e2b4bc91"
+    },
+    {
+      "git_blob": "1701451d4d0b47cc6a0b14edb8bb4c74cd80cc83",
+      "example_path": "packages/pact-core/pact_core/domain/contracts.py",
+      "size_bytes": 11588,
+      "sha256": "85697f878fd39724c5a8e2279a3a598d027b928c55322b351dbf151a375fb137"
+    },
+    {
+      "git_blob": "bc5f51c6526be511f4156bf33020cad5fd587e53",
+      "example_path": "packages/pact-core/pact_core/domain/rules.py",
+      "size_bytes": 4041,
+      "sha256": "a5fdc4c8f3dfb201eca9f8cfcc05b4b3e96b84df706f7fc39a7b7a81b55cf808"
+    },
+    {
+      "git_blob": "9c529fdda4afbb6ea5a2ea6fd02b71ae5933770a",
+      "example_path": "packages/pact-core/pact_core/domain/schema.py",
+      "size_bytes": 4166,
+      "sha256": "457b830e0f13a2f0f5368256ac6474a5fb6cb96586195473b3919ffb313292d4"
+    },
+    {
+      "git_blob": "818e6f9e748d7eb06baf34d83bd262a8df43a7f7",
+      "example_path": "packages/pact-core/pact_core/scenarios/models.py",
+      "size_bytes": 9589,
+      "sha256": "35eb4544d57c877f13893090a261e63bbed7d0f41859c00748ebe9ec5007470a"
+    },
+    {
+      "git_blob": "cb68d3614dc2ae1010379976e0e02b7a106caac5",
+      "example_path": "packages/pact-core/pact_core/scenarios/parser.py",
+      "size_bytes": 8626,
+      "sha256": "b76f69d4dd44a8bb03f43508351d9a873afff7439e18bbf46efed17a57b937cb"
+    },
+    {
+      "git_blob": "7f681f117c0957f17920e035738aac5df2500355",
+      "example_path": "packages/pact-core/pact_core/scenarios/schema.py",
+      "size_bytes": 3739,
+      "sha256": "7bc2d34c5f9d65d1486be9af08a137a3e707e2b747d5d719d193572612902c52"
+    },
+    {
+      "git_blob": "63311cf40561b57451122dde8b2dd34e24b1059a",
+      "example_path": "packages/pact-core/tests/test_approval_model.py",
+      "size_bytes": 14008,
+      "sha256": "b405dae99b33dcc87df1d8a08ec9e1d0ca0b39efd80fabfb700c1cad2109748a"
+    },
+    {
+      "git_blob": "8b3a81c79640ef3ffc682425631697b95d18d91c",
+      "example_path": "packages/pact-core/tests/test_domain.py",
+      "size_bytes": 15338,
+      "sha256": "823802070849dc0a4d8baa72e883d6351b06e020b7855cc91e724705ad59902b"
+    },
+    {
+      "git_blob": "7ebbc9fa470a2e5baeb062c6fa40f701a90415e6",
+      "example_path": "todo.md",
+      "size_bytes": 806654,
+      "sha256": "cae094d5f1c285c0e098436c212be74f8fc108e697efc8df03e595f8080a4737"
+    },
+    {
+      "git_blob": "aaa458d75495cacdb5240d30214362341753d1d1",
+      "example_path": "todo.md",
+      "size_bytes": 798708,
+      "sha256": "ae7e17392de9d1e364e2c569b4a2aa554309410bc977bff61d6f32bd49525908"
+    },
+    {
+      "git_blob": "e9f949f3f58db0a1b02747366149874d429d1984",
+      "example_path": "todo.md",
+      "size_bytes": 789610,
+      "sha256": "5a0e3c86b15082608191402f82d36a27b84b7fa96b2f6c058f8898acf846147b"
+    },
+    {
+      "git_blob": "9ff268b60ebc19f19f30e40d2e9330ec0c95d87a",
+      "example_path": "todo.md",
+      "size_bytes": 778451,
+      "sha256": "b95cac4f6cc4c92744c667184689012a410673848d577d43059d0d9235692d6c"
+    },
+    {
+      "git_blob": "74afb919f025611c80a7113ac3108a7730894e88",
+      "example_path": "todo.md",
+      "size_bytes": 731935,
+      "sha256": "8f06e6d24fe8100501123a44d0092fb4a11fa0836ba8a26054273a3ad48fedbb"
+    },
+    {
+      "git_blob": "f7fe02e453c32489686760d5dd73f3dcc58979f4",
+      "example_path": "docs/SECURITY.md",
+      "size_bytes": 83674,
+      "sha256": "4eda9d150e8425e5d31b3b03bc281255b0c2365f98839c99565aa11fc40cca9b"
+    },
+    {
+      "git_blob": "533b7ccbcd1e9843e18dac066a72d4ab208f1cda",
+      "example_path": "docs/adr/0002-fixture-runner.md",
+      "size_bytes": 41538,
+      "sha256": "f661f0893b1915d47886a157b96d04322e80a6d274fd820b4c96f4b2c16075cb"
+    },
+    {
+      "git_blob": "e4eeedc6e86f2b3ce733d1b763e92ee625c812d0",
+      "example_path": "docs/adr/0003-human-approval.md",
+      "size_bytes": 34558,
+      "sha256": "232ad5aa47b2729aac10d3ac0cf4261165045dcb33e297203fb0b0d8f9efd199"
+    },
+    {
+      "git_blob": "7c15da47c8dd92131f847380abc884d9fc080dcc",
+      "example_path": "docs/adr/0004-repository-and-stack.md",
+      "size_bytes": 21822,
+      "sha256": "a79b424f1f871cab7ff06cfc32ba5c8e34ac149b258e498807fcd4995dec899f"
+    },
+    {
+      "git_blob": "d73462cdc3e2826785f52138bf9d365caa38e980",
+      "example_path": "docs/ARCHITECTURE.md",
+      "size_bytes": 78068,
+      "sha256": "2db1632ea75327a9ba7798b5456c74447f0c62ab7a5f2f4895b0d1cf72b1b445"
+    },
+    {
+      "git_blob": "723e1f7227b20b64e5393a639e195dfca987fdbb",
+      "example_path": "todo.md",
+      "size_bytes": 402529,
+      "sha256": "ae4aecc7cc3065c63a2751646b79e5ae255adf17777979abfbc97ff01fa89455"
+    },
+    {
+      "git_blob": "13662968d84e6bd40692da824c91546ae81c26b1",
+      "example_path": "docs/ARCHITECTURE.md",
+      "size_bytes": 78083,
+      "sha256": "3dac6e46d1fd8b13ee33cb49620dcfe0d5415ed82005d47aabd9b2ba71f06c64"
+    },
+    {
+      "git_blob": "1c35179d3440150998442aa7e3687918d1b67e97",
+      "example_path": "docs/SECURITY.md",
+      "size_bytes": 67007,
+      "sha256": "2c45c7c8df77f1f657142c48df53cddd8dddfd23bb46f5dbb74eb9936e55b699"
+    },
+    {
+      "git_blob": "643610e3207d1364805f3ca8b907b1ba9535524e",
+      "example_path": "docs/schema.md",
+      "size_bytes": 65309,
+      "sha256": "b5908b145c58ef14d24c14b7452fe26619d5f6582f1038350e8cbf20c5c19a0d"
+    },
+    {
+      "git_blob": "f29d2c623518dc7246418d84fdf95cec894f12ec",
+      "example_path": "todo.md",
+      "size_bytes": 49822,
+      "sha256": "c1fd4698d53bf13305460e57a501a177fc8619afd330b165122cb44155e052c1"
+    }
+  ],
+  "secret_screen": {
+    "kind": "LIMITED_REGEX_ONLY_NOT_COMPREHENSIVE_CLEARANCE",
+    "patterns": [
+      "private_key_header",
+      "github_token_like",
+      "aws_access_key_like",
+      "openai_token_like"
+    ],
+    "candidate_findings": [],
+    "review": "Full action/source/remote security review still required"
+  },
+  "ref_update_proposal": {
+    "destination_ref": "refs/heads/codex/m0-07-ci",
+    "remote_ref_state": "NOT_QUERIED",
+    "force_push": false,
+    "tags": false,
+    "main_update": false,
+    "operation": "NONE_AUTHORIZED"
+  },
+  "excluded_worktree_paths": [
+    ".bootstrap/",
+    ".venv/",
+    ".venv-cp312/",
+    ".venv-cp313/",
+    "docs/LAUNCH_PIVOT_REVIEW.md",
+    "docs/LOCAL_APPROVAL_FEASIBILITY.md",
+    ".env",
+    ".env.*"
+  ],
+  "limitations": [
+    "Git push may transmit missing reachable history, not just changed files",
+    "Byte totals are uncompressed objects, not actual transfer or billing measurements",
+    "This disabled candidate is not an activation commit",
+    "No private GitHub or action-bundle acquisition occurred"
+  ]
+}
